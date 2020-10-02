@@ -171,7 +171,7 @@ header p {
   font-size: 2rem;
 }
 
-.figure, figure img {
+.bannerImg {
   width: 100%;
   background-color: rgb(0, 0, 0);
 }
@@ -179,4 +179,12 @@ header p {
 .bannerImg img {
   width: 100%;
   opacity: .95;
+}
+
+figure {
+  width: 100%;
+}
+
+figure img {
+  width: 100%;
 }
