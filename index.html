@@ -14,26 +14,27 @@
 </head>
 
 <body>
-  <div id="navButton" onclick="navOpen()">
-    <svg  width="20px" height="19px"viewBox="0 0 20 19" version="1.1" xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink">
-      <g fill="#000000" fill-rule="nonzero">
-        <polyline points="0 0 20 0 20 3 0 3"></polyline>
-        <polyline points="0 8 20 8 20 11 0 11"></polyline>
-        <polyline points="0 16 20 16 20 19 0 19"></polyline>
-      </g>
-    </svg>
-  </div>
-  <nav id="navBar" onclick="navClose()">
+  <span id="navButton" onclick="navOpen()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+      <path d="M2 13.5h14V12H2v1.5zm0-4h14V8H2v1.5zM2 4v1.5h14V4H2z" /></svg>
+  </span>
+  <nav id="navBar">
+    <span id="navClose" onclick="navClose()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+        <path
+          d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
+      </svg>
+    </span>
     <ul>
       <li>About</li>
       <li>Share</li>
       <li>Follow</li>
     </ul>
   </nav>
+  <div class="navModal"></div>
   <header>
     <h1>perfecto</h1>
-    <p>Looking at how context constructs meaning in fashion</p>
+    <p>A look at how context instructs meaning in fashion</p>
   </header>
   <main>
     <figure class="bannerImg">
