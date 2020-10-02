@@ -128,7 +128,6 @@ table {
   position: fixed;
   margin: 2rem;
   border: .1875rem solid black;
-  width: 1.25rem;
   padding: .75rem;
   cursor: pointer;
   z-index: 10;
@@ -172,7 +171,7 @@ header p {
   font-size: 2rem;
 }
 
-.bannerImg {
+.figure, figure img {
   width: 100%;
   background-color: rgb(0, 0, 0);
 }
