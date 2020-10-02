@@ -8,11 +8,23 @@
   <meta name="author" content="Paul Eng">
 
   <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-  <div id="navButton" onclick="navEnter()">&#9776</div>
-  <nav id="navBar" onclick="navExit()">
+  <div id="navButton" onclick="navOpen()">
+    <svg  viewBox="0 0 20 19" version="1.1" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g fill="#000000" fill-rule="nonzero">
+        <polyline points="0 0 20 0 20 3 0 3"></polyline>
+        <polyline points="0 8 20 8 20 11 0 11"></polyline>
+        <polyline points="0 16 20 16 20 19 0 19"></polyline>
+      </g>
+    </svg>
+  </div>
+  <nav id="navBar" onclick="navClose()">
     <ul>
       <li>About</li>
       <li>Share</li>
@@ -20,13 +32,21 @@
     </ul>
   </nav>
   <header>
-    <h1>Perfecto</h1>
+    <h1>perfecto</h1>
+    <p>Looking at how context constructs meaning in fashion</p>
   </header>
   <main>
-    <figure>
-      <img src="assets/SCHWSS18002_a_1110x.progressive.jpg" alt="The Ramones">
-      <figcaption>The Ramones are among the most iconic wearers of the perfecto.</figcaption>
+    <figure class="bannerImg">
+      <img src="assets/perfecto-banner.jpg" alt="Schott Perfecto">
     </figure>
+    <article>
+      <p>
+        If you have ever wondered how a trend started, you have at least stumbled into thinking about semiotics. If we
+        look at fashion as a form of semiosis, or sign process, it's easy to see how garments act as signs to
+        communicate ideas. The less obvious part is how the communication eventually becomes part of the idea itself.
+        We'll look at how that has played out in making the perfecto biker jacket into an icon.
+      </p>
+    </article>
     <figure>
       <img src="assets/ramones.jpg" alt="The Ramones">
       <figcaption>The Ramones are among the most iconic wearers of the perfecto.</figcaption>
@@ -36,6 +56,9 @@
       <figcaption>Hedi Slimane pioneered a lux version of the biker jacket.</figcaption>
     </figure>
   </main>
+  <footer>
+
+  </footer>
   <script src="js/scripts.js"></script>
 </body>
 

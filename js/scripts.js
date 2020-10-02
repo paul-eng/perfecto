@@ -2,10 +2,10 @@ if (true) {
   console.log("hellow rold");
 }
 
-function navEnter() {
+function navOpen() {
   document.getElementById("navBar").style.left = '0';
 }
 
-function navExit() {
+function navClose() {
   document.getElementById("navBar").style.left = '-30vw';
 }
