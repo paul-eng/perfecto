@@ -279,7 +279,7 @@ figure img {
 
 .sectionHeader {
   position: relative;;
-  height: 90vh;
+  height: 100vh;
   overflow: hidden;
   margin: 5rem 0;
 }
@@ -299,7 +299,7 @@ h3 {
 
 .sectionHeader img {;
   object-fit: cover;
-  min-height: 100%;
+  height: 100%;
 }
 
 /* media queries for non-desktop */
@@ -316,5 +316,9 @@ h3 {
   .textBlock {
     font-size: 1.25rem;
     width: 50vw;
+  }
+
+  #marlon {
+    object-position: 50% 30%;
   }
 }
