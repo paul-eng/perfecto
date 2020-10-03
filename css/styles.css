@@ -270,10 +270,10 @@ figure img {
 
 .textBlock {
   font-family: 'Merriweather';
-  font-size: 1.5rem;
-  width: 90vw;
+  font-size: 1.4rem;
+  width: 85vw;
   margin: 0 auto;
-  text-align: justify;
+  text-align: left;
   line-height: 175%;
 }
 

@@ -24,7 +24,7 @@ window.onclick = function (event) {
 let title = document.getElementsByClassName("title")[0];
 
 let upscaler = function (event) {
-  if (window.pageYOffset > 150) {
+  if (window.pageYOffset > 125) {
     title.className += " upscale";
   } else {
     title.className = "title";
