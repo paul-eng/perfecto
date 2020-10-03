@@ -242,12 +242,12 @@ figure img {
 }
 
 .blockQuote {
-  padding: 5rem 7rem;
+  padding: 7rem 7rem;
 }
 
 .quote {
   font-family: 'Raleway';
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   text-align: center;
   line-height: 130%;
 }
@@ -260,7 +260,7 @@ figure img {
 }
 
 .author {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .source {
@@ -274,7 +274,7 @@ figure img {
   width: 85vw;
   margin: 0 auto;
   text-align: left;
-  line-height: 175%;
+  line-height: 190%;
 }
 
 .sectionHeader {
@@ -311,6 +311,14 @@ h3 {
 
   #navClose {
     margin: .5rem;
+  }
+
+  .quote {
+    font-size: 2.5rem;
+  }
+
+  .author {
+    font-size: 1.5rem;
   }
 
   .textBlock {
