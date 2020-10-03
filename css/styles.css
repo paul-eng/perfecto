@@ -139,23 +139,14 @@ table {
 }
 
 #navBar {
-  width: 30vw;
+  width: 70vw;
   height: 100%;
   position: fixed;
-  left: -30vw;
+  left: -70vw;
   background: black;
   transition: .5s ease-out;
   z-index: 100;
   color: white;
-}
-
-.navModal {
-  display: none;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, .3);
-  z-index: 99;
 }
 
 #navClose {
@@ -166,6 +157,15 @@ table {
   cursor: pointer;
   fill: white;
   transition: .2s;
+}
+
+.navModal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, .3);
+  z-index: 99;
 }
 
 #navClose:hover {
@@ -190,31 +190,37 @@ header {
 .titleArea {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
   width: 100%;
   height: 100%;
+  text-align: center;
 }
 
 .title {
+  display: inline-block;
   position: sticky;
   top: 30%;
   margin: 2rem;
   text-align: left;
   color: rgb(255, 255, 255);
   text-shadow: .5rem .5rem .4rem rgba(0, 0, 0, .7);
+  transform: scale(.75);
+  transition: 1s;
   z-index: 1;
+}
+
+.upscale {
+  transform: scale(1);
 }
 
 h1 {
   font-family: 'Raleway';
-  font-size: 7rem;
-  margin-bottom: 2rem;
+  font-size: 10rem;
+  margin-bottom: 1.75rem;
 }
 
 .titleArea p {
   font-family: 'Roboto';
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 figure {
@@ -223,4 +229,12 @@ figure {
 
 figure img {
   width: 100%;
+}
+
+/* media queries for non-desktop */
+
+@media only screen and (min-width: 1080px) {
+  #navBar {
+    width: 33vw;
+  }
 }
