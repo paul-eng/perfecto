@@ -255,7 +255,7 @@ figure img {
 .citation {
   font-family: 'Merriweather';
   text-align: center;
-  line-height: 200%;
+  line-height: 150%;
   margin: 2rem 0 0 0;  
 }
 
@@ -315,6 +315,10 @@ h3 {
 
   .quote {
     font-size: 2.5rem;
+  }
+
+  .citation {
+    line-height: 200%;
   }
 
   .author {
