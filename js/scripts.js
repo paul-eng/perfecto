@@ -69,16 +69,19 @@ let bannerVisibility = function (entries) {
 let bannerObserver = new IntersectionObserver(bannerVisibility);
 bannerObserver.observe(asset);
 
-//function to colorize section header
+//function to colorize section1 header
 
 let bwHeader = document.getElementsByClassName("marlon")[0];
+let firstTitle = document.getElementsByClassName("section1")[0];
 
 let colorizer = function (entries) {
   let amountVisible = entries[0].intersectionRatio;
   if (amountVisible >= 0.8) {
     bwHeader.className += " colorized";
+    firstTitle.className += " fadeIn";
   } else {
     bwHeader.className = "marlon";
+    firstTitle.className = "section1";
   }
 };
 
