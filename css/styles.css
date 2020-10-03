@@ -140,7 +140,7 @@ table {
 
 #navBar {
   width: 70vw;
-  height: 100%;
+  height: 130vh;
   position: fixed;
   left: -70vw;
   background: black;
@@ -163,7 +163,8 @@ table {
   display: none;
   position: fixed;
   width: 100%;
-  height: 200vh;
+  /* height larger than screen to avoid jumpy scrolling on mobile */
+  height: 130vh;
   background-color: rgba(255, 255, 255, .3);
   z-index: 99;
 }
