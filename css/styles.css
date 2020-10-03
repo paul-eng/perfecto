@@ -215,6 +215,7 @@ header {
 
 h1 {
   font-family: 'Raleway';
+  font-weight: 900;
   font-size: 8rem;
   margin-bottom: 1.75rem;
 }
@@ -227,6 +228,7 @@ h1 {
 
 h2 {
   font-family: 'Raleway';
+  font-weight: 900;
   font-size: 1.5rem;
   margin-bottom: 2.5rem;
 }
@@ -240,12 +242,12 @@ figure img {
 }
 
 .blockQuote {
-  padding: 3rem;
+  padding: 5rem 7rem;
 }
 
 .quote {
   font-family: 'Raleway';
-  font-size: 2.75rem;
+  font-size: 2.5rem;
   text-align: center;
   line-height: 130%;
 }
@@ -254,7 +256,7 @@ figure img {
   font-family: 'Merriweather';
   text-align: center;
   line-height: 200%;
-  margin: 3rem 0 0 0;  
+  margin: 2rem 0 0 0;  
 }
 
 .author {
@@ -268,9 +270,9 @@ figure img {
 
 .textBlock {
   font-family: 'Merriweather';
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  width: 90vw;
   margin: 0 auto;
-  width: 50vw;
   text-align: justify;
   line-height: 175%;
 }
@@ -279,7 +281,7 @@ figure img {
   position: relative;;
   height: 90vh;
   overflow: hidden;
-  margin: 3rem auto;
+  margin: 5rem 0;
 }
 
 h3 {
@@ -289,6 +291,7 @@ h3 {
   transform: translate(-50%,-50%);
   color: white;
   font-family: 'Raleway';
+  font-weight: 900;
   font-size: 12rem;
   text-align: center;
   text-shadow: 0 0 1rem rgba(0, 0, 0, .1);
@@ -296,17 +299,22 @@ h3 {
 
 .sectionHeader img {;
   object-fit: cover;
-  height: 100%;
+  min-height: 100%;
 }
 
 /* media queries for non-desktop */
 
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-width: 1081px) {
   #navBar {
     width: 33vw;
   }
 
   #navClose {
     margin: .5rem;
+  }
+
+  .textBlock {
+    font-size: 1.25rem;
+    width: 50vw;
   }
 }
