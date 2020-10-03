@@ -24,7 +24,7 @@ window.onclick = function (event) {
 let title = document.getElementsByClassName("title")[0];
 
 let upscaler = function (event) {
-  if (window.pageYOffset > 125) {
+  if (window.pageYOffset > 120) {
     title.className += " upscale";
   } else {
     title.className = "title";
@@ -45,20 +45,39 @@ let titleVisibility = function (entries) {
 let titleObserver = new IntersectionObserver(titleVisibility);
 titleObserver.observe(title);
 
+//darken top banner if only a bit visible
+
+let bannerImg = document.getElementsByClassName('bannerImg')[0];
+let asset = document.getElementsByClassName('bannerAsset')[0]
+
+let bannerDarker = function (entries) {
+  let amountVisible = entries[0].intersectionRatio;
+  if (amountVisible <= 0.4) {
+    console.log('fire')
+    asset.className += " darken";
+  } else {
+    asset.className = "bannerAsset"
+  }
+
+}
+
+let bannerObserver = new IntersectionObserver(bannerDarker, {threshold: [0,.4]});
+bannerObserver.observe(bannerImg);
+
 //function to colorize section header
 
 let bwHeader = document.getElementsByClassName("marlon")[0];
 
-let headerVisibility = function (entries) {
+let colorizer = function (entries) {
   let amountVisible = entries[0].intersectionRatio;
-  if (amountVisible >= 0.5) {
+  if (amountVisible >= 0.8) {
     bwHeader.className += " colorized";
   } else {
     bwHeader.className = "marlon";
   }
 };
 
-let headerObserver = new IntersectionObserver(headerVisibility, {
-  threshold: 0.5,
+let headerObserver = new IntersectionObserver(colorizer, {
+  threshold: 0.8,
 });
 headerObserver.observe(bwHeader);

@@ -183,9 +183,14 @@ header {
   background-color: black;
 }
 
-.bannerImg img {
+.bannerAsset {
   width: auto;
   opacity: .8;
+  transition: .5s;
+}
+
+.darken {
+  opacity: 0;
 }
 
 .titleArea {
