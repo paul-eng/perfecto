@@ -294,10 +294,12 @@ h3 {
   text-shadow: 0 0 1rem rgba(0, 0, 0, .1);
 }
 
-.sectionHeader img {
+.sectionHeader img {;
+  object-fit: cover;
+  object-position: 50% 15%;
   min-height: 100%;
-  min-width: 100%;
 }
+
 
 
 /* media queries for non-desktop */
