@@ -13,7 +13,9 @@ function navClose() {
   navBar.style.left = "-70vw";
 }
 
-if ('ontouchstart' in window) {
+//onclick was not working with safari, ontouchstart did
+
+if ("ontouchstart" in window) {
   window.ontouchstart = function (event) {
     if (event.target == navModal) {
       navClose();
@@ -26,14 +28,6 @@ if ('ontouchstart' in window) {
     }
   };
 }
-
-/*
-window.onclick = function (event) {
-  if (event.target == navModal) {
-    navClose();
-  }
-};
-*/
 
 //function to add transform-scale CSS to title once the user has scrolled down X amount
 
@@ -63,15 +57,15 @@ titleObserver.observe(title);
 
 //darken top banner if only a bit visible
 
-let asset = document.getElementsByClassName('bannerAsset')[0];
+let asset = document.getElementsByClassName("bannerAsset")[0];
 
-let bannerDarken = function() {
+let bannerDarken = function () {
   if (window.pageYOffset > 1200) {
     asset.className += " darken";
   } else {
     asset.className = "bannerAsset";
   }
-}
+};
 
 let bannerVisibility = function (entries) {
   let visible = entries[0].isIntersecting;
@@ -80,12 +74,12 @@ let bannerVisibility = function (entries) {
   } else {
     window.removeEventListener("scroll", bannerDarken, true);
   }
-}
+};
 
 let bannerObserver = new IntersectionObserver(bannerVisibility);
 bannerObserver.observe(asset);
 
-//function to colorize section1 header
+//function to animate section1 header + h3 title
 
 let bwHeader = document.getElementsByClassName("marlon")[0];
 let firstTitle = document.getElementsByClassName("section1")[0];
