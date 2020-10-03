@@ -252,6 +252,7 @@ figure img {
 
 .quote {
   font-family: 'Raleway';
+  font-weight: 500;
   font-size: 2rem;
   text-align: center;
   line-height: 130%;
@@ -278,6 +279,7 @@ figure img {
   font-size: 1.4rem;
   width: 85vw;
   margin: 0 auto;
+  padding: 0 0 7rem 0;
   text-align: left;
   line-height: 190%;
 }
@@ -286,7 +288,6 @@ figure img {
   position: relative;;
   height: 100vh;
   overflow: hidden;
-  margin: 7rem 0;
 }
 
 h3 {
@@ -335,7 +336,7 @@ h3 {
 .captionBlock {
   font-family: 'Raleway';
   font-weight: 900;
-  padding: 0 5rem 5rem 5rem;
+  padding: 5rem;
   font-size: 2.25rem;
   text-align: center;
   line-height: 130%;
