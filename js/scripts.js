@@ -47,22 +47,27 @@ titleObserver.observe(title);
 
 //darken top banner if only a bit visible
 
-let bannerImg = document.getElementsByClassName('bannerImg')[0];
-let asset = document.getElementsByClassName('bannerAsset')[0]
+let asset = document.getElementsByClassName('bannerAsset')[0];
 
-let bannerDarker = function (entries) {
-  let amountVisible = entries[0].intersectionRatio;
-  if (amountVisible <= 0.4) {
-    console.log('fire')
+let bannerDarken = function() {
+  if (window.pageYOffset > 1200) {
     asset.className += " darken";
   } else {
-    asset.className = "bannerAsset"
+    asset.className = "bannerAsset";
   }
-
 }
 
-let bannerObserver = new IntersectionObserver(bannerDarker, {threshold: [0,.4]});
-bannerObserver.observe(bannerImg);
+let bannerVisibility = function (entries) {
+  let visible = entries[0].isIntersecting;
+  if (visible) {
+    window.addEventListener("scroll", bannerDarken, true);
+  } else {
+    window.removeEventListener("scroll", bannerDarken, true);
+  }
+}
+
+let bannerObserver = new IntersectionObserver(bannerVisibility);
+bannerObserver.observe(asset);
 
 //function to colorize section header
 
