@@ -13,11 +13,27 @@ function navClose() {
   navBar.style.left = "-70vw";
 }
 
+if ('ontouchstart' in window) {
+  window.ontouchstart = function (event) {
+    if (event.target == navModal) {
+      navClose();
+    }
+  };
+} else {
+  window.onclick = function (event) {
+    if (event.target == navModal) {
+      navClose();
+    }
+  };
+}
+
+/*
 window.onclick = function (event) {
   if (event.target == navModal) {
     navClose();
   }
 };
+*/
 
 //function to add transform-scale CSS to title once the user has scrolled down X amount
 

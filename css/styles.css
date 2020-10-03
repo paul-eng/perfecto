@@ -167,7 +167,6 @@ table {
   height: 130vh;
   background-color: rgba(255, 255, 255, .3);
   z-index: 99;
-  cursor: pointer;
 }
 
 #navClose:hover {
