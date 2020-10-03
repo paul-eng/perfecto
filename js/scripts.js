@@ -31,7 +31,7 @@ let upscaler = function (event) {
   }
 };
 
-//ObserverAPI call removes event listener when title is not visible to save resources
+//IntersectionObserverAPI call removes event listener when title is not visible to save resources
 
 let titleVisibility = function (entries) {
   let visible = entries[0].isIntersecting;
