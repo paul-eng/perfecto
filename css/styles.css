@@ -198,7 +198,7 @@ header {
   align-items: center;
   justify-content: space-between;
   color: rgb(255, 255, 255);
-  
+  text-shadow: 0 0 1rem rgba(0, 0, 0, .1);
 }
 
 .title {
@@ -227,7 +227,7 @@ h1 {
 
 h2 {
   font-family: 'Raleway';
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin-bottom: 2.5rem;
 }
 
@@ -238,6 +238,64 @@ figure {
 figure img {
   width: 100%;
 }
+
+.blockQuote {
+  padding: 3rem;
+}
+
+.quote {
+  font-family: 'Raleway';
+  font-size: 2.75rem;
+  text-align: center;
+  line-height: 130%;
+}
+
+.citation {
+  font-family: 'Merriweather';
+  text-align: center;
+  line-height: 200%;
+  margin: 3rem 0 0 0;  
+}
+
+.author {
+  font-size: 1.5rem;
+}
+
+.source {
+  font-style: italic;
+  font-size: .75rem;
+}
+
+.textBlock {
+  font-family: 'Merriweather';
+  font-size: 1.25rem;
+  margin: 0 auto;
+  width: 50vw;
+  text-align: justify;
+  line-height: 175%;
+}
+
+.sectionHeader {
+  position: relative;;
+  height: 90vh;
+  overflow: hidden;
+  margin: 3rem auto;
+}
+
+h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%,-50%);
+  color: white;
+  font-family: 'Raleway';
+  font-size: 12rem;
+  text-align: center;
+  text-shadow: 0 0 1rem rgba(0, 0, 0, .1);
+}
+
+
 
 /* media queries for non-desktop */
 
