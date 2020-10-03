@@ -127,7 +127,7 @@ table {
 #navButton {
   position: fixed;
   margin: 2rem;
-  width: 3rem;
+  width: 5rem;
   cursor: pointer;
   z-index: 10;
   transition: .2s;
@@ -153,7 +153,7 @@ table {
   position: absolute;
   right: 0;
   margin: 2rem;
-  width: 3rem;
+  width: 5rem;
   cursor: pointer;
   fill: white;
   transition: .2s;
@@ -337,6 +337,10 @@ h3 {
 @media only screen and (min-width: 1081px) {
   #navBar {
     width: 33vw;
+  }
+
+  #navButton, #navClose {
+    width: 3rem;
   }
 
   #navClose {
