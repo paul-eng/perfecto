@@ -296,11 +296,8 @@ h3 {
 
 .sectionHeader img {;
   object-fit: cover;
-  object-position: 50% 15%;
-  min-height: 100%;
+  height: 100%;
 }
-
-
 
 /* media queries for non-desktop */
 
