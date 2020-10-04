@@ -404,7 +404,7 @@ h3 {
 }
 
 .lightBox {
-  margin: 0 auto;
+  margin: 7rem auto;
   position: relative;
   width: 80vw;
   max-width: 1000px;
@@ -415,27 +415,32 @@ h3 {
   transition: .5s;
 }
 
+.lightBG {
+  opacity: 1;
+}
+
 .lightFG {
   position: absolute;
   left: 0;
+  bottom: 0;
   z-index: 100;
 }
 
 .focused{
   transform: scale(1.25);
+  bottom: 5%;
 }
 
 .blurred {
+  opacity: .8;
   -webkit-filter: blur(5px); -moz-filter: blur(5px);
   -o-filter: blur(5px); -ms-filter: blur(5px); 
   filter: url(#blur); filter: blur(5px);  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='.5');
-  z-index: 1;
 }
 
 body {
   /* any weird side fx? prevents lightbox scaling from bleeding out */
   overflow-x: hidden;
-  overflow-y: visible;
 }
 
 .lightButton {
@@ -458,6 +463,7 @@ body {
   }
   50% {
     transform: scale(1.2);
+    fill:gray;
   }
   100% {
     transform: scale(1);
