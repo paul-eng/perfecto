@@ -406,7 +406,7 @@ h3 {
 .lightBox {
   margin: 7rem auto;
   position: relative;
-  width: 80vw;
+  width: 100vw;
   max-width: 1000px;
 }
 
@@ -428,7 +428,7 @@ h3 {
 
 .focused{
   transform: scale(1.25);
-  bottom: 5%;
+  /* bottom: 5%; */
 }
 
 .blurred {
