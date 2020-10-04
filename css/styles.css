@@ -170,7 +170,7 @@ html {
   text-decoration: none;
 }
 
-#navBar a:visited {
+a:link, a:visited, a:hover, a:active {
   color: inherit;
 }
 

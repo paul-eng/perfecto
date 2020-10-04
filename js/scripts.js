@@ -37,23 +37,20 @@ function focusBlur() {
 
 //onclick was not working with safari, ontouchstart did
 
+
 if ("ontouchstart" in window) {
   window.ontouchstart = function (event) {
-    if (event.target == navModal) {
+    navChapter = event.target.className == 'navChapter'
+    if ((event.target == navModal)||navChapter) {
       navClose();
     } 
-    // else if (event.target == lightFG) {
-    //   removeFocus();
-    // }
   };
 } else {
   window.onclick = function (event) {
-    if (event.target == navModal) {
+    navChapter = event.target.className == 'navChapter'
+    if ((event.target == navModal)||navChapter) {
       navClose();
     } 
-    // else if (event.target == lightFG) {
-    //   removeFocus();
-    // }
   };
 }
 
