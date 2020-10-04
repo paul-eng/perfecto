@@ -117,7 +117,9 @@ let expander = function (entries) {
       }
     }
     */
-    childElements[0].className += " quoteSpread";
+    //childElements[0].className += " quoteSpread";
+    childElements[0].children[0].className['baseVal'] += " slideLeft";
+    childElements[0].children[1].className['baseVal'] += " slideRight";
     childElements[1].className += " expanded";
     childElements[2].className += " expanded";
   }

@@ -247,8 +247,10 @@ figure img {
 }
 
 .blockQuote {
+  position: relative;
   display:flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 7rem;
 }
@@ -256,25 +258,39 @@ figure img {
 .quoteMarks {
   position: absolute;
   display: flex;
-  justify-content: center;
-  width: 95%;
-  transition: 1s;
-}
-
-.quoteSpread {
+  flex-direction: column;
   justify-content: space-between;
+  width: 95%;
+  height: 90%;
 }
 
 .leftQuote, .rightQuote {
   width: 5rem;
+  transition: 1s;
 }
 
 .leftQuote {
--moz-transform: scale(-1, 1);
--webkit-transform: scale(-1, 1);
--o-transform: scale(-1, 1);
--ms-transform: scale(-1, 1);
-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+  position: relative;
+  left: 50%;
+}
+
+.slideLeft {
+  left: 0;
+}
+
+.rightQuote {
+  position: relative;
+  align-self: flex-end;
+  right: 50%;
+}
+
+.slideRight {
+  right: 0;
 }
 
 .quote {
