@@ -261,13 +261,12 @@ figure img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 95%;
+  width: 90%;
   height: 90%;
 }
 
 .leftQuote, .rightQuote {
   width: 5rem;
-  transition: 1s;
 }
 
 .leftQuote {
@@ -280,14 +279,14 @@ figure img {
   left: 50%;
 }
 
-.slideLeft {
-  left: 0;
-}
-
 .rightQuote {
   position: relative;
   align-self: flex-end;
   right: 50%;
+}
+
+.slideLeft {
+  left: 0;
 }
 
 .slideRight {
@@ -301,8 +300,6 @@ figure img {
   text-align: center;
   line-height: 130%;
   opacity: 0;
-  transition: .75s;
-  transition-delay: .75s;
 }
 
 .citation {
@@ -312,12 +309,19 @@ figure img {
   width: 100%;
   margin: 2rem 0 0 0;
   opacity: 0;  
-  transition: .75s;
-  transition-delay: .75s;
 }
 
 .expanded {
   opacity: 1;
+}
+
+.activeMark {
+  transition: 1s
+}
+
+.activeText {
+  transition: 1s;
+  transition-delay: 1s;
 }
 
 .author {
