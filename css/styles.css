@@ -371,12 +371,9 @@ h3 {
   top: 50%;
 }
 
-.sectionHeader img {;
+.sectionImg {;
   object-fit: cover;
   height: 100%;
-}
-
-.marlon {
   filter: none;
   -webkit-filter: grayscale(100%);
   -moz-filter:    grayscale(100%);
@@ -439,10 +436,10 @@ h3 {
     line-height: 190%;
   }
 
-  .marlon {
+  #marlon {
     object-position: 50% 30%;
   }
-  
+
   .captionBlock {
     font-size: 2.75rem;
   }

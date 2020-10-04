@@ -79,26 +79,28 @@ let bannerVisibility = function (entries) {
 let bannerObserver = new IntersectionObserver(bannerVisibility);
 bannerObserver.observe(asset);
 
-//function to animate section1 header + h3 title
+//function to animate sectionTitles and sectionImgs
 
-let bwHeader = document.getElementsByClassName("marlon")[0];
-let firstTitle = document.getElementsByClassName("section1")[0];
+let headersObj = document.getElementsByClassName("sectionHeader");
+let allHeaders = Object.keys(headersObj).map((header)=>headersObj[header]);
 
 let colorizer = function (entries) {
-  let amountVisible = entries[0].intersectionRatio;
-  if (amountVisible >= 0.8) {
-    bwHeader.className += " colorized";
-    firstTitle.className += " fadeIn";
+  let mostlyVisible = entries[0].intersectionRatio >= .8;
+  let childElements = entries[0].target.children;
+  if (mostlyVisible) {
+    childElements[0].className += " fadeIn";
+    childElements[1].className += " colorized";
   } else {
-    bwHeader.className = "marlon";
-    firstTitle.className = "section1";
+    childElements[0].className = "sectionTitle";
+    childElements[1].className = "sectionImg";
   }
-};
+}
 
 let headerObserver = new IntersectionObserver(colorizer, {
   threshold: 0.8,
 });
-headerObserver.observe(bwHeader);
+
+allHeaders.forEach((header) => headerObserver.observe(header));
 
 //get all quotes on page, iterate and pass each one to observer and trigger animation when one is 100% on page
 //use `active` tags that add the transition timing instead of having it on the base class, so element transitions in, but not out (instant change) when the `active` tag is removed
