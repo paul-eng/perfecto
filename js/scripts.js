@@ -15,10 +15,14 @@ function navClose() {
 
 let lightFG = document.getElementsByClassName('lightFG')[0];
 let lightBG = document.getElementsByClassName('lightBG')[0];
+let lightButton = document.getElementsByClassName('lightButton')[0];
+let lightModal = document.getElementsByClassName('lightModal')[0];
 
 function focusBlur() {
   lightFG.className += " focused";
   lightBG.className += " blurred";
+  lightButton.className += " blurred";
+  lightModal.className += " darkenFrame";
 }
 
 //onclick was not working with safari, ontouchstart did
@@ -27,18 +31,22 @@ if ("ontouchstart" in window) {
   window.ontouchstart = function (event) {
     if (event.target == navModal) {
       navClose();
-    } else if (event.target == lightFG) {
+    } else if ((event.target == lightFG)||(event.target == lightModal)) {
       lightFG.className = "lightFG";
       lightBG.className = "lightBG";
+      lightButton.className = "lightButton";
+      lightModal.className = "lightModal";
     }
   };
 } else {
   window.onclick = function (event) {
     if (event.target == navModal) {
       navClose();
-    } else if (event.target == lightFG) {
+    } else if ((event.target == lightFG)||(event.target == lightModal)) {
       lightFG.className = "lightFG";
       lightBG.className = "lightBG";
+      lightButton.className = "lightButton";
+      lightModal.className = "lightModal";
     }
   };
 }

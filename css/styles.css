@@ -145,7 +145,7 @@ table {
   left: -70vw;
   background: black;
   transition: .5s ease-out;
-  z-index: 100;
+  z-index: 1000;
   color: white;
 }
 
@@ -166,7 +166,7 @@ table {
   /* height larger than screen to avoid jumpy scrolling on mobile */
   height: 130vh;
   background-color: rgba(255, 255, 255, .3);
-  z-index: 99;
+  z-index: 999;
 }
 
 #navClose:hover {
@@ -421,7 +421,8 @@ h3 {
 }
 
 .focused{
-  transform: scale(1.2);
+  transform: scale(1.25);
+  z-index: 100;
 }
 
 .blurred {
@@ -435,6 +436,43 @@ body {
   overflow-x: hidden;
 }
 
+.lightButton {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 2rem;
+  transition: .5s;
+  width: 5rem;
+  cursor: pointer;
+}
+
+.lightModal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  /* height larger than screen to avoid jumpy scrolling on mobile */
+  height: 130vh;
+  background-color: rgba(0, 0, 0, .3);
+  z-index: 99;
+}
+
+.darkenFrame {
+  animation: .5s darker;
+  animation-fill-mode: forwards;
+}
+
+@keyframes darker {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+}
 
 /* media queries for non-desktop */
 
@@ -443,7 +481,7 @@ body {
     width: 33vw;
   }
 
-  #navButton, #navClose {
+  #navButton, #navClose, .lightButton {
     width: 3rem;
   }
 
@@ -482,8 +520,8 @@ body {
   }
 
   .blurred {
-    -webkit-filter: blur(10px); -moz-filter: blur(10px);
-    -o-filter: blur(10px); -ms-filter: blur(10px); 
-    filter: url(#blur); filter: blur(10px);  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='1');
+    -webkit-filter: blur(8px); -moz-filter: blur(8px);
+    -o-filter: blur(8px); -ms-filter: blur(8px); 
+    filter: url(#blur); filter: blur(8px);  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='.8');
   }
 }
