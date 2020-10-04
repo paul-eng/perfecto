@@ -27,6 +27,9 @@ if ("ontouchstart" in window) {
   window.ontouchstart = function (event) {
     if (event.target == navModal) {
       navClose();
+    } else if (event.target == lightFG) {
+      lightFG.className = "lightFG";
+      lightBG.className = "lightBG";
     }
   };
 } else {
