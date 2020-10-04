@@ -100,7 +100,8 @@ let headerObserver = new IntersectionObserver(colorizer, {
 });
 headerObserver.observe(bwHeader);
 
-//get all quotes on page, pass each one to observer and trigger animation when one is 100% on page
+//get all quotes on page, iterate and pass each one to observer and trigger animation when one is 100% on page
+//use `active` tags that add the transition timing instead of having it on the base class, so element transitions in, but not out (instant change) when the `active` tag is removed
 
 let quotesObj = document.getElementsByClassName("blockQuote");
 let allQuotes = Object.keys(quotesObj).map((quote) => quotesObj[quote]);
@@ -122,7 +123,7 @@ let quoteObserver = new IntersectionObserver(expander, { threshold: 1 });
 
 allQuotes.forEach((quote) => quoteObserver.observe(quote));
 
-//check if quote out of view. is bottom of page (scrollY + window.innerHeight) above element.offsetTop
+//check if quote completely out of view. is bottom of page (scrollY + window.innerHeight) above top of quote? (element.offsetTop) If so reset.
 let vanisher = function (entries) {
   let childElements = entries[0].target.children;
   let outOfView = entries[0].intersectionRatio == 0;
