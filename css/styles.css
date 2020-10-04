@@ -300,18 +300,19 @@ figure img {
   text-align: center;
   line-height: 130%;
   opacity: 0;
-  transition: 2s;
-  transition-delay: 0s;
+  transition: .75s;
+  transition-delay: .75s;
 }
 
 .citation {
   font-family: 'Merriweather';
   text-align: center;
   line-height: 150%;
+  width: 100%;
   margin: 2rem 0 0 0;
   opacity: 0;  
-  transition: 2s;
-  transition-delay: 0s
+  transition: .75s;
+  transition-delay: .75s;
 }
 
 .expanded {

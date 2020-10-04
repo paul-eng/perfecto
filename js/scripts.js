@@ -100,7 +100,7 @@ let headerObserver = new IntersectionObserver(colorizer, {
 });
 headerObserver.observe(bwHeader);
 
-//get all quotes on page, pass each one to observer and trigger animation when one is completely on page
+//get all quotes on page, pass each one to observer and trigger animation when one is 100% on page
 
 let quotesObj = document.getElementsByClassName("blockQuote");
 let allQuotes = Object.keys(quotesObj).map((quote) => quotesObj[quote]);
@@ -109,15 +109,6 @@ let expander = function (entries) {
   let fullyVisible = entries[0].intersectionRatio >= 1;
   let childElements = entries[0].target.children;
   if (fullyVisible) {
-    /* iterating through the children is unnecessary, always same order so you can bracket in
-
-    for (element in childElements) {
-      if (typeof childElements[element] == "object") {
-        childElements[element].className += " expanded";
-      }
-    }
-    */
-    //childElements[0].className += " quoteSpread";
     childElements[0].children[0].className['baseVal'] += " slideLeft";
     childElements[0].children[1].className['baseVal'] += " slideRight";
     childElements[1].className += " expanded";
