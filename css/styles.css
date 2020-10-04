@@ -256,13 +256,23 @@ figure img {
   font-size: 2rem;
   text-align: center;
   line-height: 130%;
+  opacity: 0;
+  transition: 2s;
+  transition-delay: 0s;
 }
 
 .citation {
   font-family: 'Merriweather';
   text-align: center;
   line-height: 150%;
-  margin: 2rem 0 0 0;  
+  margin: 2rem 0 0 0;
+  opacity: 0;  
+  transition: 2s;
+  transition-delay: 0s
+}
+
+.expanded {
+  opacity: 1;
 }
 
 .author {

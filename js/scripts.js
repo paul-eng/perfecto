@@ -99,3 +99,29 @@ let headerObserver = new IntersectionObserver(colorizer, {
   threshold: 0.8,
 });
 headerObserver.observe(bwHeader);
+
+//get all quotes on page, pass each one to observer and trigger animation when one is completely on page
+
+let quotesObj = document.getElementsByClassName("blockQuote");
+let allQuotes = Object.keys(quotesObj).map((quote) => quotesObj[quote]);
+
+let expander = function (entries) {
+  let fullyVisible = entries[0].intersectionRatio >= 1;
+  let childElements = entries[0].target.children;
+  if (fullyVisible) {
+    /* iterating through the children is unnecessary, always same order so you can bracket in
+
+    for (element in childElements) {
+      if (typeof childElements[element] == "object") {
+        childElements[element].className += " expanded";
+      }
+    }
+    */
+    childElements[0].className += " expanded";
+    childElements[1].className += " expanded";
+  }
+};
+
+let quoteObserver = new IntersectionObserver(expander, { threshold: 1 });
+
+allQuotes.forEach((quote) => quoteObserver.observe(quote));
