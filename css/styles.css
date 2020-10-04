@@ -403,6 +403,39 @@ h3 {
   object-position: 65% 50%;
 }
 
+.lightBox {
+  margin: 0 auto;
+  position: relative;
+  width: 80vw;
+  max-width: 1000px;
+}
+
+.lightBG, .lightFG {
+  width: 100%;
+  transition: .5s;
+}
+
+.lightFG {
+  position: absolute;
+  left: 0;
+}
+
+.focused{
+  transform: scale(1.2);
+}
+
+.blurred {
+  -webkit-filter: blur(10px); -moz-filter: blur(10px);
+  -o-filter: blur(10px); -ms-filter: blur(10px); 
+  filter: url(#blur); filter: blur(10px);  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='1');
+}
+
+body {
+  /* any weird side fx? prevents lightbox scaling from bleeding out */
+  overflow-x: hidden;
+}
+
+
 /* media queries for non-desktop */
 
 @media only screen and (min-width: 1081px) {

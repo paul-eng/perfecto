@@ -13,6 +13,14 @@ function navClose() {
   navBar.style.left = "-70vw";
 }
 
+let lightFG = document.getElementsByClassName('lightFG')[0];
+let lightBG = document.getElementsByClassName('lightBG')[0];
+
+function focusBlur() {
+  lightFG.className += " focused";
+  lightBG.className += " blurred";
+}
+
 //onclick was not working with safari, ontouchstart did
 
 if ("ontouchstart" in window) {
@@ -25,6 +33,9 @@ if ("ontouchstart" in window) {
   window.onclick = function (event) {
     if (event.target == navModal) {
       navClose();
+    } else if (event.target == lightFG) {
+      lightFG.className = "lightFG";
+      lightBG.className = "lightBG";
     }
   };
 }
@@ -82,10 +93,10 @@ bannerObserver.observe(asset);
 //function to animate sectionTitles and sectionImgs
 
 let headersObj = document.getElementsByClassName("sectionHeader");
-let allHeaders = Object.keys(headersObj).map((header)=>headersObj[header]);
+let allHeaders = Object.keys(headersObj).map((header) => headersObj[header]);
 
 let colorizer = function (entries) {
-  let mostlyVisible = entries[0].intersectionRatio >= .8;
+  let mostlyVisible = entries[0].intersectionRatio >= 0.8;
   let childElements = entries[0].target.children;
   if (mostlyVisible) {
     childElements[0].className += " fadeIn";
@@ -94,7 +105,7 @@ let colorizer = function (entries) {
     childElements[0].className = "sectionTitle";
     childElements[1].className = "sectionImg";
   }
-}
+};
 
 let headerObserver = new IntersectionObserver(colorizer, {
   threshold: 0.8,
