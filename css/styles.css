@@ -439,12 +439,27 @@ body {
 
 .lightButton {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   margin: 2rem;
   transition: .5s;
   width: 5rem;
   cursor: pointer;
+  animation: 1.6s strobe;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes strobe {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .lightModal {
