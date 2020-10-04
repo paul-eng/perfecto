@@ -54,8 +54,6 @@ if ("ontouchstart" in window) {
       window.location.href = chapter;
     }
   };
-  //ontouchstart on mobile was cancelling out the regular actoin of the anchor tags used for navChapters and the navBar closed but page wouldn't jump to correct section. Manually find href and go with JS
-  window.ontouchend = function (event) {};
 } else {
   window.onclick = function (event) {
     navChapter = event.target.className == "navChapter";
