@@ -404,7 +404,7 @@ h3 {
 }
 
 .lightBox {
-  margin: 7rem auto;
+  margin: 0 auto;
   position: relative;
   width: 100vw;
   max-width: 1000px;
@@ -422,13 +422,11 @@ h3 {
 .lightFG {
   position: absolute;
   left: 0;
-  bottom: 0;
   z-index: 100;
 }
 
 .focused{
   transform: scale(1.25);
-  /* bottom: 5%; */
 }
 
 .blurred {
