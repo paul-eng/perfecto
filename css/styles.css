@@ -371,7 +371,7 @@ h3 {
   top: 50%;
 }
 
-.sectionImg {;
+.sectionImg {
   object-fit: cover;
   height: 100%;
   filter: none;
@@ -430,7 +430,7 @@ h3 {
     font-size: 1.5rem;
   }
 
-  .source {;
+  .source {
     font-size: .75rem;
   }
 
