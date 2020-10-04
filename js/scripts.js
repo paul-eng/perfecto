@@ -109,8 +109,10 @@ let expander = function (entries) {
   let fullyVisible = entries[0].intersectionRatio >= 1;
   let childElements = entries[0].target.children;
   if (fullyVisible) {
-    childElements[0].children[0].className['baseVal'] += " activeMark slideLeft";
-    childElements[0].children[1].className['baseVal'] += " activeMark slideRight";
+    childElements[0].children[0].className["baseVal"] +=
+      " activeMark slideLeft";
+    childElements[0].children[1].className["baseVal"] +=
+      " activeMark slideRight";
     childElements[1].className += " activeText expanded";
     childElements[2].className += " activeText expanded";
   }
@@ -126,15 +128,14 @@ let vanisher = function (entries) {
   let outOfView = entries[0].intersectionRatio == 0;
   let topOfElement = entries[0].target.offsetTop;
   let bottomOfPage = window.pageYOffset + window.innerHeight;
-  if (outOfView && (bottomOfPage < topOfElement)) {
-    childElements[0].children[0].className['baseVal'] = "leftQuote";
-    childElements[0].children[1].className['baseVal'] = "rightQuote";
+  if (outOfView && bottomOfPage < topOfElement) {
+    childElements[0].children[0].className["baseVal"] = "leftQuote";
+    childElements[0].children[1].className["baseVal"] = "rightQuote";
     childElements[1].className = "quote";
     childElements[2].className = "citation";
   }
-}
+};
 
-let quoteVanisher = new IntersectionObserver(vanisher, {threshold: 0});
+let quoteVanisher = new IntersectionObserver(vanisher, { threshold: 0 });
 
 allQuotes.forEach((quote) => quoteVanisher.observe(quote));
-
