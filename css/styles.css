@@ -152,6 +152,14 @@ html {
   z-index: 1000;
   color: white;
 }
+
+h4 {
+  font-family: 'Raleway';
+  font-weight: 900;
+  font-size: 5rem;
+  margin-bottom: 6rem;
+}
+
 #navBar ul {
   padding: 3rem;
 }
@@ -166,7 +174,7 @@ html {
 
 #navBar a {
   font-family: 'Raleway';
-  font-size: 2rem;
+  font-size: 4rem;
   text-decoration: none;
 }
 
@@ -500,8 +508,22 @@ main {
 /* media queries for non-desktop */
 
 @media only screen and (min-width: 1081px) {
+  
   #navBar {
     width: 33vw;
+  }
+
+  h4 {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  #navBar li {
+    margin-bottom: 2rem;
+  }
+
+  #navBar a {
+    font-size: 2rem;
   }
 
   #navButton, #navClose, .lightButton {
