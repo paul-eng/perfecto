@@ -124,6 +124,10 @@ table {
 }
 /* All above is CSS reset */
 
+html {
+  scroll-behavior: smooth;
+}
+
 #navButton {
   position: fixed;
   margin: 2rem;
@@ -147,6 +151,27 @@ table {
   transition: .5s ease-out;
   z-index: 1000;
   color: white;
+}
+#navBar ul {
+  padding: 3rem;
+}
+
+#navBar li {
+  margin-bottom: 3rem;
+}
+
+#navBar li:hover {
+  color: gray; 
+}
+
+#navBar a {
+  font-family: 'Raleway';
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+#navBar a:visited {
+  color: inherit;
 }
 
 #navClose {
