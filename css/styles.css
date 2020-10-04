@@ -434,6 +434,7 @@ h3 {
 body {
   /* any weird side fx? prevents lightbox scaling from bleeding out */
   overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .lightButton {

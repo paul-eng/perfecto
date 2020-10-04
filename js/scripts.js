@@ -23,6 +23,7 @@ function focusBlur() {
   lightBG.className += " blurred";
   lightButton.className += " blurred";
   lightModal.className += " darkenFrame";
+  document.body.style['overflow-y'] = "hidden";
 }
 
 //onclick was not working with safari, ontouchstart did
@@ -36,6 +37,7 @@ if ("ontouchstart" in window) {
       lightBG.className = "lightBG";
       lightButton.className = "lightButton";
       lightModal.className = "lightModal";
+      document.body.style['overflow-y'] = "visible";
     }
   };
 } else {
@@ -47,6 +49,7 @@ if ("ontouchstart" in window) {
       lightBG.className = "lightBG";
       lightButton.className = "lightButton";
       lightModal.className = "lightModal";
+      document.body.style['overflow-y'] = "visible";
     }
   };
 }
