@@ -464,32 +464,6 @@ body {
   }
 }
 
-.lightModal {
-  visibility: hidden;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  /* height larger than screen to avoid jumpy scrolling on mobile */
-  height: 130vh;
-  background-color: rgba(0, 0, 0, .3);
-  z-index: 99;
-}
-
-.darkenFrame {
-  animation: .5s darker;
-  animation-fill-mode: forwards;
-}
-
-@keyframes darker {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
 }
 
 /* media queries for non-desktop */
