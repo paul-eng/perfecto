@@ -179,6 +179,7 @@ header {
 
 .bannerImg {
   width: 100%;
+  height:1710px;
   overflow: hidden;
   background-color: black;
 }
