@@ -247,7 +247,34 @@ figure img {
 }
 
 .blockQuote {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
   padding: 7rem;
+}
+
+.quoteMarks {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 95%;
+  transition: 1s;
+}
+
+.quoteSpread {
+  justify-content: space-between;
+}
+
+.leftQuote, .rightQuote {
+  width: 5rem;
+}
+
+.leftQuote {
+-moz-transform: scale(-1, 1);
+-webkit-transform: scale(-1, 1);
+-o-transform: scale(-1, 1);
+-ms-transform: scale(-1, 1);
+transform: scale(-1, 1);
 }
 
 .quote {
