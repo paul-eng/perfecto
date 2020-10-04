@@ -41,14 +41,14 @@ function focusBlur() {
 if ("ontouchstart" in window) {
   window.ontouchstart = function (event) {
     navChapter = event.target.className == 'navChapter'
-    if ((event.target == navModal)||navChapter) {
+    if ((event.target == navModal)) {
       navClose();
     } 
   };
 } else {
   window.onclick = function (event) {
     navChapter = event.target.className == 'navChapter'
-    if ((event.target == navModal)||navChapter) {
+    if ((event.target == navModal)) {
       navClose();
     } 
   };
