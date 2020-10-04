@@ -316,12 +316,12 @@ figure img {
 }
 
 .activeMark {
-  transition: 1s
+  transition: .75s
 }
 
 .activeText {
-  transition: 1s;
-  transition-delay: 1s;
+  transition: .75s;
+  transition-delay: .5s;
 }
 
 .author {
