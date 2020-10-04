@@ -48,7 +48,9 @@ if ("ontouchstart" in window) {
   window.ontouchend = function (event) {
     navChapter = event.target.className == 'navChapter'
     if (navChapter) {
+      let chapter = event.target.href;
       navClose();
+      window.location.href = chapter;
     }
   }
 } else {
