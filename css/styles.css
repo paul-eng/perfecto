@@ -243,7 +243,6 @@ header {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background-color: pink;
   padding-top: 2.5rem;
   text-align: center;
   transform: scale(.75);
@@ -541,7 +540,7 @@ main {
   }
 
   .title {
-    margin-top: 30%;
+    margin-top: 50vh;
   }
 
   .quote {
