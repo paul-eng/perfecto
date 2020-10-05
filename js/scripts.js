@@ -51,7 +51,6 @@ if ("ontouchstart" in window) {
   };
 } else {
   window.onclick = function (event) {
-    navChapter = event.target.className == "navChapter scroll";
     if (event.target == navModal) {
       navClose();
     }
@@ -174,31 +173,34 @@ allQuotes.forEach((quote) => quoteVanisher.observe(quote));
 
 //functions to manually implement scroll-behavior:smooth across all browsers
 
-(function() {
+(function () {
   scrollTo();
 })();
 
 function scrollTo() {
-  const links = document.querySelectorAll('.scroll');
-  links.forEach(each => (each.onclick = scrollAnchors));
+  const links = document.querySelectorAll(".scroll");
+  links.forEach((each) => (each.onclick = scrollAnchors));
 }
 
 function scrollAnchors(e, respond = null) {
   navClose();
-  const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
+  const distanceToTop = (el) => Math.floor(el.getBoundingClientRect().top);
   e.preventDefault();
-  var targetID = (respond) ? respond.getAttribute('href') : this.getAttribute('href');
+  var targetID = respond
+    ? respond.getAttribute("href")
+    : this.getAttribute("href");
   const targetAnchor = document.querySelector(targetID);
   if (!targetAnchor) return;
   const originalTop = distanceToTop(targetAnchor);
-  window.scrollBy({ top: originalTop, left: 0, behavior: 'smooth' });
-  const checkIfDone = setInterval(function() {
-      const atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2;
-      if (distanceToTop(targetAnchor) === 0 || atBottom) {
-          targetAnchor.tabIndex = '-1';
-          targetAnchor.focus();
-          window.history.pushState('', '', targetID);
-          clearInterval(checkIfDone);
-      }
+  window.scrollBy({ top: originalTop, left: 0, behavior: "smooth" });
+  const checkIfDone = setInterval(function () {
+    const atBottom =
+      window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2;
+    if (distanceToTop(targetAnchor) === 0 || atBottom) {
+      targetAnchor.tabIndex = "-1";
+      targetAnchor.focus();
+      window.history.pushState("", "", targetID);
+      clearInterval(checkIfDone);
+    }
   }, 100);
 }
