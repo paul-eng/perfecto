@@ -210,7 +210,13 @@ let generateSlider = function (sliderTopObj) {
 
   function getSliderPos(event) {
     let sliderDistFromLeft = sliderTopObj.getBoundingClientRect().left;
-    let cursorDistFromLeft = event.pageX;
+    let cursorDistFromLeft;
+    if (event.touches) {
+      cursorDistFromLeft = event.touches[0].pageX;
+    } else {
+      cursorDistFromLeft = event.pageX;
+    }
+
     let relativeCursorX = cursorDistFromLeft - sliderDistFromLeft;
     let anyHorizontalScrolling = window.pageXOffset;
     let correctedCursorX = relativeCursorX - anyHorizontalScrolling;
