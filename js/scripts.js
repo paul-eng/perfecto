@@ -184,7 +184,7 @@ let uniqueSliders = document.getElementsByClassName("sliderTop");
 let generateSlider = function (sliderTopObj) {
   let width = sliderTopObj.offsetWidth;
   sliderTopObj.style.width = `${width / 2}px`;
-
+  console.log(width);
   let slider = sliderTopObj.parentNode.children[2];
   slider.style.left = `${(width/2) - (slider.offsetWidth/2)}px`;
 

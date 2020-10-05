@@ -526,7 +526,6 @@ main {
   width: 200px;
   background-color: pink;
   cursor: ew-resize;
-  z-index: 100;
 }
 
 .noInteraction {
