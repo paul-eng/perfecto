@@ -124,10 +124,10 @@ table {
 }
 /* All above is CSS reset */
 
-/* this would be extremely convenient but not supported by iOS yet. used JS instead
+/* this would be extremely convenient but not supported by iOS yet. used JS instead */
 html {
   scroll-behavior: smooth;
-} */
+}
 
 #navButton {
   position: fixed;
@@ -173,14 +173,12 @@ h4 {
   color: gray; 
 }
 
-#navBar a {
+.navChapter {
+  display: inline-block;
   font-family: 'Raleway';
   font-size: 4rem;
   text-decoration: none;
-}
-
-a:link, a:visited, a:hover, a:active {
-  color: inherit;
+  cursor:pointer;
 }
 
 #navClose {
@@ -523,7 +521,7 @@ main {
     margin-bottom: 2rem;
   }
 
-  #navBar a {
+  .navChapter {
     font-size: 2rem;
   }
 
