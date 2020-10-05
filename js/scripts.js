@@ -68,7 +68,7 @@ let title = document.getElementsByClassName("title")[0];
 
 let upscaler = function (event) {
   if (window.pageYOffset > 120) {
-    title.className += " upscale";
+    title.className = "title upscale";
   } else {
     title.className = "title";
   }
