@@ -185,15 +185,11 @@ let generateSlider = function (sliderTopObj) {
   let width = sliderTopObj.offsetWidth;
   sliderTopObj.style.width = `${width / 2}px`;
 
-  let slider = document.createElement('div');
-  slider.setAttribute("class", "slider");
-  sliderTopObj.parentElement.insertBefore(slider, sliderTopObj)
+  let slider = sliderTopObj.parentNode.children[2];
   slider.style.left = `${(width/2) - (slider.offsetWidth/2)}px`;
 
   slider.addEventListener("mousedown", sliderPress);
   slider.addEventListener("touchstart", sliderPress);
-
-  
 
   function sliderPress(event) {
     event.preventDefault();
