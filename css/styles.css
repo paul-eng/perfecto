@@ -173,8 +173,7 @@ h4 {
   color: gray; 
 }
 
-#navBar p {
-  color: pink;
+#navBar a {
   font-family: 'Raleway';
   font-size: 4rem;
   text-decoration: none;
