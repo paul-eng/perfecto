@@ -233,6 +233,12 @@ let generateSlider = function (sliderTopObj) {
   }
 };
 
-[].forEach.call(uniqueSliders, (slider) =>
-  slider.onload = generateSlider(slider)
-);
+[].forEach.call(uniqueSliders, (slider) => {
+  if (slider.firstElementChild.complete) {
+    generateSlider(slider);
+    console.log('slider generated');
+  } else {
+    slider.firstElementChild.addEventListener('load',(event)=>console.log('just loaded'));
+  }
+  
+});
