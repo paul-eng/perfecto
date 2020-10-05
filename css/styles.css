@@ -523,10 +523,27 @@ main {
 
 .slider {
   position: absolute;
-  height: 100%;
-  width: 3%;
-  background-color: yellow;
+  display: flex;
+  background-color: rgba(255, 255, 255, .2);
+  border-radius: 5%;
   cursor: ew-resize;
+}
+
+.slider svg {
+  width: 8rem;
+  fill: black;
+  opacity: .3;
+}
+
+.slider::before {
+  position: absolute;
+  content: '';
+  height: 100vh;
+  width: 1%;
+  background-color: black;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .noInteraction {
