@@ -47,7 +47,7 @@ if ("ontouchstart" in window) {
       navClose();
     }
 
-    navChapter = event.target.className == "navChapter";
+    navChapter = event.target.className == "navChapter scroll";
     if (navChapter) {
       let chapter = event.target.href;
       navClose();
@@ -56,8 +56,10 @@ if ("ontouchstart" in window) {
   };
 } else {
   window.onclick = function (event) {
-    navChapter = event.target.className == "navChapter";
-    if (event.target == navModal || navChapter) {
+    
+    navChapter = event.target.className == "navChapter scroll";
+    if ((event.target == navModal) || navChapter) {
+      
       navClose();
     }
   };
