@@ -43,18 +43,16 @@ function focusBlur() {
 //detecting whether navChapter was clicked w ontouchstart to trigger navClose did not work, overrode basic anchor jumpto function. Closed menu but did not move to section. added navclose to the smoothscroll function instead
 //note that it worked fine on desktop, can look for onclick event and trigger anchor jump without problem
 
+let modalClick = function (event) {
+  if (event.target == navModal) {
+    navClose();
+  }
+}
+
 if ("ontouchstart" in window) {
-  window.ontouchstart = function (event) {
-    if (event.target == navModal) {
-      navClose();
-    }
-  };
+  window.ontouchstart = modalClick;
 } else {
-  window.onclick = function (event) {
-    if (event.target == navModal) {
-      navClose();
-    }
-  };
+  window.onclick = modalClick;
 }
 
 //function to add transform-scale CSS to title once the user has scrolled down X amount
