@@ -40,27 +40,19 @@ function focusBlur() {
 }
 
 //onclick was not working with safari, ontouchstart did
+//detecting whether navChapter was clicked w ontouchstart to trigger navClose did not work, overrode basic anchor jumpto function. Closed menu but did not move to section. added navclose to the smoothscroll function instead
+//note that it worked fine on desktop, can look for onclick event and trigger anchor jump without problem
 
 if ("ontouchstart" in window) {
   window.ontouchstart = function (event) {
     if (event.target == navModal) {
       navClose();
     }
-
-    // navChapter = event.target.className == "navChapter scroll";
-    // if (navChapter) {
-      
-    //   navClose();
-    //   let chapter = event.target.href;
-    //   window.location.href = chapter;
-    // }
   };
 } else {
   window.onclick = function (event) {
-    
     navChapter = event.target.className == "navChapter scroll";
-    if ((event.target == navModal) || navChapter) {
-      
+    if (event.target == navModal) {
       navClose();
     }
   };
@@ -192,6 +184,7 @@ function scrollTo() {
 }
 
 function scrollAnchors(e, respond = null) {
+  navClose();
   const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
   e.preventDefault();
   var targetID = (respond) ? respond.getAttribute('href') : this.getAttribute('href');
