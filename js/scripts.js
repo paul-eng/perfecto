@@ -45,6 +45,7 @@ function focusBlur() {
 
 let modalClick = function (event) {
   if (event.target == navModal) {
+    event.preventDefault()
     navClose();
   }
 };
@@ -78,7 +79,6 @@ let upscaler = function (event) {
 
 let titleVisibility = function (entries) {
   let visible = entries[0].isIntersecting;
-  console.log(entries[0].intersectionRatio);
   if (visible) {
     window.addEventListener("scroll", upscaler, true);
   } else {
@@ -176,3 +176,60 @@ let vanisher = function (entries) {
 let quoteVanisher = new IntersectionObserver(vanisher, { threshold: 0 });
 
 allQuotes.forEach((quote) => quoteVanisher.observe(quote));
+
+//A-B image comparison slider code
+
+let uniqueSliders = document.getElementsByClassName("sliderTop");
+
+let generateSlider = function (sliderTopObj) {
+  let width = sliderTopObj.offsetWidth;
+  let slider = sliderTopObj.parentNode.children[2];
+  sliderTopObj.style.width = `${width / 2}px`;
+
+  slider.addEventListener("mousedown", sliderPress);
+  slider.addEventListener("touchstart", sliderPress);
+
+  function sliderPress(event) {
+    event.preventDefault();
+    window.addEventListener("mousemove", sliderDrag);
+    window.addEventListener("touchmove", sliderDrag);
+  }
+
+  window.addEventListener("mouseup", sliderRelease);
+  window.addEventListener("touchend", sliderRelease);
+
+  function sliderRelease() {
+    window.removeEventListener("mousemove", sliderDrag);
+    window.removeEventListener("touchmove", sliderDrag);
+  }
+
+  function sliderDrag(event) {
+    let sliderDistFromLeft = sliderTopObj.getBoundingClientRect().left;
+    let cursorDistFromLeft = event.pageX;
+    let relativeCursorX = cursorDistFromLeft - sliderDistFromLeft; 
+    let anyHorizontalScrolling = window.pageXOffset;
+    let correctedCursorX = relativeCursorX - anyHorizontalScrolling;
+    let sliderPos; 
+
+    if (correctedCursorX < 0) {
+      sliderPos = 0;
+    } else if (correctedCursorX > width) {
+      sliderPos = width;
+    } else {
+      sliderPos = correctedCursorX;
+    }
+
+    moveSlide(sliderPos);
+  }
+
+  function moveSlide(pos) {
+    sliderTopObj.style.width = `${pos}px`;
+    slider.style.left = `${pos - (slider.offsetWidth/2)}px`;
+  }
+};
+
+for (slider in uniqueSliders) {
+  if (typeof uniqueSliders[slider] == "object") {
+    generateSlider(uniqueSliders[slider]);
+  }
+}

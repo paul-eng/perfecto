@@ -503,7 +503,40 @@ h3 {
 }
 
 main {
+  /*to prevent horizontal scroll when lightbox image expands */
   overflow-x: hidden;
+}
+
+.imgSlider {
+  position: relative;
+  height: 600px;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.sliderLayer {
+  position: absolute;
+  height: auto;
+  overflow: hidden;
+}
+
+.slider {
+  position: absolute;
+  height: 100%;
+  width: 10px;
+  background-color: pink;
+  cursor: ew-resize;
+  z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sliderImg {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 /* media queries for non-desktop */
