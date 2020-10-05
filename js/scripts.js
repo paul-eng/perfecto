@@ -183,11 +183,17 @@ let uniqueSliders = document.getElementsByClassName("sliderTop");
 
 let generateSlider = function (sliderTopObj) {
   let width = sliderTopObj.offsetWidth;
-  let slider = sliderTopObj.parentNode.children[2];
   sliderTopObj.style.width = `${width / 2}px`;
+
+  let slider = document.createElement('div');
+  slider.setAttribute("class", "slider");
+  sliderTopObj.parentElement.insertBefore(slider, sliderTopObj)
+  slider.style.left = `${(width/2) - (slider.offsetWidth/2)}px`;
 
   slider.addEventListener("mousedown", sliderPress);
   slider.addEventListener("touchstart", sliderPress);
+
+  
 
   function sliderPress(event) {
     event.preventDefault();
@@ -204,6 +210,10 @@ let generateSlider = function (sliderTopObj) {
   }
 
   function sliderDrag(event) {
+    moveSlide(getSliderPos(event));
+  }
+
+  function getSliderPos(event) {
     let sliderDistFromLeft = sliderTopObj.getBoundingClientRect().left;
     let cursorDistFromLeft = event.pageX;
     let relativeCursorX = cursorDistFromLeft - sliderDistFromLeft; 
@@ -219,7 +229,7 @@ let generateSlider = function (sliderTopObj) {
       sliderPos = correctedCursorX;
     }
 
-    moveSlide(sliderPos);
+    return sliderPos
   }
 
   function moveSlide(pos) {
