@@ -124,9 +124,10 @@ table {
 }
 /* All above is CSS reset */
 
+/* this would be extremely convenient but not supported by iOS yet. used JS instead
 html {
   scroll-behavior: smooth;
-}
+} */
 
 #navButton {
   position: fixed;
