@@ -45,7 +45,7 @@ function focusBlur() {
 
 let modalClick = function (event) {
   if (event.target == navModal) {
-    event.preventDefault()
+    event.preventDefault();
     navClose();
   }
 };
@@ -184,9 +184,8 @@ let uniqueSliders = document.getElementsByClassName("sliderTop");
 let generateSlider = function (sliderTopObj) {
   let width = sliderTopObj.offsetWidth;
   sliderTopObj.style.width = `${width / 2}px`;
-  console.log(width);
   let slider = sliderTopObj.parentNode.children[2];
-  slider.style.left = `${(width/2) - (slider.offsetWidth/2)}px`;
+  slider.style.left = `${width / 2 - slider.offsetWidth / 2}px`;
 
   slider.addEventListener("mousedown", sliderPress);
   slider.addEventListener("touchstart", sliderPress);
@@ -212,10 +211,10 @@ let generateSlider = function (sliderTopObj) {
   function getSliderPos(event) {
     let sliderDistFromLeft = sliderTopObj.getBoundingClientRect().left;
     let cursorDistFromLeft = event.pageX;
-    let relativeCursorX = cursorDistFromLeft - sliderDistFromLeft; 
+    let relativeCursorX = cursorDistFromLeft - sliderDistFromLeft;
     let anyHorizontalScrolling = window.pageXOffset;
     let correctedCursorX = relativeCursorX - anyHorizontalScrolling;
-    let sliderPos; 
+    let sliderPos;
 
     if (correctedCursorX < 0) {
       sliderPos = 0;
@@ -225,17 +224,15 @@ let generateSlider = function (sliderTopObj) {
       sliderPos = correctedCursorX;
     }
 
-    return sliderPos
+    return sliderPos;
   }
 
   function moveSlide(pos) {
     sliderTopObj.style.width = `${pos}px`;
-    slider.style.left = `${pos - (slider.offsetWidth/2)}px`;
+    slider.style.left = `${pos - slider.offsetWidth / 2}px`;
   }
 };
 
-for (slider in uniqueSliders) {
-  if (typeof uniqueSliders[slider] == "object") {
-    generateSlider(uniqueSliders[slider]);
-  }
-}
+[].forEach.call(uniqueSliders, (slider) =>
+  slider.onload = generateSlider(slider)
+);
