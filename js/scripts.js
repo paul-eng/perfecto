@@ -49,9 +49,10 @@ if ("ontouchstart" in window) {
 
     navChapter = event.target.className == "navChapter scroll";
     if (navChapter) {
-      let chapter = event.target.href;
+      
       navClose();
-      window.location.href = chapter;
+      // let chapter = event.target.href;
+      // window.location.href = chapter;
     }
   };
 } else {
