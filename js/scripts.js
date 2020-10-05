@@ -47,13 +47,13 @@ if ("ontouchstart" in window) {
       navClose();
     }
 
-    navChapter = event.target.className == "navChapter scroll";
-    if (navChapter) {
+    // navChapter = event.target.className == "navChapter scroll";
+    // if (navChapter) {
       
-      navClose();
-      // let chapter = event.target.href;
-      // window.location.href = chapter;
-    }
+    //   navClose();
+    //   let chapter = event.target.href;
+    //   window.location.href = chapter;
+    // }
   };
 } else {
   window.onclick = function (event) {
