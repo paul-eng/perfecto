@@ -55,9 +55,8 @@ if ("ontouchstart" in window) {
   window.onclick = modalClick;
 }
 
-
 goToSection = function (domObj) {
-  let sectionName = domObj.getAttribute('name');
+  let sectionName = domObj.getAttribute("name");
   let sectionElement = document.getElementById(sectionName);
   sectionElement.scrollIntoView();
   navClose();
@@ -79,6 +78,7 @@ let upscaler = function (event) {
 
 let titleVisibility = function (entries) {
   let visible = entries[0].isIntersecting;
+  console.log(entries[0].intersectionRatio);
   if (visible) {
     window.addEventListener("scroll", upscaler, true);
   } else {
