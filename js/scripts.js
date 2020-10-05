@@ -28,8 +28,8 @@ function addFocus() {
 }
 
 function removeFocus() {
-  lightFG.className = "lightFG";
-  lightBG.className = "lightBG";
+  lightFG.className = "lightFG noInteraction";
+  lightBG.className = "lightBG noInteraction";
   lightButton.innerHTML = zoomInSVG;
 }
 

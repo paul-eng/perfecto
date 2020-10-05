@@ -531,12 +531,13 @@ main {
   transform: translateX(-50%);
 }
 
-.sliderImg {
+.noInteraction {
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
+  pointer-events: none;
 }
 
 /* media queries for non-desktop */
