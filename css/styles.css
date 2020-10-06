@@ -571,11 +571,10 @@ main {
 }
 
 .imgGallery {
-  position: relative;
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
-  scrollbar-width: none;
+  /* scrollbar-width: none; */
   scroll-behavior: smooth;
 }
 
@@ -585,6 +584,10 @@ main {
   /* align items prevents distorted image aspect ratio on safari */
   align-items: flex-start;
   padding: 7vw;
+}
+
+.galleryNavContainer {
+  position: relative;
 }
 
 .galleryFrame {
