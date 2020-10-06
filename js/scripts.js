@@ -251,6 +251,8 @@ let generateSlider = function (sliderTopObj) {
   }
 };
 
+//make sure gallery image is fully loaded so height/width parameters aren't 0
+
 [].forEach.call(uniqueSliders, (slider) => {
   if (slider.firstElementChild.complete) {
     generateSlider(slider);
@@ -261,8 +263,30 @@ let generateSlider = function (sliderTopObj) {
   }
 });
 
+//redraw the sliders if orientation changes
+
 window.addEventListener("resize", function () {
   [].forEach.call(uniqueSliders, (slider) => {
     generateSlider(slider);
   });
 });
+
+let uniqueGalleries = document.getElementsByClassName("imgGallery");
+
+function generateGalleryUI(galleryObj) {
+  let makeArrow = function (arrowName) {
+    let arrow = document.createElement("DIV");
+    arrow.setAttribute("class", `${arrowName}`);
+    arrow.setAttribute("onclick", `${arrowName.match(/.+?(?=Arrow)/).join('')}Frame()`);
+    arrow.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+    <path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" /></svg>`;
+    galleryObj.appendChild(arrow);
+    arrow.style.top = `${
+      galleryObj.offsetHeight / 2 - arrow.offsetHeight / 2
+    }px`;
+  };
+
+  ["prevArrow", "nextArrow"].forEach((name) => makeArrow(name));
+}
+
+generateGalleryUI(uniqueGalleries[0]);
