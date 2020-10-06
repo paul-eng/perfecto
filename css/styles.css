@@ -574,7 +574,7 @@ main {
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
-  /* scrollbar-width: none; */
+  scrollbar-width: none;
 }
 
 .galleryWrapper {
