@@ -196,8 +196,15 @@ let generateSlider = function (sliderTopObj) {
   slider.addEventListener("mousedown", sliderPress);
   slider.addEventListener("touchstart", sliderPress);
 
+  let cursorRelativeToSlider;
+
   function sliderPress(event) {
     event.preventDefault();
+
+    startingSliderPos = parseInt(slider.style.left.match(/[^px]/g).join(''));
+    startingCursorPos = getSliderPos(event);
+    cursorRelativeToSlider = startingCursorPos - startingSliderPos;
+    
     window.addEventListener("mousemove", sliderDrag);
     window.addEventListener("touchmove", sliderDrag);
   }
@@ -226,22 +233,18 @@ let generateSlider = function (sliderTopObj) {
     let relativeCursorX = cursorDistFromLeft - sliderDistFromLeft;
     let anyHorizontalScrolling = window.pageXOffset;
     let correctedCursorX = relativeCursorX - anyHorizontalScrolling;
-    let sliderPos;
-
-    if (correctedCursorX < 0) {
-      sliderPos = 0;
-    } else if (correctedCursorX > width) {
-      sliderPos = width;
-    } else {
-      sliderPos = correctedCursorX;
-    }
-
-    return sliderPos;
+    return correctedCursorX;
   }
 
   function moveSlide(pos) {
-    sliderTopObj.style.width = `${pos}px`;
-    slider.style.left = `${pos - slider.offsetWidth / 2}px`;
+    let adjustedPos = pos - cursorRelativeToSlider + (slider.offsetWidth/2);
+    if (adjustedPos < 0) {
+      adjustedPos = 0;
+    } else if (adjustedPos > width) {
+      adjustedPos = width;
+    } 
+    sliderTopObj.style.width = `${adjustedPos}px`;
+    slider.style.left = `${adjustedPos - (slider.offsetWidth / 2)}px`;
   }
 };
 
