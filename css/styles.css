@@ -569,6 +569,25 @@ main {
   pointer-events: none;
 }
 
+.imgGallery {
+  width: 670px;
+  height: 400px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.galleryWrapper {
+  width: 300%;
+}
+
+.galleryFrame {
+  float: left;
+  box-sizing: border-box;
+  border: 5px solid red;
+  width:670px;
+  height: 400px;
+}
+
 /* media queries for non-desktop */
 
 @media only screen and (min-width: 1081px) {
