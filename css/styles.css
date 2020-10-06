@@ -579,14 +579,13 @@ main {
 
 .galleryWrapper {
   display: flex;
+  align-items: flex-start;
   width: 220vw;
   margin: 7vw;
 }
 
 .galleryFrame {
   margin-right: 5vw;
-  box-sizing: border-box;
-  border: 5px solid pink;
   width: 50vw;
   border-radius: 5%;
 }
