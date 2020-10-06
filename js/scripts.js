@@ -200,11 +200,11 @@ let generateSlider = function (sliderTopObj) {
 
   function sliderPress(event) {
     event.preventDefault();
-
-    startingSliderPos = parseInt(slider.style.left.match(/[^px]/g).join(''));
+    //if slider is grabbed off center, find out how far from the slider left edge the cursor was
+    startingSliderPos = parseInt(slider.style.left.match(/[^px]/g).join(""));
     startingCursorPos = getSliderPos(event);
     cursorRelativeToSlider = startingCursorPos - startingSliderPos;
-    
+
     window.addEventListener("mousemove", sliderDrag);
     window.addEventListener("touchmove", sliderDrag);
   }
@@ -237,14 +237,17 @@ let generateSlider = function (sliderTopObj) {
   }
 
   function moveSlide(pos) {
-    let adjustedPos = pos - cursorRelativeToSlider + (slider.offsetWidth/2);
-    if (adjustedPos < 0) {
-      adjustedPos = 0;
-    } else if (adjustedPos > width) {
-      adjustedPos = width;
-    } 
-    sliderTopObj.style.width = `${adjustedPos}px`;
-    slider.style.left = `${adjustedPos - (slider.offsetWidth / 2)}px`;
+    //pos parameter is pos of CURSOR on the image, subtractor cursorRelativeSlider to find out where left edge of SLIDER should be
+    let adjustedPos = pos - cursorRelativeToSlider;
+    let sliderCenter = adjustedPos + slider.offsetWidth / 2;
+    //keep the slider inside the image frame
+    if (sliderCenter < 0) {
+      sliderCenter = 0;
+    } else if (sliderCenter > width) {
+      sliderCenter = width;
+    }
+    sliderTopObj.style.width = `${sliderCenter}px`;
+    slider.style.left = `${sliderCenter - slider.offsetWidth / 2}px`;
   }
 };
 
@@ -258,9 +261,8 @@ let generateSlider = function (sliderTopObj) {
   }
 });
 
-window.addEventListener('resize',function(){
-  [].forEach.call(uniqueSliders, (slider => {
+window.addEventListener("resize", function () {
+  [].forEach.call(uniqueSliders, (slider) => {
     generateSlider(slider);
-    
-  }))
+  });
 });
