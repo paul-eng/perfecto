@@ -575,6 +575,7 @@ main {
   overflow-y: hidden;
   margin-top: 5vw;
   margin-bottom: 5vw;
+  scrollbar-width: none;
 }
 
 .galleryWrapper {
@@ -587,6 +588,7 @@ main {
   box-sizing: border-box;
   border: 5px solid pink;
   width: 50vw;
+  height: auto;
 }
 
 /* media queries for non-desktop */
