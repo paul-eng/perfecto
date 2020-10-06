@@ -573,8 +573,6 @@ main {
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
-  margin-top: 5vw;
-  margin-bottom: 5vw;
   scrollbar-width: none;
 }
 
@@ -588,7 +586,7 @@ main {
   box-sizing: border-box;
   border: 5px solid pink;
   width: 50vw;
-  height: auto;
+  border-radius: 5%;;
 }
 
 /* media queries for non-desktop */
