@@ -159,6 +159,7 @@ h4 {
   font-weight: 900;
   font-size: 5rem;
   margin-bottom: 6rem;
+  cursor: default;
 }
 
 #navBar ul {
@@ -203,6 +204,15 @@ h4 {
 
 #navClose:hover {
   fill: gray;
+}
+
+h1, h2, h3, h4 {
+  cursor: default;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 header {
@@ -522,7 +532,7 @@ main {
 .slider {
   position: absolute;
   display: flex;
-  background-color: rgba(255, 255, 255, .2);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 5%;
   cursor: ew-resize;
 }
@@ -542,6 +552,7 @@ main {
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
+  pointer-events: none;
 }
 
 .sliderImg {
