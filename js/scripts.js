@@ -202,7 +202,7 @@ let generateSlider = function (sliderTopObj) {
     event.preventDefault();
     //if slider is grabbed off center, find out how far from the slider left edge the cursor was
     startingSliderPos = parseInt(slider.style.left.match(/[^px]/g).join(""));
-    startingCursorPos = getSliderPos(event);
+    startingCursorPos = getCursorPos(event);
     cursorRelativeToSlider = startingCursorPos - startingSliderPos;
 
     window.addEventListener("mousemove", sliderDrag);
@@ -218,10 +218,10 @@ let generateSlider = function (sliderTopObj) {
   }
 
   function sliderDrag(event) {
-    moveSlide(getSliderPos(event));
+    moveSlide(getCursorPos(event));
   }
 
-  function getSliderPos(event) {
+  function getCursorPos(event) {
     let sliderDistFromLeft = sliderTopObj.getBoundingClientRect().left;
     let cursorDistFromLeft;
     if (event.touches) {
