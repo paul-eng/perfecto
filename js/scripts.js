@@ -182,12 +182,17 @@ allQuotes.forEach((quote) => quoteVanisher.observe(quote));
 let uniqueSliders = document.getElementsByClassName("sliderTop");
 
 let generateSlider = function (sliderTopObj) {
-  let width = sliderTopObj.offsetWidth;
-  let height = sliderTopObj.offsetHeight;
+  let width = sliderTopObj.firstElementChild.offsetWidth;
+  let height = sliderTopObj.firstElementChild.offsetHeight;
+  sliderTopObj.parentNode.style.width = width;
+  sliderTopObj.parentNode.style.height = height;
+
   sliderTopObj.style.width = `${width / 2}px`;
   let slider = sliderTopObj.parentNode.children[2];
   slider.style.left = `${width / 2 - slider.offsetWidth / 2}px`;
   slider.style.top = `${height / 2 - slider.offsetHeight / 2}px`;
+  //above is dynamically generating the wrapper and the slider based on image height after CSS is applied
+  //height + width based on the child image, because if called to redraw an already existing slider due to orientation change, the sliderTop will be half its original width
   slider.addEventListener("mousedown", sliderPress);
   slider.addEventListener("touchstart", sliderPress);
 
@@ -248,4 +253,11 @@ let generateSlider = function (sliderTopObj) {
       generateSlider(slider);
     });
   }
+});
+
+window.addEventListener('resize',function(){
+  [].forEach.call(uniqueSliders, (slider => {
+    generateSlider(slider);
+    
+  }))
 });
