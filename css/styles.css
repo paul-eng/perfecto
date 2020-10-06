@@ -574,14 +574,14 @@ main {
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
-  scrollbar-width: none;
+  /* scrollbar-width: none; */
 }
 
 .galleryWrapper {
-  display: flex;
+  /* inline sizes the flexbox to its content, otherwise the frames scroll outside of the wrapper and the wrapper padding right is never used */
+  display: inline-flex;
   /* align items prevents distorted image aspect ratio on safari */
   align-items: flex-start;
-  width: 220vw;
   padding: 7vw;
 }
 
@@ -593,7 +593,7 @@ main {
 }
 
 .galleryFrame:last-child {
-  margin-right: 0;
+  margin-right: 0vw;
 }
 
 /* media queries for non-desktop */
