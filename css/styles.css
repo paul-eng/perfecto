@@ -579,6 +579,7 @@ main {
 
 .galleryWrapper {
   display: flex;
+  /* align items prevents distorted image aspect ratio on safari */
   align-items: flex-start;
   width: 220vw;
   margin: 7vw;
@@ -586,8 +587,9 @@ main {
 
 .galleryFrame {
   margin-right: 5vw;
-  width: 50vw;
   border-radius: 5%;
+  min-height: 50vh;
+  max-height: 90vh;
 }
 
 .galleryFrame:last-child {
