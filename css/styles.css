@@ -582,14 +582,14 @@ main {
   /* align items prevents distorted image aspect ratio on safari */
   align-items: flex-start;
   width: 220vw;
-  margin: 7vw;
+  padding: 7vw;
 }
 
 .galleryFrame {
   margin-right: 5vw;
   border-radius: 5%;
   min-height: 50vh;
-  max-height: 90vh;
+  max-height: 85vh;
 }
 
 .galleryFrame:last-child {
