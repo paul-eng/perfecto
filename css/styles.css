@@ -580,7 +580,7 @@ main {
 .galleryWrapper {
   display: flex;
   width: 220vw;
-  margin: 5vw 0 5vw 5vw;
+  margin: 7vw;
 }
 
 .galleryFrame {
@@ -589,6 +589,10 @@ main {
   border: 5px solid pink;
   width: 50vw;
   border-radius: 5%;
+}
+
+.galleryFrame:last-child {
+  margin-right: 0;
 }
 
 /* media queries for non-desktop */
