@@ -56,6 +56,12 @@ let modalClick = function (event) {
     event.preventDefault();
     navClose();
   }
+
+  if (event.target.className == 'modalBG') {
+    event.preventDefault();
+    let currentModal = document.getElementById('imgModal');
+    currentModal.remove();
+  }
 };
 
 if ("ontouchstart" in window) {
@@ -403,6 +409,7 @@ function openModal(img) {
   caption.innerText = img.alt;
   let modalBG = document.createElement('FIGURE');
   modalBG.setAttribute("class", "modalBG");
+  modalBG.setAttribute("id", "imgModal");
   modalBG.append(fullSize);
   modalBG.append(caption);
   document.body.append(modalBG);
