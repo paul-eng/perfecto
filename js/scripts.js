@@ -326,6 +326,11 @@ function generateGalleryUI(galleryObj) {
     galleryObj.scrollBy({ top: 0, left: oneFrame, behavior: "smooth" });
   }
 
+  let frames = galleryObj.firstElementChild.children;
+  [].forEach.call(frames,(frame)=>{
+    frame.className += ' nontouch';
+  })
+
   galleryObj.addEventListener("scroll", () => arrowVisible(galleryObj));
   prevArrow.addEventListener("click", prevClick);
   nextArrow.addEventListener("click", nextClick);
