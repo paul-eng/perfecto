@@ -6,20 +6,22 @@ testFunc();
 
 let navModal = document.getElementsByClassName("navModal")[0];
 let navBar = document.getElementById("navBar");
+let navButton = document.getElementById('navButton');
+let navX = document.getElementById('navClose');
 
 function navOpen() {
   navModal.style.display = "block";
   navBar.style.left = "0";
 }
 
-document.getElementById('navButton').addEventListener('click',navOpen);
+navButton.addEventListener('click',navOpen);
 
 function navClose() {
   navModal.style.display = "none";
   navBar.style.left = "-70vw";
 }
 
-document.getElementById('navClose').addEventListener('click',navClose);
+navX.addEventListener('click',navClose);
 
 let lightFG = document.getElementsByClassName("lightFG")[0];
 let lightBG = document.getElementsByClassName("lightBG")[0];
