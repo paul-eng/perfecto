@@ -570,6 +570,11 @@ main {
   pointer-events: none;
 }
 
+.galleryNavContainer {
+  /* only exists to give the absolute position nav buttons something to cling to */
+  position: relative;
+}
+
 .imgGallery {
   width: 100%;
   overflow-x: scroll;
@@ -586,9 +591,6 @@ main {
   padding: 7vw;
 }
 
-.galleryNavContainer {
-  position: relative;
-}
 
 .galleryFrame {
   margin-right: 5vw;

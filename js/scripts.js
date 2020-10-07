@@ -277,7 +277,6 @@ function generateGalleryUI(galleryObj) {
   let makeArrow = function (arrowName) {
     let arrow = document.createElement("DIV");
     arrow.setAttribute("class", `${arrowName}`);
-    arrow.setAttribute("onclick", `${arrowName.match(/.+?(?=Arrow)/).join('')}Frame()`);
     arrow.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
     <path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" /></svg>`;
     galleryObj.appendChild(arrow);
@@ -287,6 +286,19 @@ function generateGalleryUI(galleryObj) {
   };
 
   ["prevArrow", "nextArrow"].forEach((name) => makeArrow(name));
+  let prevArrow = galleryObj.children[1];
+  let nextArrow = galleryObj.children[2];
+  let galleryFrame = galleryObj.children[0].children[0];
+  let framePlusMarginWidth = galleryFrame.offsetWidth + parseInt(getComputedStyle(galleryFrame).marginRight); 
+
+  function prevClick() {
+    galleryObj.scrollBy(-framePlusMarginWidth, 0);
+  }
+  function nextClick() {
+    galleryObj.scrollBy(framePlusMarginWidth, 0);
+  }
+  prevArrow.addEventListener('click',prevClick);
+  nextArrow.addEventListener('click',nextClick);
 }
 
 generateGalleryUI(uniqueGalleries[0]);
