@@ -1,4 +1,4 @@
-import {polyfill}l from './smoothscroll.js';
+import {polyfill} from './smoothscroll.js';
 
 polyfill();
 
