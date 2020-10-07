@@ -66,12 +66,17 @@ if ("ontouchstart" in window) {
   window.onclick = modalClick;
 }
 
-let goToSection = function (domObj) {
+function goToSection(domObj) {
   let sectionName = domObj.getAttribute("name");
   let sectionElement = document.getElementById(sectionName);
   sectionElement.scrollIntoView();
   navClose();
 };
+
+let navChapters = document.getElementsByClassName('navChapter');
+[].forEach.call(navChapters,(chapter)=>{
+  chapter.addEventListener('click',()=>goToSection(chapter))
+})
 
 //function to add transform-scale CSS to title once the user has scrolled down X amount
 
