@@ -1,6 +1,6 @@
-import {testFunc} from './test.js';
+import smoothscroll from './smoothscroll.js';
 
-testFunc();
+smoothscroll.polyfill();
 
 // Navbar functions
 
