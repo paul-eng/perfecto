@@ -658,6 +658,32 @@ main {
   fill: white;
 }
 
+.colorWheel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: pink;
+}
+
+.colorWrapper {
+  position: relative;
+  display:inline-block;
+  height: 100vh;
+}
+
+.colorFG {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100%;
+}
+
+.colorBG {
+  width: auto;
+  height: 100%;
+}
+
 /* media queries for non-desktop */
 
 @media only screen and (min-width: 1081px) {
