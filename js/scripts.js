@@ -304,33 +304,36 @@ function generateGalleryUI(galleryObj) {
     galleryObj.scrollBy(oneFrame, 0);
   }
 
-  function arrowVisible() {
-    let margin = document.body.getBoundingClientRect().width * 0.1;
-    let leftEdge =
-      Math.round(document.body.getBoundingClientRect().left) - margin;
-    let rightEdge =
-      Math.round(document.body.getBoundingClientRect().right) + margin;
-    let galleryWrapper = galleryObj.firstElementChild;
-    let galleryLeft = Math.round(galleryWrapper.getBoundingClientRect().left);
-    let galleryRight = Math.round(galleryWrapper.getBoundingClientRect().right);
-    if (leftEdge <= galleryLeft) {
-      prevArrow.style.opacity = "0";
-      prevArrow.style.cursor = "default";
-    } else {
-      prevArrow.style.opacity = ".7";
-      prevArrow.style.cursor = "pointer";
-    }
-    if (rightEdge >= galleryRight) {
-      nextArrow.style.opacity = "0";
-      nextArrow.style.cursor = "default";
-    } else {
-      nextArrow.style.opacity = ".7";
-      nextArrow.style.cursor = "pointer";
-    }
-  }
-  galleryObj.addEventListener("scroll", arrowVisible);
+  galleryObj.addEventListener("scroll", ()=>arrowVisible(galleryObj));
   prevArrow.addEventListener("click", prevClick);
   nextArrow.addEventListener("click", nextClick);
+}
+
+function arrowVisible(galleryObj) {
+  let prevArrow = galleryObj.children[1];
+  let nextArrow = galleryObj.children[2];
+  let margin = document.body.getBoundingClientRect().width * 0.1;
+  let leftEdge =
+    Math.round(document.body.getBoundingClientRect().left) - margin;
+  let rightEdge =
+    Math.round(document.body.getBoundingClientRect().right) + margin;
+  let galleryWrapper = galleryObj.firstElementChild;
+  let galleryLeft = Math.round(galleryWrapper.getBoundingClientRect().left);
+  let galleryRight = Math.round(galleryWrapper.getBoundingClientRect().right);
+  if (leftEdge <= galleryLeft) {
+    prevArrow.style.opacity = "0";
+    prevArrow.style.cursor = "default";
+  } else {
+    prevArrow.style.opacity = ".7";
+    prevArrow.style.cursor = "pointer";
+  }
+  if (rightEdge >= galleryRight) {
+    nextArrow.style.opacity = "0";
+    nextArrow.style.cursor = "default";
+  } else {
+    nextArrow.style.opacity = ".7";
+    nextArrow.style.cursor = "pointer";
+  }
 }
 
 function drawGallery(galleryObj) {
@@ -366,5 +369,7 @@ window.addEventListener("resize", function () {
   });
   [].forEach.call(uniqueGalleries, (gall) => {
     drawGallery(gall);
+    //check if resize has changed what part of slider is in viewport and arrow needs to be turned on/off
+    arrowVisible(gall);
   });
 });
