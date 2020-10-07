@@ -397,22 +397,46 @@ window.addEventListener("resize", function () {
       arrowVisible(gall);
     });
   }
+
+  if (document.getElementsByClassName('modalImg')[0]) {
+    drawModalImg();
+  }
 });
 
 //gallery images open into modal imgViewer
 uniqueImgs = document.getElementsByClassName('galleryFrame');
 
-function openModal(img) {
-  let fullSize = img.cloneNode(false);
+function openModal(imgObj) {
+  let fullSize = imgObj.cloneNode(false);
   fullSize.setAttribute("class", "modalImg");
   let caption = document.createElement('FIGCAPTION');
-  caption.innerText = img.alt;
+  caption.innerText = imgObj.alt;
   let modalBG = document.createElement('FIGURE');
   modalBG.setAttribute("class", "modalBG");
   modalBG.setAttribute("id", "imgModal");
   modalBG.append(fullSize);
   modalBG.append(caption);
   document.body.append(modalBG);
+  
+  drawModalImg();
+
+}
+
+function drawModalImg() {
+  let modalImg = document.getElementsByClassName('modalImg')[0];
+  if (widerOrTaller()=='taller') {
+    modalImg.style.width = '100vw';
+    modalImg.style.height = '';
+  } else {
+    modalImg.style.width = 'auto';
+    modalImg.style.height = '70vh';
+  }
+}
+
+function widerOrTaller() {
+  let height = window.innerHeight;
+  let width = window.innerWidth;
+  return height > width ? 'taller' : 'wider';
 }
 
 [].forEach.call(uniqueImgs,(img)=>{
