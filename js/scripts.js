@@ -263,14 +263,6 @@ let generateSlider = function (sliderTopObj) {
   }
 });
 
-//redraw the sliders if orientation changes
-
-window.addEventListener("resize", function () {
-  [].forEach.call(uniqueSliders, (slider) => {
-    generateSlider(slider);
-  });
-});
-
 let uniqueGalleries = document.getElementsByClassName("imgGallery");
 
 function generateGalleryUI(galleryObj) {
@@ -288,17 +280,69 @@ function generateGalleryUI(galleryObj) {
   ["prevArrow", "nextArrow"].forEach((name) => makeArrow(name));
   let prevArrow = galleryObj.children[1];
   let nextArrow = galleryObj.children[2];
-  let galleryFrame = galleryObj.children[0].children[0];
-  let framePlusMarginWidth = galleryFrame.offsetWidth + parseInt(getComputedStyle(galleryFrame).marginRight); 
+  let galleryFrame = galleryObj.firstElementChild.firstElementChild;
+  let framePlusMargin =
+    galleryFrame.offsetWidth +
+    parseInt(getComputedStyle(galleryFrame).marginRight);
 
   function prevClick() {
-    galleryObj.scrollBy(-framePlusMarginWidth, 0);
+    galleryObj.scrollBy(-framePlusMargin, 0);
   }
   function nextClick() {
-    galleryObj.scrollBy(framePlusMarginWidth, 0);
+    galleryObj.scrollBy(framePlusMargin, 0);
   }
-  prevArrow.addEventListener('click',prevClick);
-  nextArrow.addEventListener('click',nextClick);
+
+  function arrowVisible() {
+    let margin = document.body.getBoundingClientRect().width * 0.1;
+    let leftEdge =
+      Math.round(document.body.getBoundingClientRect().left) - margin;
+    let rightEdge =
+      Math.round(document.body.getBoundingClientRect().right) + margin;
+    let galleryWrapper = galleryObj.firstElementChild;
+    let galleryLeft = Math.round(galleryWrapper.getBoundingClientRect().left);
+    let galleryRight = Math.round(galleryWrapper.getBoundingClientRect().right);
+    if (leftEdge <= galleryLeft) {
+      prevArrow.style.opacity = "0";
+      prevArrow.style.cursor = "default";
+    } else {
+      prevArrow.style.opacity = ".7";
+      prevArrow.style.cursor = "pointer";
+    }
+    if (rightEdge >= galleryRight) {
+      nextArrow.style.opacity = "0";
+      nextArrow.style.cursor = "default";
+    } else {
+      nextArrow.style.opacity = ".7";
+      nextArrow.style.cursor = "pointer";
+    }
+  }
+  galleryObj.addEventListener("scroll", arrowVisible);
+  prevArrow.addEventListener("click", prevClick);
+  nextArrow.addEventListener("click", nextClick);
 }
 
-generateGalleryUI(uniqueGalleries[0]);
+//make sure an image is fully loaded so width parameter isn't 0
+
+[].forEach.call(uniqueGalleries, (gall) => {
+  if (gall.firstElementChild.firstElementChild.complete) {
+    generateGalleryUI(gall);
+  } else {
+    gall.firstElementChild.firstElementChild.addEventListener(
+      "load",
+      (event) => {
+        generateGalleryUI(gall);
+      }
+    );
+  }
+});
+
+//redraw sliders/galleries if orientation changes
+
+window.addEventListener("resize", function () {
+  [].forEach.call(uniqueSliders, (slider) => {
+    generateSlider(slider);
+  });
+  [].forEach.call(uniqueGalleries, (gall) => {
+    generateGalleryUI(gall);
+  });
+});
