@@ -392,3 +392,22 @@ window.addEventListener("resize", function () {
     });
   }
 });
+
+//gallery images open into modal imgViewer
+uniqueImgs = document.getElementsByClassName('galleryFrame');
+
+function openModal(img) {
+  let fullSize = img.cloneNode(false);
+  fullSize.setAttribute("class", "modalImg");
+  let caption = document.createElement('FIGCAPTION');
+  caption.innerText = img.alt;
+  let modalBG = document.createElement('FIGURE');
+  modalBG.setAttribute("class", "modalBG");
+  modalBG.append(fullSize);
+  modalBG.append(caption);
+  document.body.append(modalBG);
+}
+
+[].forEach.call(uniqueImgs,(img)=>{
+  img.addEventListener('click',()=>openModal(img));
+});
