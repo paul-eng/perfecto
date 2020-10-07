@@ -1,3 +1,7 @@
+import testFunc from './test.js';
+
+testFunc();
+
 // Navbar functions
 
 let navModal = document.getElementsByClassName("navModal")[0];
@@ -280,7 +284,7 @@ function generateGalleryUI(galleryObj) {
     <path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" /></svg>`;
     galleryObj.appendChild(arrow);
   };
-  
+
   ["prevArrow", "nextArrow"].forEach((name) => makeArrow(name));
   drawGallery(galleryObj);
 
@@ -304,7 +308,7 @@ function generateGalleryUI(galleryObj) {
     galleryObj.scrollBy(oneFrame, 0);
   }
 
-  galleryObj.addEventListener("scroll", ()=>arrowVisible(galleryObj));
+  galleryObj.addEventListener("scroll", () => arrowVisible(galleryObj));
   prevArrow.addEventListener("click", prevClick);
   nextArrow.addEventListener("click", nextClick);
 }
@@ -339,7 +343,7 @@ function arrowVisible(galleryObj) {
 function drawGallery(galleryObj) {
   let prevArrow = galleryObj.children[1];
   let nextArrow = galleryObj.children[2];
-  [prevArrow, nextArrow].forEach((arrow)=>{
+  [prevArrow, nextArrow].forEach((arrow) => {
     arrow.style.top = `${
       galleryObj.offsetHeight / 2 - arrow.offsetHeight / 2
     }px`;
@@ -362,8 +366,6 @@ if (!("ontouchstart" in window)) {
     }
   });
 }
-
-
 
 //redraw sliders/galleries if orientation changes
 

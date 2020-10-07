@@ -1,3 +1,12 @@
-L-R image slider gallery
-Image comparer
-Nav scrollto chapters
+Components are modular//
+Do not need to know how many assets, where in DOM, size attributes
+
+Some components not rendered for mobile (galleryUI)
+
+Components redrawn on orientation change (slider, gallery)
+
+Components dynamically set some CSS to responsivley adjust to diff size assets//
+galleryUI button height, positoin of slider
+
+Banner intersectionobserverAPI removes event listeners when not visible
+to save resources from constantly doing window onscroll calculations
