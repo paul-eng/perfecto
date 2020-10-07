@@ -52,8 +52,8 @@ function focusBlur() {
 
 document.getElementsByClassName('lightButton')[0].addEventListener('click',focusBlur);
 
-//onclick was not working with safari, ontouchstart did
-//detecting whether navChapter was clicked w ontouchstart to trigger navClose did not work, overrode basic anchor jumpto function. Closed menu but did not move to section. added navclose to the smoothscroll function instead
+//safari mobile uses ontouchstart not onclick 
+//detecting whether navChapter was clicked w ontouchstart to trigger navClose did not work, overrode basic anchor jumpto function. Closed menu but did not move to section. added navclose to goToSection function instead
 //note that it worked fine on desktop, can look for onclick event and trigger anchor jump without problem
 
 let modalClick = function (event) {
@@ -72,7 +72,7 @@ if ("ontouchstart" in window) {
 function goToSection(domObj) {
   let sectionName = domObj.getAttribute("name");
   let sectionElement = document.getElementById(sectionName);
-  sectionElement.scrollIntoView();
+  sectionElement.scrollIntoView({ behavior: 'smooth' });
   navClose();
 };
 
@@ -315,11 +315,12 @@ function generateGalleryUI(galleryObj) {
 
   function prevClick() {
     let oneFrame = findFrameWidth();
-    galleryObj.scrollBy(-oneFrame, 0);
+    galleryObj.scrollBy({ left: -oneFrame, behavior: 'smooth' });
+    
   }
   function nextClick() {
     let oneFrame = findFrameWidth();
-    galleryObj.scrollBy(oneFrame, 0);
+    galleryObj.scrollBy({ left: oneFrame, behavior: 'smooth' });
   }
 
   galleryObj.addEventListener("scroll", () => arrowVisible(galleryObj));
