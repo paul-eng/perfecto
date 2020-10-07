@@ -1,4 +1,4 @@
-import testFunc from './test.js';
+import {testFunc} from './test.js';
 
 testFunc();
 

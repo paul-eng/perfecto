@@ -1,3 +1,5 @@
-export default var testFunc = function() {
+function testFunc() {
     console.log('test import');
 }
+
+export {testFunc};
