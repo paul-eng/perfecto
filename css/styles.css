@@ -648,6 +648,16 @@ main {
   color: white;
 }
 
+#imgModal span {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 2rem;
+  width: 5rem;
+  cursor: pointer;
+  fill: white;
+}
+
 /* media queries for non-desktop */
 
 @media only screen and (min-width: 1081px) {
@@ -669,11 +679,11 @@ main {
     font-size: 2rem;
   }
 
-  #navButton, #navClose, .lightButton {
+  #navButton, #navClose, .lightButton, #imgModal span {
     width: 3rem;
   }
 
-  #navClose {
+  #navClose, #imgModal span {
     margin: .5rem;
   }
 

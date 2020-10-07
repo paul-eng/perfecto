@@ -2,22 +2,22 @@
 
 let navModal = document.getElementsByClassName("navModal")[0];
 let navBar = document.getElementById("navBar");
-let navButton = document.getElementById('navButton');
-let navX = document.getElementById('navClose');
+let navButton = document.getElementById("navButton");
+let navX = document.getElementById("navClose");
 
 function navOpen() {
   navModal.style.display = "block";
   navBar.style.left = "0";
 }
 
-navButton.addEventListener('click',navOpen);
+navButton.addEventListener("click", navOpen);
 
 function navClose() {
   navModal.style.display = "none";
   navBar.style.left = "-70vw";
 }
 
-navX.addEventListener('click',navClose);
+navX.addEventListener("click", navClose);
 
 let lightFG = document.getElementsByClassName("lightFG")[0];
 let lightBG = document.getElementsByClassName("lightBG")[0];
@@ -45,9 +45,11 @@ function focusBlur() {
     : addFocus();
 }
 
-document.getElementsByClassName('lightButton')[0].addEventListener('click',focusBlur);
+document
+  .getElementsByClassName("lightButton")[0]
+  .addEventListener("click", focusBlur);
 
-//safari mobile uses ontouchstart not onclick 
+//safari mobile uses ontouchstart not onclick
 //detecting whether navChapter was clicked w ontouchstart to trigger navClose did not work, overrode basic anchor jumpto function. Closed menu but did not move to section. added navclose to goToSection function instead
 //note that it worked fine on desktop, can look for onclick event and trigger anchor jump without problem
 
@@ -57,10 +59,9 @@ let modalClick = function (event) {
     navClose();
   }
 
-  if (event.target.className == 'modalBG') {
+  if (event.target.className == "modalBG") {
     event.preventDefault();
-    let currentModal = document.getElementById('imgModal');
-    currentModal.remove();
+    imgClose();
   }
 };
 
@@ -73,14 +74,14 @@ if ("ontouchstart" in window) {
 function goToSection(domObj) {
   let sectionName = domObj.getAttribute("name");
   let sectionElement = document.getElementById(sectionName);
-  sectionElement.scrollIntoView({ behavior: 'smooth' });
+  sectionElement.scrollIntoView({ behavior: "smooth" });
   navClose();
-};
+}
 
-let navChapters = document.getElementsByClassName('navChapter');
-[].forEach.call(navChapters,(chapter)=>{
-  chapter.addEventListener('click',()=>goToSection(chapter))
-})
+let navChapters = document.getElementsByClassName("navChapter");
+[].forEach.call(navChapters, (chapter) => {
+  chapter.addEventListener("click", () => goToSection(chapter));
+});
 
 //function to add transform-scale CSS to title once the user has scrolled down X amount
 
@@ -212,7 +213,9 @@ let generateSlider = function (sliderTopObj) {
   function sliderPress(event) {
     event.preventDefault();
     //if slider is grabbed off center, find out how far from the slider left edge the cursor was
-    let startingSliderPos = parseInt(slider.style.left.match(/[^px]/g).join(""));
+    let startingSliderPos = parseInt(
+      slider.style.left.match(/[^px]/g).join("")
+    );
     let startingCursorPos = getCursorPos(event);
     cursorRelativeToSlider = startingCursorPos - startingSliderPos;
 
@@ -316,12 +319,11 @@ function generateGalleryUI(galleryObj) {
 
   function prevClick() {
     let oneFrame = findFrameWidth();
-    galleryObj.scrollBy({ top: 0, left: -oneFrame, behavior: 'smooth' });
-    
+    galleryObj.scrollBy({ top: 0, left: -oneFrame, behavior: "smooth" });
   }
   function nextClick() {
     let oneFrame = findFrameWidth();
-    galleryObj.scrollBy({ top: 0, left: oneFrame, behavior: 'smooth' });
+    galleryObj.scrollBy({ top: 0, left: oneFrame, behavior: "smooth" });
   }
 
   galleryObj.addEventListener("scroll", () => arrowVisible(galleryObj));
@@ -398,47 +400,61 @@ window.addEventListener("resize", function () {
     });
   }
 
-  if (document.getElementsByClassName('modalImg')[0]) {
+  if (document.getElementsByClassName("modalImg")[0]) {
     drawModalImg();
   }
 });
 
 //gallery images open into modal imgViewer
-uniqueImgs = document.getElementsByClassName('galleryFrame');
+uniqueImgs = document.getElementsByClassName("galleryFrame");
 
 function openModal(imgObj) {
   let fullSize = imgObj.cloneNode(false);
   fullSize.setAttribute("class", "modalImg");
-  let caption = document.createElement('FIGCAPTION');
+
+  let caption = document.createElement("FIGCAPTION");
   caption.innerText = imgObj.alt;
-  let modalBG = document.createElement('FIGURE');
+
+  let imgX = document.createElement("SPAN");
+  imgX.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+  <path
+    d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
+  </svg>`;
+  imgX.addEventListener("click", imgClose);
+
+  let modalBG = document.createElement("FIGURE");
   modalBG.setAttribute("class", "modalBG");
   modalBG.setAttribute("id", "imgModal");
   modalBG.append(fullSize);
   modalBG.append(caption);
+  modalBG.append(imgX);
   document.body.append(modalBG);
-  
-  drawModalImg();
 
+  drawModalImg();
 }
 
 function drawModalImg() {
-  let modalImg = document.getElementsByClassName('modalImg')[0];
-  if (widerOrTaller()=='taller') {
-    modalImg.style.width = '100vw';
-    modalImg.style.height = '';
+  let modalImg = document.getElementsByClassName("modalImg")[0];
+  if (widerOrTaller() == "taller") {
+    modalImg.style.width = "100vw";
+    modalImg.style.height = "";
   } else {
-    modalImg.style.width = 'auto';
-    modalImg.style.height = '70vh';
+    modalImg.style.width = "auto";
+    modalImg.style.height = "70vh";
   }
 }
 
 function widerOrTaller() {
   let height = window.innerHeight;
   let width = window.innerWidth;
-  return height > width ? 'taller' : 'wider';
+  return height > width ? "taller" : "wider";
 }
 
-[].forEach.call(uniqueImgs,(img)=>{
-  img.addEventListener('click',()=>openModal(img));
+function imgClose() {
+  let currentModal = document.getElementById("imgModal");
+  currentModal.remove();
+}
+
+[].forEach.call(uniqueImgs, (img) => {
+  img.addEventListener("click", () => openModal(img));
 });
