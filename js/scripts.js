@@ -346,20 +346,24 @@ function drawGallery(galleryObj) {
   });
 }
 
-//make sure an image is fully loaded so width parameter isn't 0
+//make sure not a touch screen, and that an image is fully loaded so offsetWidth parameter isn't 0px
 
-[].forEach.call(uniqueGalleries, (gall) => {
-  if (gall.firstElementChild.firstElementChild.complete) {
-    generateGalleryUI(gall);
-  } else {
-    gall.firstElementChild.firstElementChild.addEventListener(
-      "load",
-      (event) => {
-        generateGalleryUI(gall);
-      }
-    );
-  }
-});
+if (!("ontouchstart" in window)) {
+  [].forEach.call(uniqueGalleries, (gall) => {
+    if (gall.firstElementChild.firstElementChild.complete) {
+      generateGalleryUI(gall);
+    } else {
+      gall.firstElementChild.firstElementChild.addEventListener(
+        "load",
+        (event) => {
+          generateGalleryUI(gall);
+        }
+      );
+    }
+  });
+}
+
+
 
 //redraw sliders/galleries if orientation changes
 
@@ -367,9 +371,12 @@ window.addEventListener("resize", function () {
   [].forEach.call(uniqueSliders, (slider) => {
     drawSlider(slider);
   });
-  [].forEach.call(uniqueGalleries, (gall) => {
-    drawGallery(gall);
-    //check if resize has changed what part of slider is in viewport and arrow needs to be turned on/off
-    arrowVisible(gall);
-  });
+
+  if (!("ontouchstart" in window)) {
+    [].forEach.call(uniqueGalleries, (gall) => {
+      drawGallery(gall);
+      //check if resize has changed what part of gallery is in viewport and arrow needs to be turned on/off
+      arrowVisible(gall);
+    });
+  }
 });
