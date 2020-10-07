@@ -7,12 +7,12 @@ testFunc();
 let navModal = document.getElementsByClassName("navModal")[0];
 let navBar = document.getElementById("navBar");
 
-function navOpen() {
+let navOpen = function () {
   navModal.style.display = "block";
   navBar.style.left = "0";
 }
 
-function navClose() {
+let navClose = function () {
   navModal.style.display = "none";
   navBar.style.left = "-70vw";
 }
@@ -37,7 +37,7 @@ function removeFocus() {
   lightButton.innerHTML = zoomInSVG;
 }
 
-function focusBlur() {
+let focusBlur = function () {
   document.getElementsByClassName("focused").length > 0
     ? removeFocus()
     : addFocus();
@@ -197,8 +197,8 @@ let generateSlider = function (sliderTopObj) {
   function sliderPress(event) {
     event.preventDefault();
     //if slider is grabbed off center, find out how far from the slider left edge the cursor was
-    startingSliderPos = parseInt(slider.style.left.match(/[^px]/g).join(""));
-    startingCursorPos = getCursorPos(event);
+    let startingSliderPos = parseInt(slider.style.left.match(/[^px]/g).join(""));
+    let startingCursorPos = getCursorPos(event);
     cursorRelativeToSlider = startingCursorPos - startingSliderPos;
 
     window.addEventListener("mousemove", sliderDrag);
