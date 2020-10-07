@@ -155,7 +155,7 @@ html {
 }
 
 h4 {
-  font-family: 'Raleway';
+  font-family: 'Raleway', sans-serif;
   font-weight: 900;
   font-size: 5rem;
   margin-bottom: 6rem;
@@ -176,7 +176,7 @@ h4 {
 
 .navChapter {
   display: inline-block;
-  font-family: 'Raleway';
+  font-family: 'Raleway', sans-serif;
   font-size: 4rem;
   text-decoration: none;
   cursor:pointer;
@@ -264,20 +264,20 @@ header {
 }
 
 h1 {
-  font-family: 'Raleway';
+  font-family: 'Raleway', sans-serif;
   font-weight: 900;
   font-size: 8rem;
   margin-bottom: 1.75rem;
 }
 
 .titleArea p {
-  font-family: 'Merriweather';
+  font-family: 'Merriweather', serif;
   font-size: 2rem;
   margin-bottom: 6.5rem;
 }
 
 h2 {
-  font-family: 'Raleway';
+  font-family: 'Raleway', sans-serif;
   font-weight: 900;
   font-size: 1.5rem;
   margin-bottom: 2.5rem;
@@ -338,7 +338,7 @@ figure img {
 }
 
 .quote {
-  font-family: 'Raleway';
+  font-family: 'Raleway', sans-serif;
   font-weight: 900;
   font-size: 2rem;
   text-align: center;
@@ -347,7 +347,7 @@ figure img {
 }
 
 .citation {
-  font-family: 'Merriweather';
+  font-family: 'Merriweather', serif;
   text-align: center;
   line-height: 150%;
   width: 100%;
@@ -378,7 +378,7 @@ figure img {
 }
 
 .textBlock {
-  font-family: 'Merriweather';
+  font-family: 'Merriweather', serif;
   font-size: 1.4rem;
   width: 85vw;
   margin: 0 auto;
@@ -400,7 +400,7 @@ h3 {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-family: 'Raleway';
+  font-family: 'Raleway', sans-serif;
   font-weight: 900;
   font-size: 12rem;
   text-align: center;
@@ -435,7 +435,7 @@ h3 {
 }
 
 .captionBlock {
-  font-family: 'Raleway';
+  font-family: 'Raleway', sans-serif;
   font-weight: 500;
   padding: 9rem;
   font-size: 3rem;
