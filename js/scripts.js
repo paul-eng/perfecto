@@ -1,6 +1,4 @@
-import {polyfill} from './smoothscroll.js';
-polyfill();
-//forcing polyfill always on broke the gallery nav on live site
+console.log('back on mainstreet')
 
 // Navbar functions
 
