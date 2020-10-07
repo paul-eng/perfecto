@@ -315,12 +315,13 @@ function generateGalleryUI(galleryObj) {
 
   function prevClick() {
     let oneFrame = findFrameWidth();
-    galleryObj.scrollBy({ left: -oneFrame, behavior: 'smooth' });
+    galleryObj.scrollBy({ top: 0, left: -oneFrame, behavior: 'smooth' });
     
   }
   function nextClick() {
     let oneFrame = findFrameWidth();
-    galleryObj.scrollBy({ left: oneFrame, behavior: 'smooth' });
+    console.log(oneFrame);
+    galleryObj.scrollBy({ top: 0, left: oneFrame, behavior: 'smooth' });
   }
 
   galleryObj.addEventListener("scroll", () => arrowVisible(galleryObj));
