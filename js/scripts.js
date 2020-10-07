@@ -60,7 +60,7 @@ if ("ontouchstart" in window) {
   window.onclick = modalClick;
 }
 
-goToSection = function (domObj) {
+let goToSection = function (domObj) {
   let sectionName = domObj.getAttribute("name");
   let sectionElement = document.getElementById(sectionName);
   sectionElement.scrollIntoView();
