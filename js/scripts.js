@@ -1,5 +1,3 @@
-console.log('back on mainstreet')
-
 // Navbar functions
 
 let navModal = document.getElementsByClassName("navModal")[0];

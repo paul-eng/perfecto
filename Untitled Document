@@ -10,3 +10,5 @@ galleryUI button height, positoin of slider
 
 Banner intersectionobserverAPI removes event listeners when not visible
 to save resources from constantly doing window onscroll calculations
+
+magic-akari / seamless-scroll-polyfill for Safari scroll behavior instead of jQuery
