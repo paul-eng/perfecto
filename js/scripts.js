@@ -7,15 +7,19 @@ testFunc();
 let navModal = document.getElementsByClassName("navModal")[0];
 let navBar = document.getElementById("navBar");
 
-let navOpen = function () {
+function navOpen() {
   navModal.style.display = "block";
   navBar.style.left = "0";
 }
 
-let navClose = function () {
+document.getElementById('navButton').addEventListener('click',navOpen);
+
+function navClose() {
   navModal.style.display = "none";
   navBar.style.left = "-70vw";
 }
+
+document.getElementById('navClose').addEventListener('click',navClose);
 
 let lightFG = document.getElementsByClassName("lightFG")[0];
 let lightBG = document.getElementsByClassName("lightBG")[0];
@@ -37,11 +41,13 @@ function removeFocus() {
   lightButton.innerHTML = zoomInSVG;
 }
 
-let focusBlur = function () {
+function focusBlur() {
   document.getElementsByClassName("focused").length > 0
     ? removeFocus()
     : addFocus();
 }
+
+document.getElementsByClassName('lightButton')[0].addEventListener('click',focusBlur);
 
 //onclick was not working with safari, ontouchstart did
 //detecting whether navChapter was clicked w ontouchstart to trigger navClose did not work, overrode basic anchor jumpto function. Closed menu but did not move to section. added navclose to the smoothscroll function instead
