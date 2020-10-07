@@ -1,6 +1,6 @@
 import {polyfill} from './smoothscroll.js';
 polyfill();
-
+//forcing polyfill always on broke the gallery nav on live site
 
 // Navbar functions
 
@@ -319,7 +319,6 @@ function generateGalleryUI(galleryObj) {
   }
   function nextClick() {
     let oneFrame = findFrameWidth();
-    console.log(oneFrame);
     galleryObj.scrollBy({ top: 0, left: oneFrame, behavior: 'smooth' });
   }
 
@@ -367,7 +366,7 @@ function drawGallery(galleryObj) {
 
 //make sure not a touch screen, and that an image is fully loaded so offsetWidth parameter isn't 0px
 
-if (("ontouchstart" in window)) {
+if (!("ontouchstart" in window)) {
   [].forEach.call(uniqueGalleries, (gall) => {
     if (gall.firstElementChild.firstElementChild.complete) {
       generateGalleryUI(gall);
@@ -389,7 +388,7 @@ window.addEventListener("resize", function () {
     drawSlider(slider);
   });
 
-  if (("ontouchstart" in window)) {
+  if (!("ontouchstart" in window)) {
     [].forEach.call(uniqueGalleries, (gall) => {
       drawGallery(gall);
       //check if resize has changed what part of gallery is in viewport and arrow needs to be turned on/off
