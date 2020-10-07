@@ -182,17 +182,9 @@ allQuotes.forEach((quote) => quoteVanisher.observe(quote));
 let uniqueSliders = document.getElementsByClassName("sliderTop");
 
 let generateSlider = function (sliderTopObj) {
-  let width = sliderTopObj.firstElementChild.offsetWidth;
-  let height = sliderTopObj.firstElementChild.offsetHeight;
-  sliderTopObj.parentNode.style.width = width;
-  sliderTopObj.parentNode.style.height = height;
-
-  sliderTopObj.style.width = `${width / 2}px`;
+  drawSlider(sliderTopObj);
   let slider = sliderTopObj.parentNode.children[2];
-  slider.style.left = `${width / 2 - slider.offsetWidth / 2}px`;
-  slider.style.top = `${height / 2 - slider.offsetHeight / 2}px`;
-  //above is dynamically generating the wrapper and the slider based on image height after CSS is applied
-  //height + width based on the child image, because if called to redraw an already existing slider due to orientation change, the sliderTop will be half its original width
+
   slider.addEventListener("mousedown", sliderPress);
   slider.addEventListener("touchstart", sliderPress);
 
@@ -237,6 +229,7 @@ let generateSlider = function (sliderTopObj) {
   }
 
   function moveSlide(pos) {
+    let width = sliderTopObj.firstElementChild.offsetWidth;
     //pos parameter is pos of CURSOR on the image, subtractor cursorRelativeSlider to find out where left edge of SLIDER should be
     let adjustedPos = pos - cursorRelativeToSlider;
     let sliderCenter = adjustedPos + slider.offsetWidth / 2;
@@ -250,6 +243,20 @@ let generateSlider = function (sliderTopObj) {
     slider.style.left = `${sliderCenter - slider.offsetWidth / 2}px`;
   }
 };
+
+function drawSlider(sliderTopObj) {
+  let width = sliderTopObj.firstElementChild.offsetWidth;
+  let height = sliderTopObj.firstElementChild.offsetHeight;
+  sliderTopObj.parentNode.style.width = width;
+  sliderTopObj.parentNode.style.height = height;
+
+  sliderTopObj.style.width = `${width / 2}px`;
+  let slider = sliderTopObj.parentNode.children[2];
+  slider.style.left = `${width / 2 - slider.offsetWidth / 2}px`;
+  slider.style.top = `${height / 2 - slider.offsetHeight / 2}px`;
+  //above is dynamically generating the wrapper and the slider based on image height after CSS is applied
+  //height + width based on the child image height, because if redrawing an already existing slider due to orientation change, the sliderTop will be half its original width
+}
 
 //make sure gallery image is fully loaded so height/width parameters aren't 0
 
@@ -340,9 +347,7 @@ function generateGalleryUI(galleryObj) {
 
 window.addEventListener("resize", function () {
   [].forEach.call(uniqueSliders, (slider) => {
-    generateSlider(slider);
+    drawSlider(slider);
   });
-  [].forEach.call(uniqueGalleries, (gall) => {
-    generateGalleryUI(gall);
-  });
+  [].forEach.call(uniqueGalleries, (gall) => {});
 });
