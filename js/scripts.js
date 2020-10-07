@@ -367,7 +367,7 @@ function drawGallery(galleryObj) {
 
 //make sure not a touch screen, and that an image is fully loaded so offsetWidth parameter isn't 0px
 
-if (!("ontouchstart" in window)) {
+if (("ontouchstart" in window)) {
   [].forEach.call(uniqueGalleries, (gall) => {
     if (gall.firstElementChild.firstElementChild.complete) {
       generateGalleryUI(gall);
@@ -389,7 +389,7 @@ window.addEventListener("resize", function () {
     drawSlider(slider);
   });
 
-  if (!("ontouchstart" in window)) {
+  if (("ontouchstart" in window)) {
     [].forEach.call(uniqueGalleries, (gall) => {
       drawGallery(gall);
       //check if resize has changed what part of gallery is in viewport and arrow needs to be turned on/off
