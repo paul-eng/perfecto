@@ -279,24 +279,29 @@ function generateGalleryUI(galleryObj) {
     arrow.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
     <path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" /></svg>`;
     galleryObj.appendChild(arrow);
-    arrow.style.top = `${
-      galleryObj.offsetHeight / 2 - arrow.offsetHeight / 2
-    }px`;
   };
-
+  
   ["prevArrow", "nextArrow"].forEach((name) => makeArrow(name));
+  drawGallery(galleryObj);
+
   let prevArrow = galleryObj.children[1];
   let nextArrow = galleryObj.children[2];
-  let galleryFrame = galleryObj.firstElementChild.firstElementChild;
-  let framePlusMargin =
-    galleryFrame.offsetWidth +
-    parseInt(getComputedStyle(galleryFrame).marginRight);
+
+  function findFrameWidth() {
+    let galleryFrame = galleryObj.firstElementChild.firstElementChild;
+    let framePlusMargin =
+      galleryFrame.offsetWidth +
+      parseInt(getComputedStyle(galleryFrame).marginRight);
+    return framePlusMargin;
+  }
 
   function prevClick() {
-    galleryObj.scrollBy(-framePlusMargin, 0);
+    let oneFrame = findFrameWidth();
+    galleryObj.scrollBy(-oneFrame, 0);
   }
   function nextClick() {
-    galleryObj.scrollBy(framePlusMargin, 0);
+    let oneFrame = findFrameWidth();
+    galleryObj.scrollBy(oneFrame, 0);
   }
 
   function arrowVisible() {
@@ -328,6 +333,16 @@ function generateGalleryUI(galleryObj) {
   nextArrow.addEventListener("click", nextClick);
 }
 
+function drawGallery(galleryObj) {
+  let prevArrow = galleryObj.children[1];
+  let nextArrow = galleryObj.children[2];
+  [prevArrow, nextArrow].forEach((arrow)=>{
+    arrow.style.top = `${
+      galleryObj.offsetHeight / 2 - arrow.offsetHeight / 2
+    }px`;
+  });
+}
+
 //make sure an image is fully loaded so width parameter isn't 0
 
 [].forEach.call(uniqueGalleries, (gall) => {
@@ -349,5 +364,7 @@ window.addEventListener("resize", function () {
   [].forEach.call(uniqueSliders, (slider) => {
     drawSlider(slider);
   });
-  [].forEach.call(uniqueGalleries, (gall) => {});
+  [].forEach.call(uniqueGalleries, (gall) => {
+    drawGallery(gall);
+  });
 });
