@@ -408,6 +408,8 @@ window.addEventListener("resize", function () {
   if (document.getElementsByClassName("modalImg")[0]) {
     drawModalImg();
   }
+
+  drawColorWheel();
 });
 
 //gallery images open into modal imgViewer
@@ -477,11 +479,10 @@ let colorObj = {
 };
 
 let colorFG = document.getElementById("colorFG");
+let colorBG = document.getElementById("colorBG");
 
 function colorOption(attr) {
-  let count = colorObj[attr].counter;
-  let amntOptions = colorObj[attr].options.length;
-  count == amntOptions - 1
+  colorObj[attr].counter == colorObj[attr].options.length - 1
     ? (colorObj[attr].counter = 0)
     : (colorObj[attr].counter += 1);
   colorFG.style.filter = `saturate(${
@@ -497,6 +498,13 @@ document
   .addEventListener("click", () => colorOption("sat"));
 
 function drawColorWheel() {
-  if (widerOrTaller == "taller") {
+  if (widerOrTaller() == "taller") {
+    colorBG.style.width = '80vw';
+    colorBG.style.height = 'auto';
+  } else {
+    colorBG.style.width = 'auto';
+    colorBG.style.height = '85vh';
   }
 }
+
+drawColorWheel();

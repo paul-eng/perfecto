@@ -678,8 +678,8 @@ main {
 }
 
 #colorBG {
-  width: auto;
-  height: 80vh;
+  width: 0;
+  height: 0;
   border-radius: 5%;
   overflow: hidden;
 }
