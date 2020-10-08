@@ -700,6 +700,7 @@ main {
   position: absolute;
   top:0;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -707,7 +708,7 @@ main {
 
 #optionWrapper {
   height: 100%;
-  width:25%;
+  width: 25%;
   background-color: pink;
   margin-left: -12.5%;
   display: flex;
