@@ -675,7 +675,7 @@ main {
   left: 0;
   width: auto;
   height: 100%;
-  filter: saturate(50%) hue-rotate(20deg);
+  filter: saturate(110%) hue-rotate(20deg);
 }
 
 #colorBG {

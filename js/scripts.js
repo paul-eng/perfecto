@@ -474,7 +474,7 @@ let colorObj = {
   },
   sat: {
     counter: 0,
-    options: [50, 110],
+    options: [110, 50],
   },
 };
 
