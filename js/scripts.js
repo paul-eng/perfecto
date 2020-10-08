@@ -463,3 +463,24 @@ function imgClose() {
 [].forEach.call(uniqueImgs, (img) => {
   img.addEventListener("click", () => openModal(img));
 });
+
+//match(/\d+/)
+let currentHue = 0;
+let currentSat = 0;
+
+function colorHue() {
+  let colorFG = document.getElementById('colorFG');
+  currentHue += 90;
+  colorFG.style.filter = `saturate(${satOptions[currentSat]}%) hue-rotate(${currentHue}deg)`;
+}
+
+document.getElementById('colorHue').addEventListener('click',colorHue);
+
+function colorSat() {
+  let colorFG = document.getElementById('colorFG');
+  satOptions = [70, 130, 30];
+  currentSat == 2 ? currentSat = 0 : currentSat += 1;
+  colorFG.style.filter = `saturate(${satOptions[currentSat]}%) hue-rotate(${currentHue}deg)`;
+}
+
+document.getElementById('colorSat').addEventListener('click',colorSat);

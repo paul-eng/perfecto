@@ -658,30 +658,38 @@ main {
   fill: white;
 }
 
-.colorWheel {
+#colorWheel {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-color: pink;
+  align-items: center;
 }
 
-.colorWrapper {
+#colorWrapper {
   position: relative;
   display:inline-block;
-  height: 100vh;
+  height: 70vh;
 }
 
-.colorFG {
+#colorFG {
   position: absolute;
   top: 0;
   left: 0;
   width: auto;
   height: 100%;
+  transition: .5s;
 }
 
-.colorBG {
+#colorBG {
   width: auto;
   height: 100%;
+}
+
+#colorOptions {
+  width: 20rem;
+  cursor: pointer;
+  display: flex;
 }
 
 /* media queries for non-desktop */
