@@ -499,7 +499,7 @@ document
 
 function drawColorWheel() {
   if (widerOrTaller() == "taller") {
-    colorBG.style.width = '80vw';
+    colorBG.style.width = '75vw';
     colorBG.style.height = 'auto';
   } else {
     colorBG.style.width = 'auto';

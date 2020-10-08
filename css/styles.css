@@ -694,7 +694,6 @@ main {
   position: absolute;
   top:0;
   height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -702,21 +701,20 @@ main {
 
 #optionWrapper {
   height: 100%;
-  width: 100%;
-  margin-left: 10%;
+  width:20%;
+  margin-left: -10%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 #colorHue, #colorSat {
   fill: black;
-  width: 25%;
+  width: 100%;
   background-color: white;
   opacity: .7;
   border-radius: 50%;
   box-shadow: 0 .3rem .4rem 0 rgba(0,0,0,.2);
-  transition: .4s;
   cursor: pointer;
 }
 
