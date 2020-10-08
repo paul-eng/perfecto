@@ -442,7 +442,7 @@ h3 {
 
 
 .lightBox {
-  margin: 0 auto 9rem auto;
+  margin: 0 auto 7rem auto;
   position: relative;
   width: 85vw;
   max-width: 1000px;
@@ -662,6 +662,7 @@ main {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin: 2rem auto 4rem auto;
 }
 
 #colorWrapper {
