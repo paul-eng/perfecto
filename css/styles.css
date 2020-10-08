@@ -644,7 +644,7 @@ main {
 #imgModal figcaption {
   margin-top: 5vh;
   font-family: 'Raleway', sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: white;
 }
 
@@ -661,9 +661,7 @@ main {
 #colorWheel {
   width: 100%;
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
 }
 
 #colorWrapper {
@@ -674,27 +672,49 @@ main {
 
 #colorFG {
   position: absolute;
-  top: 0;
   left: 0;
   width: auto;
   height: 100%;
-  transition: .5s;
+  filter: saturate(50%) hue-rotate(20deg);
 }
 
 #colorBG {
   width: auto;
   height: 100%;
+  border-radius: 5%;
+  overflow: hidden;
 }
 
 #colorOptions {
-  width: 20rem;
-  cursor: pointer;
+  position: absolute;
+  top:0;
+  height: 100%;
+  width: 100%;
+  /* background: pink; */
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#optionWrapper {
+  /* background:blue; */
+  height: 100%;
+  width: 100%;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 #colorHue, #colorSat {
-  width: 5rem;
   fill: black;
+  width: 25%;
+  background-color: white;
+  opacity: .7;
+  border-radius: 50%;
+  box-shadow: 0 .3rem .4rem 0 rgba(0,0,0,.2);
+  transition: .4s;
+  cursor: pointer;
 }
 
 /* media queries for non-desktop */

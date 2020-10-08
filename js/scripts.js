@@ -466,21 +466,22 @@ function imgClose() {
 
 //match(/\d+/)
 let currentHue = 0;
+let hueOptions = [20,80,185,220,290,330,355];
 let currentSat = 0;
+let satOptions = [50,110];
 
 function colorHue() {
   let colorFG = document.getElementById('colorFG');
-  currentHue += 90;
-  colorFG.style.filter = `saturate(${satOptions[currentSat]}%) hue-rotate(${currentHue}deg)`;
+  currentHue == (hueOptions.length - 1) ? currentHue = 0 : currentHue += 1;
+  colorFG.style.filter = `saturate(${satOptions[currentSat]}%) hue-rotate(${hueOptions[currentHue]}deg)`;
 }
 
 document.getElementById('colorHue').addEventListener('click',colorHue);
 
 function colorSat() {
   let colorFG = document.getElementById('colorFG');
-  satOptions = [70, 130, 30];
-  currentSat == 2 ? currentSat = 0 : currentSat += 1;
-  colorFG.style.filter = `saturate(${satOptions[currentSat]}%) hue-rotate(${currentHue}deg)`;
+  currentSat == (satOptions.length - 1) ? currentSat = 0 : currentSat += 1;
+  colorFG.style.filter = `saturate(${satOptions[currentSat]}%) hue-rotate(${hueOptions[currentHue]}deg)`;
 }
 
 document.getElementById('colorSat').addEventListener('click',colorSat);
