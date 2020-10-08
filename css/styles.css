@@ -477,14 +477,17 @@ h3 {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 2rem;
-  transition: .5s;
+  margin: 3rem;
   width: 5rem;
   cursor: pointer;
-  animation: 1s strobe;
+  animation: .8s strobe;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   z-index: 101;
+  opacity: .7;
+  border-radius: 50%;
+  box-shadow: 0 .3rem .4rem 0 rgba(0,0,0,.2);
+  background-color: white;
 }
 
 @keyframes strobe {
@@ -493,7 +496,6 @@ h3 {
   }
   50% {
     transform: scale(1.2);
-    fill:red;
   }
   100% {
     transform: scale(1);
@@ -509,6 +511,7 @@ main {
   position: relative;
   margin: 0 auto;
   overflow: hidden;
+  border-radius: 5%;
 }
 
 .sliderLayer {
@@ -531,21 +534,23 @@ main {
   opacity: .3;
 }
 
+/* slider divider doesn't play nice with border radius, gets clipped
 .slider::before {
   position: absolute;
   content: '';
-  height: 200vh;
+  height: 100vh;
   width: 1%;
   background-color: black;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
   pointer-events: none;
-}
+  opacity: .2;
+} */
 
 .sliderImg {
   max-width: 85vw;
-  max-height: 120vh;
+  max-height: 85vh;
 }
 
 .noInteraction {
@@ -736,7 +741,7 @@ main {
     font-size: 2rem;
   }
 
-  #navButton, #navClose, .lightButton, #imgModal span {
+  #navButton, #navClose, #imgModal span {
     width: 3rem;
   }
 
@@ -775,7 +780,7 @@ main {
   }
 
   .sectionHeader {
-    height: 120vh;
+    height: 110vh;
   }
 
   #marlon {

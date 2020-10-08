@@ -139,7 +139,7 @@ let headersObj = document.getElementsByClassName("sectionHeader");
 let allHeaders = Object.keys(headersObj).map((header) => headersObj[header]);
 
 let colorizer = function (entries) {
-  let mostlyVisible = entries[0].intersectionRatio >= 0.5;
+  let mostlyVisible = entries[0].intersectionRatio >= 0.6;
   let childElements = entries[0].target.children;
   if (mostlyVisible) {
     childElements[0].className += " fadeIn";
@@ -151,7 +151,7 @@ let colorizer = function (entries) {
 };
 
 let headerObserver = new IntersectionObserver(colorizer, {
-  threshold: 0.5,
+  threshold: 0.6,
 });
 
 allHeaders.forEach((header) => headerObserver.observe(header));

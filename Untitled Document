@@ -14,3 +14,5 @@ to save resources from constantly doing window onscroll calculations
 magic-akari / seamless-scroll-polyfill for Safari scroll behavior instead of jQuery
 
 hover animations on image gallery only generated for nontouch devices. on touch they are triggered with double click and mess up the scrolling experience
+
+math differential for accurately dragging slider
