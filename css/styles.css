@@ -644,7 +644,7 @@ main {
 #imgModal figcaption {
   margin-top: 5vh;
   font-family: 'Raleway', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: white;
 }
 
@@ -690,6 +690,11 @@ main {
   width: 20rem;
   cursor: pointer;
   display: flex;
+}
+
+#colorHue, #colorSat {
+  width: 5rem;
+  fill: black;
 }
 
 /* media queries for non-desktop */
@@ -761,5 +766,9 @@ main {
 
   .blurred {
     filter: blur(8px);
+  }
+
+  #imgModal figcaption {
+    font-size: 1.25rem;
   }
 }
