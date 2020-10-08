@@ -667,7 +667,6 @@ main {
 #colorWrapper {
   position: relative;
   display:inline-block;
-  height: 70vh;
 }
 
 #colorFG {
@@ -680,7 +679,7 @@ main {
 
 #colorBG {
   width: auto;
-  height: 100%;
+  height: 80vh;
   border-radius: 5%;
   overflow: hidden;
 }
@@ -690,14 +689,12 @@ main {
   top:0;
   height: 100%;
   width: 100%;
-  /* background: pink; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 #optionWrapper {
-  /* background:blue; */
   height: 100%;
   width: 100%;
   margin-left: 10%;

@@ -327,9 +327,9 @@ function generateGalleryUI(galleryObj) {
   }
   //on touch devices, hover animations trigger w doubleclick and screw up scrolling
   let frames = galleryObj.firstElementChild.children;
-  [].forEach.call(frames,(frame)=>{
-    frame.className += ' nontouch';
-  })
+  [].forEach.call(frames, (frame) => {
+    frame.className += " nontouch";
+  });
 
   galleryObj.addEventListener("scroll", () => arrowVisible(galleryObj));
   prevArrow.addEventListener("click", prevClick);
@@ -464,24 +464,39 @@ function imgClose() {
   img.addEventListener("click", () => openModal(img));
 });
 
-//match(/\d+/)
-let currentHue = 0;
-let hueOptions = [20,80,185,220,290,330,355];
-let currentSat = 0;
-let satOptions = [50,110];
+//iterate through preselected hues and saturations for the colorwheel
+let colorObj = {
+  hue: {
+    counter: 0,
+    options: [20, 80, 185, 220, 290, 330, 355],
+  },
+  sat: {
+    counter: 0,
+    options: [50, 110],
+  },
+};
 
-function colorHue() {
-  let colorFG = document.getElementById('colorFG');
-  currentHue == (hueOptions.length - 1) ? currentHue = 0 : currentHue += 1;
-  colorFG.style.filter = `saturate(${satOptions[currentSat]}%) hue-rotate(${hueOptions[currentHue]}deg)`;
+let colorFG = document.getElementById("colorFG");
+
+function colorOption(attr) {
+  let count = colorObj[attr].counter;
+  let amntOptions = colorObj[attr].options.length;
+  count == amntOptions - 1
+    ? (colorObj[attr].counter = 0)
+    : (colorObj[attr].counter += 1);
+  colorFG.style.filter = `saturate(${
+    colorObj.sat.options[colorObj.sat.counter]
+  }%) hue-rotate(${colorObj.hue.options[colorObj.hue.counter]}deg)`;
 }
 
-document.getElementById('colorHue').addEventListener('click',colorHue);
+document
+  .getElementById("colorHue")
+  .addEventListener("click", () => colorOption("hue"));
+document
+  .getElementById("colorSat")
+  .addEventListener("click", () => colorOption("sat"));
 
-function colorSat() {
-  let colorFG = document.getElementById('colorFG');
-  currentSat == (satOptions.length - 1) ? currentSat = 0 : currentSat += 1;
-  colorFG.style.filter = `saturate(${satOptions[currentSat]}%) hue-rotate(${hueOptions[currentHue]}deg)`;
+function drawColorWheel() {
+  if (widerOrTaller == "taller") {
+  }
 }
-
-document.getElementById('colorSat').addEventListener('click',colorSat);
