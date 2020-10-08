@@ -568,9 +568,15 @@ main {
   overflow-x: scroll;
   overflow-y: hidden;
   scrollbar-width: none;
+  -ms-overflow-style: none;
   scroll-behavior: smooth;
   /* mozilla scroll anchoring was crashing from nav sliding */
   overflow-anchor: none;
+}
+
+.imgGallery::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }
 
 .galleryWrapper {
