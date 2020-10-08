@@ -692,6 +692,7 @@ main {
 #colorBG {
   border-radius: 5%;
   overflow: hidden;
+  /* assigning a default width thats too small screws up the hue/sat svg size on mobile */
 }
 
 #colorOptions {
@@ -725,6 +726,19 @@ main {
 
 #colorHue:active, #colorSat:active {
   opacity: .8;
+}
+
+.vidWrapper {
+  width: 100%;
+  /* background-color: pink; */
+  display: flex;
+  justify-content: center;
+}
+
+.bowieVid {
+  width: 60vw;
+  margin: 0 auto;
+  cursor: pointer;
 }
 
 /* media queries for non-desktop */

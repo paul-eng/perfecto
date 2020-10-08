@@ -470,7 +470,7 @@ function imgClose() {
 let colorObj = {
   hue: {
     counter: 0,
-    options: [20, 80, 185, 220, 290, 330, 355],
+    options: [20, 90, 185, 220, 290, 330, 355],
   },
   sat: {
     counter: 0,
