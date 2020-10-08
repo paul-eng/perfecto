@@ -437,7 +437,7 @@ h3 {
 }
 
 #ramones {
-  object-position: 36% 40%;
+  object-position: 0% 10%;
 }
 
 
@@ -772,6 +772,10 @@ main {
     font-size: 1.25rem;
     width: 50vw;
     line-height: 190%;
+  }
+
+  .sectionHeader {
+    height: 120vh;
   }
 
   #marlon {
