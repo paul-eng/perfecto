@@ -706,7 +706,7 @@ main {
 
 #optionWrapper {
   height: 100%;
-  width: 50%;
+  width: 25%;
   background-color: pink;
   /* margin-left: -12.5%; */
   display: flex;
