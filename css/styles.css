@@ -425,12 +425,36 @@ h3 {
 
 .captionBlock {
   position: relative;
+  margin: 7rem;
   font-family: 'Raleway', sans-serif;
-  padding: 7rem 9rem;
-  font-size: 3rem;
-  text-align: left;
-  line-height: 130%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid darkgray;
+}
 
+.capImg {
+  width: 30vw;
+}
+
+.captionBlock section {
+  width: 40vw;
+  /* text-align: right; */
+}
+
+.captionBlock p {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
+.captionBlock h5 {
+  font-size: 1rem;
+  margin-bottom: .5rem;
+}
+
+.captionBlock h6 {
+  font-size: 3rem;
+  font-weight: 800;
 }
 
 #haring {
