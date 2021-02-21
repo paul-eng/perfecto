@@ -295,7 +295,7 @@ figure img {
   justify-content: center;
   align-items: center;
   padding: 7rem;
-  margin: 7rem auto;
+  margin: 7rem auto 0 auto;
 }
 
 .quoteMarks {
@@ -426,7 +426,7 @@ h3 {
 .captionBlock {
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
-  padding: 9rem;
+  padding: 7rem 9rem;
   font-size: 3rem;
   text-align: center;
   line-height: 130%;
@@ -536,14 +536,14 @@ main {
 .slider {
   position: absolute;
   display: flex;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 5%;
   cursor: ew-resize;
 }
 
 .slider svg {
   width: 8rem;
-  fill: black;
+  fill: white;
   opacity: .3;
 }
 
@@ -839,6 +839,6 @@ main {
   }
 
   .quote {
-    font-size: 4rem;
+    font-size: 3.8rem;
   }
 }
