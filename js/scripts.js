@@ -7,14 +7,14 @@ let navX = document.getElementById("navClose");
 
 function navOpen() {
   navModal.style.display = "block";
-  navBar.style.left = "0";
+  navBar.style.right = "0";
 }
 
 navButton.addEventListener("click", navOpen);
 
 function navClose() {
   navModal.style.display = "none";
-  navBar.style.left = "-70vw";
+  navBar.style.right = "-70vw";
 }
 
 navX.addEventListener("click", navClose);
