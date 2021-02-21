@@ -338,7 +338,7 @@ figure img {
 .quote {
   font-family: 'Raleway', sans-serif;
   font-weight: 800;
-  font-size: 3rem;
+  font-size: 4.5rem;
   text-align: center;
   line-height: 130%;
   opacity: 0;
@@ -522,8 +522,8 @@ main {
 
 .imgSlider {
   position: relative;
-  margin: 0 auto;
-  overflow: hidden;
+  margin: 5rem auto;
+  /* overflow: hidden; */
   border-radius: 5%;
 }
 
@@ -790,10 +790,6 @@ main {
 
   .title {
     margin-top: 50vh;
-  }
-
-  .quote {
-    font-size: 2.5rem;
   }
 
   .citation {
