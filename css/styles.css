@@ -424,12 +424,13 @@ h3 {
 }
 
 .captionBlock {
+  position: relative;
   font-family: 'Raleway', sans-serif;
-  font-weight: 500;
   padding: 7rem 9rem;
   font-size: 3rem;
-  text-align: center;
+  text-align: left;
   line-height: 130%;
+
 }
 
 #haring {
@@ -442,10 +443,10 @@ h3 {
 
 
 .lightBox {
-  margin: 7rem auto 0 auto;
+  margin: 0 auto;
   position: relative;
-  width: 85vw;
-  max-width: 1000px;
+  width: 100%;
+  /* max-width: 1000px; */
 }
 
 .lightBG, .lightFG {
@@ -503,9 +504,8 @@ h3 {
 }
 
 .lightCap {
-  width: 50vw;
-  text-align: right;
-  margin: 2rem 0 0 auto;
+  text-align: center;
+  margin-top: 2rem;
   font-family: 'Raleway', sans-serif;
   font-weight: 800;
   font-size: .8rem;
@@ -816,10 +816,6 @@ main {
 
   #marlon {
     object-position: 50% 30%;
-  }
-
-  .captionBlock {
-    font-size: 2.75rem;
   }
 
   .blurred {
