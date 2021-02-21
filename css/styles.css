@@ -295,6 +295,7 @@ figure img {
   justify-content: center;
   align-items: center;
   padding: 7rem;
+  margin: 7rem auto;
 }
 
 .quoteMarks {
@@ -379,7 +380,6 @@ figure img {
   font-size: 1.4rem;
   width: 85vw;
   margin: 0 auto;
-  padding: 3rem;
   text-align: left;
   line-height: 200%;
 }
@@ -442,7 +442,7 @@ h3 {
 
 
 .lightBox {
-  margin: 0 auto 7rem auto;
+  margin: 7rem auto 0 auto;
   position: relative;
   width: 85vw;
   max-width: 1000px;
@@ -480,7 +480,7 @@ h3 {
   margin: 3rem;
   width: 5rem;
   cursor: pointer;
-  animation: .8s strobe;
+  animation: 1.5s strobe;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   z-index: 101;
@@ -500,6 +500,19 @@ h3 {
   100% {
     transform: scale(1);
   }
+}
+
+.lightCap {
+  width: 50vw;
+  text-align: right;
+  margin: 2rem 0 0 auto;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: .8rem;
+}
+
+gfontItal {
+  font-style: italic;
 }
 
 main {
@@ -822,7 +835,7 @@ main {
   }
 
   .blockQuote {
-    padding: 5rem 11rem;
+    padding: 7rem 11rem;
   }
 
   .quoteMarks {
