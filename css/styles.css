@@ -303,7 +303,7 @@ figure img {
   flex-direction: column;
   justify-content: space-between;
   width: 90%;
-  height: 90%;
+  height: 100%;
 }
 
 .leftQuote, .rightQuote {
@@ -336,8 +336,8 @@ figure img {
 
 .quote {
   font-family: 'Raleway', sans-serif;
-  font-weight: 900;
-  font-size: 2rem;
+  font-weight: 800;
+  font-size: 3rem;
   text-align: center;
   line-height: 130%;
   opacity: 0;
@@ -455,7 +455,7 @@ h3 {
 
 .lightBG {
   opacity: 1;
-  border-radius: 5%;
+  /* border-radius: 5%; */
 }
 
 .lightFG {
@@ -534,12 +534,13 @@ main {
   opacity: .3;
 }
 
-/* slider divider doesn't play nice with border radius, gets clipped
-.slider::before {
+/* slider divider doesn't play nice with imgSlider border radius, gets clipped */
+
+/* .slider::before {
   position: absolute;
   content: '';
   height: 100vh;
-  width: 1%;
+  width: 1px;
   background-color: black;
   left: 50%;
   top: 50%;
@@ -818,5 +819,17 @@ main {
 
   #imgModal figcaption {
     font-size: 1.25rem;
+  }
+
+  .blockQuote {
+    padding: 5rem 11rem;
+  }
+
+  .quoteMarks {
+    width: 75%;
+  }
+
+  .quote {
+    font-size: 4rem;
   }
 }
