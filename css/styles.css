@@ -136,11 +136,12 @@ html {
   cursor: pointer;
   z-index: 10;
   transition: .2s;
+  background-color: white;
+  border:.4rem solid black;
 }
 
 #navButton:hover {
   transform: scale(1.2);
-  fill: gray;
 }
 
 #navBar {
@@ -430,7 +431,6 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid darkgray;
 }
 
 .capImg {
@@ -802,6 +802,7 @@ main {
 
   #navButton, #navClose, #imgModal span {
     width: 3rem;
+    border:.25rem solid black;
   }
 
   #navClose, #imgModal span {
