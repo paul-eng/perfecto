@@ -270,7 +270,6 @@ h1 {
 }
 
 .titleArea p {
-  font-family: 'Merriweather', serif;
   font-size: 2rem;
   margin-bottom: 6.5rem;
 }
@@ -348,7 +347,6 @@ figure img {
 }
 
 .citation {
-  font-family: 'Merriweather', serif;
   text-align: center;
   line-height: 150%;
   width: 100%;
@@ -379,16 +377,22 @@ figure img {
 }
 
 .textBlock {
-  font-family: 'Merriweather', serif;
   font-size: 1.4rem;
-  text-align: left;
   line-height: 200%;
 }
 
+.textBlock h6 {
+  line-height: 110%;
+}
+
+.textBlock p {
+  margin-top: 2rem;
+  color: dimgray
+}
+
 .sectionHeader {
-  position: relative;;
+  position: relative;
   height: 100vh;
-  margin: 5rem 0 0 0;
   overflow: hidden;
 }
 
@@ -426,14 +430,13 @@ h3 {
 
 .captionBlock {
   position: relative;
-  font-family: 'Raleway', sans-serif;
   display: flex;
   flex-direction: column;
   padding: 6rem;
 }
 
 .capImg {
-  width: 70vw;
+  /* width: 70vw; */
   align-self: flex-end;
 }
 
@@ -446,18 +449,28 @@ h3 {
   margin-top: 2rem;
   font-size: 1.25rem;
   color: dimgray;
+  line-height: 150%;
 }
 
-.captionBlock h5 {
+h5, h6 {
+  font-family: 'Raleway', sans-serif;
+}
+
+h6 {
   font-size: 1rem;
   font-weight: 800;
   margin-bottom: .5rem;
   color: sienna;
 }
 
-.captionBlock h6 {
+h5 {
   font-size: 3rem;
   font-weight: 800;
+}
+
+#patti {
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
 #haring {
@@ -470,35 +483,26 @@ h3 {
 
 
 .lightBox {
-  margin: 6rem;
   position: relative;
-  width: auto;
   display: flex;
+  flex-direction: column;
 }
 
 .lightBG, .lightFG {
   transition: .5s;
-  width: 80%;
+  /* width: 85%; */
 }
 
 .lightBG {
   opacity: 1;
-  /* For some reason min width is needed in addition to the width above, otherwise .lightCap squishes .lightBG down */
-  min-width: 80%;
+  /* For some reason when lightBG and lightCap flexed horizontally, min width is needed in addition to the width above, otherwise width of lightCap seems to override */
+  /* min-width: 85%; */
 }
 
 .lightFG {
   position: absolute;
   left: 0;
   z-index: 100;
-}
-
-.lightCap {
-  font-family: 'Raleway', sans-serif;
-  color: dimgray;
-  font-size: 1.4rem;
-  padding-left: 2rem;
-  /* align-self: flex-end; */
 }
 
 .focused{
@@ -540,17 +544,20 @@ h3 {
   }
 }
 
+.lightCap {
+  align-self: center;
+  margin-top: 1rem;
+  font-size: .9rem;
+}
+
 .lightCap p {
-  color: black;
+  font-family: 'Raleway', sans-serif;
   font-weight: 800;
-  font-size: 2rem;
-  margin-bottom: 2rem;
 }
 
 .lightCap details {
   margin-top: 1rem;
-  font-family: 'Merriweather', serif;
-  font-size: .8rem;
+  position: absolute;
   color: sienna;
 }
 
@@ -567,6 +574,7 @@ gfontItal {
 }
 
 main {
+  font-family: 'Merriweather', serif;
   /*to prevent horizontal scroll when lightbox image expands */
   overflow-x: hidden;
 }
@@ -576,12 +584,14 @@ main {
   width: 100%;
   margin: 6rem 0;
   align-items: center;
+  /* Use justify if textBlock given finite width */
+  justify-content: center;
 }
 
 .slideFeature .textBlock {
   flex: 1;
   padding-left: 6rem;
-  text-align: center;
+  /* text-align: right; */
 }
 
 .imgSlider {
