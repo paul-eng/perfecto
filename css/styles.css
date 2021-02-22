@@ -381,7 +381,6 @@ figure img {
 .textBlock {
   font-family: 'Merriweather', serif;
   font-size: 1.4rem;
-  padding: 0 25vw;
   text-align: left;
   line-height: 200%;
 }
@@ -497,7 +496,7 @@ h3 {
 .lightCap {
   font-family: 'Raleway', sans-serif;
   color: dimgray;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   padding-left: 2rem;
   /* align-self: flex-end; */
 }
@@ -544,6 +543,7 @@ h3 {
 .lightCap p {
   color: black;
   font-weight: 800;
+  font-size: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -551,6 +551,11 @@ h3 {
   margin-top: 1rem;
   font-family: 'Merriweather', serif;
   font-size: .8rem;
+  color: sienna;
+}
+
+.lightCap summary:hover {
+  cursor: pointer;
 }
 
 .lightCap div {
@@ -566,9 +571,22 @@ main {
   overflow-x: hidden;
 }
 
+.slideFeature {
+  display: flex;
+  width: 100%;
+  margin: 6rem 0;
+  align-items: center;
+}
+
+.slideFeature .textBlock {
+  flex: 1;
+  padding-left: 6rem;
+  text-align: center;
+}
+
 .imgSlider {
   position: relative;
-  margin: 3rem auto;
+  /* margin: 3rem auto; */
   /* overflow: hidden; */
   /* border-radius: 5%; */
 }
