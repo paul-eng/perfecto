@@ -297,7 +297,7 @@ figure img {
   align-items: center;
   padding: 7rem;
   margin: 0 auto;
-  background-color: rgb(240,240,240);
+  /* background-color: rgb(240,240,240); */
 }
 
 .quoteMarks {
@@ -404,7 +404,8 @@ h3 {
   color: white;
   font-family: 'Raleway', sans-serif;
   font-weight: 900;
-  font-size: 12rem;
+  font-size: 8rem;
+  white-space: nowrap;
   text-align: center;
   text-shadow: 0 0 1rem rgba(0, 0, 0, .1);
   opacity: 0;
@@ -436,13 +437,12 @@ h3 {
 }
 
 .capImg {
-  /* width: 70vw; */
   align-self: flex-end;
+  width: 75vw;
 }
 
 .captionBlock section {
   width: 50vw;
-  /* text-align: right; */
 }
 
 .captionBlock p {
@@ -469,8 +469,13 @@ h5 {
 }
 
 #patti {
-  flex-direction: row-reverse;
+  display: flex;
+  flex-direction: row;
   align-items: center;
+}
+
+.infinityBG {
+  padding: 6rem;
 }
 
 #haring {
@@ -817,15 +822,13 @@ main {
 }
 
 .vidWrapper {
-  width: 100%;
-  /* background-color: pink; */
   display: flex;
   justify-content: center;
 }
 
 .bowieVid {
-  width: 60vw;
-  margin: 0 auto;
+  width: 100%;
+  margin: 6rem;
   cursor: pointer;
 }
 
@@ -901,7 +904,7 @@ main {
   }
 
   .blockQuote {
-    padding: 7rem 11rem;
+    padding: 3rem 11rem 7rem 11rem;
   }
 
   .quote {
