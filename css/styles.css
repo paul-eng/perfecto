@@ -298,7 +298,7 @@ figure img {
   align-items: center;
   padding: 7rem;
   margin: 0 auto;
-  background-color: lightgray;
+  background-color: rgb(240,240,240);
 }
 
 .quoteMarks {
@@ -381,8 +381,7 @@ figure img {
 .textBlock {
   font-family: 'Merriweather', serif;
   font-size: 1.4rem;
-  width: 85vw;
-  margin: 0 auto;
+  padding: 0 25vw;
   text-align: left;
   line-height: 200%;
 }
@@ -431,12 +430,12 @@ h3 {
   font-family: 'Raleway', sans-serif;
   display: flex;
   flex-direction: column;
-  margin: 6rem;
+  padding: 6rem;
 }
 
 .capImg {
   width: 70vw;
-  align-self: end;
+  align-self: flex-end;
 }
 
 .captionBlock section {
@@ -472,27 +471,35 @@ h3 {
 
 
 .lightBox {
-  margin: 5rem;
+  margin: 6rem;
   position: relative;
-  width: 100%;
+  width: auto;
   display: flex;
-  /* max-width: 1000px; */
 }
 
 .lightBG, .lightFG {
-  width: 80%;
   transition: .5s;
+  width: 80%;
 }
 
 .lightBG {
   opacity: 1;
-  /* border-radius: 5%; */
+  /* For some reason min width is needed in addition to the width above, otherwise .lightCap squishes .lightBG down */
+  min-width: 80%;
 }
 
 .lightFG {
   position: absolute;
   left: 0;
   z-index: 100;
+}
+
+.lightCap {
+  font-family: 'Raleway', sans-serif;
+  color: dimgray;
+  font-size: 1.3rem;
+  padding-left: 2rem;
+  /* align-self: flex-end; */
 }
 
 .focused{
@@ -508,17 +515,17 @@ h3 {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 3rem;
-  width: 5rem;
+  margin: 2rem;
+  width: 4rem;
   cursor: pointer;
   animation: 3s strobe;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   z-index: 101;
-  /* opacity: .9; */
-  border-radius: 10%;
+  /* opacity: .6; */
+  border-radius: 8%;
   box-shadow: .1rem .2rem .4rem 0 rgba(0,0,0,.2);
-  background-color:gray;
+  background-color:sienna;
   fill: white;
 }
 
@@ -534,13 +541,20 @@ h3 {
   }
 }
 
-.lightCap {
-  text-align: center;
-  width:10%;
-  margin-top: 2rem;
-  font-family: 'Raleway', sans-serif;
+.lightCap p {
+  color: black;
   font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+.lightCap details {
+  margin-top: 1rem;
+  font-family: 'Merriweather', serif;
   font-size: .8rem;
+}
+
+.lightCap div {
+  margin-top: 1rem;
 }
 
 gfontItal {
@@ -554,9 +568,9 @@ main {
 
 .imgSlider {
   position: relative;
-  margin: 5rem auto;
+  margin: 3rem auto;
   /* overflow: hidden; */
-  border-radius: 5%;
+  /* border-radius: 5%; */
 }
 
 .sliderLayer {
@@ -839,7 +853,6 @@ main {
 
   .textBlock {
     font-size: 1.25rem;
-    width: 50vw;
     line-height: 190%;
   }
 
