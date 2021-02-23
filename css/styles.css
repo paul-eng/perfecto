@@ -146,6 +146,7 @@ html {
 }
 
 #navBar {
+  font-family: 'Raleway', sans-serif;
   width: 70vw;
   height: 100vh;
   position: fixed;
@@ -158,7 +159,6 @@ html {
 }
 
 h4 {
-  font-family: 'Raleway', sans-serif;
   font-weight: 900;
   font-size: 5rem;
   margin-bottom: 6rem;
@@ -173,6 +173,10 @@ h4 {
   margin-bottom: 3rem;
 }
 
+#navBar li:last-of-type {
+  margin-bottom: 0;
+}
+
 #navBar li:hover {
   color: gray; 
 }
@@ -185,6 +189,41 @@ h4 {
   cursor:pointer;
 }
 
+/* css reset for anchor tags */
+a, a:link, a:visited, a:active, a:link:active, a:visited:active {
+  color: inherit;
+  text-decoration: none;
+  outline: 0;
+  border: none;
+}
+
+.navShare {
+  border-top: 1px solid hsla(0,0%,100%,.5);
+  border-bottom: 1px solid hsla(0,0%,100%,.5);
+  padding: 3rem;
+  font-size: 1rem;
+}
+
+.navShare a {
+  margin-right: 1.5rem;
+  cursor: pointer;
+}
+
+.navShare svg {
+  fill: white;
+  transition: .2s;
+}
+
+.navShare svg:hover {
+  transform: scale(1.1);
+}
+
+.navShare div {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
 #navClose {
   position: absolute;
   right: 0;
@@ -192,7 +231,7 @@ h4 {
   width: 5rem;
   cursor: pointer;
   fill: white;
-  transition: .2s;
+  /* transition: .2s; */
 }
 
 .navModal {
@@ -205,9 +244,9 @@ h4 {
   z-index: 999;
 }
 
-#navClose:hover {
+/* #navClose:hover {
   fill: gray;
-}
+} */
 
 h1, h2, h3, h4, .title p {
   cursor: default;
@@ -510,12 +549,18 @@ h3 {
   height: 20vh;
   border-radius: 10%;
   margin-right: 2rem;
+  transition: .5s;
 }
 
 .icons span {
   display: flex;
   align-items: center;
   margin-bottom: 4rem;
+  transition: .5s;
+}
+
+.icons span:hover > img {
+  opacity: .7;
 }
 
 /* .icons span:last-of-type {
@@ -637,13 +682,13 @@ main {
 
 .slideFeature .textBlock {
   flex: 1;
-  padding-left: 6rem;
+  padding: 0 1rem 0 6rem;
   /* text-align: right; */
 }
 
 .imgSlider {
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .sliderLayer {
@@ -717,7 +762,8 @@ main {
   display: inline-flex;
   /* align items prevents distorted image aspect ratio on safari */
   align-items: flex-start;
-  padding: 0 6rem 6rem 6rem;
+  /* if top padding is set too low (<1rem), the top of the galleryFrame gets clipped when it gets zoomed in on mouse hover */
+  padding: 1rem 6rem 6rem 6rem;
 }
 
 
@@ -730,7 +776,7 @@ main {
 }
 
 .galleryFrame:last-child {
-  margin-right: 0vw;
+  margin-right: 0;
 }
 
 .nontouch:hover {
@@ -890,12 +936,15 @@ main {
   }
 
   .navChapter {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   #navButton, #navClose, #imgModal span {
     width: 3rem;
-    border:.25rem solid black;
+  }
+
+  #navButton {
+    border: .25rem solid black;
   }
 
   #navClose, #imgModal span {
