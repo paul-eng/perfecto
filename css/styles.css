@@ -468,15 +468,16 @@ h5 {
   font-weight: 800;
 }
 
-#patti {
+.parallax {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  height: 2000px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 6rem;
 }
 
 .parallaxBG {
-  /* padding: 6rem; */
+  height: 100vh;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -486,6 +487,12 @@ h5 {
   height: 15vh;
   border-radius: 10%;
   margin-bottom: 1rem;
+}
+
+.icons span {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 #ramones {
