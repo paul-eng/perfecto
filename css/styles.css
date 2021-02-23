@@ -396,18 +396,18 @@ figure img {
   overflow: hidden;
 }
 
-h3 {
+.sectionTitle {
   position: absolute;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
   font-family: 'Raleway', sans-serif;
-  font-weight: 900;
-  font-size: 6rem;
-  white-space: nowrap;
-  text-align: center;
-  text-shadow: 0 0 1rem rgba(0, 0, 0, .1);
+  font-weight: 800;
+  font-size: 2.5rem;
+  /* white-space: nowrap; */
+  /* text-align: center; */
+  text-shadow: 0 0 1rem rgba(0, 0, 0, .7);
   opacity: 0;
   z-index: 1;
   transition: 1s;
@@ -472,7 +472,7 @@ h5 {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 6rem;
 }
 
@@ -483,17 +483,44 @@ h5 {
   top: 0;
 }
 
+.icons {
+  display: flex;
+  flex-direction: column;
+  /* Needs min width set in order for its' children's overflow settings to respect its width */
+  min-width: 0;
+}
+
+.parallaxText {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  margin-bottom: 8rem;
+}
+
+h3 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 10vmax;
+  color: sienna;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
 .icons img {
-  height: 15vh;
+  height: 20vh;
   border-radius: 10%;
-  margin-bottom: 1rem;
+  margin-right: 2rem;
 }
 
 .icons span {
   display: flex;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
+
+/* .icons span:last-of-type {
+  margin-bottom: 0;
+} */
 
 #ramones {
   object-position: 0% 15%;
