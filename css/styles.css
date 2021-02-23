@@ -436,14 +436,16 @@ figure img {
 }
 
 .sectionTitle {
+  width: 80%;
   position: absolute;
   top: 30%;
   left: 50%;
+  line-height: 125%;
   transform: translate(-50%, -50%);
   color: white;
   font-family: 'Raleway', sans-serif;
   font-weight: 800;
-  font-size: 2.5rem;
+  font-size: 4rem;
   /* white-space: nowrap; */
   /* text-align: center; */
   text-shadow: 0 0 1rem rgba(0, 0, 0, .7);
@@ -537,10 +539,12 @@ h5 {
 }
 
 h3 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'raleway', serif;
   font-weight: 800;
   font-size: 10vmax;
+  line-height: 120%;
   color: sienna;
+  text-align: right;
   overflow: hidden;
   word-wrap: break-word;
 }
@@ -580,10 +584,12 @@ h3 {
 
 .lightBG, .lightFG {
   transition: .5s;
-  /* width: 85%; */
 }
 
 .lightBG {
+  /* box-sizing: border-box; */
+  /* padding: 0 6rem; */
+  width: 100%;
   opacity: 1;
   /* For some reason when lightBG and lightCap placed side by side in a flex row, min width is needed in addition to the width above, otherwise width of lightCap seems to override */
   /* min-width: 85%; */
@@ -591,11 +597,13 @@ h3 {
 
 /* this container element for lightFG exists so you can apply overflow: hidden and prevent horizontal scroll of main page when image is zoomed */
 .lightBox section {
-  width: 100%;
   position: absolute;
-  left: 0;
   z-index: 100;
   overflow: hidden;
+  /* this stuff centers an absolute element */
+  left: 0;
+  right: 0;
+  /* margin: 0 6rem; */
 }
 
 .focused{
@@ -762,8 +770,10 @@ main {
   display: inline-flex;
   /* align items prevents distorted image aspect ratio on safari */
   align-items: flex-start;
-  /* if top padding is set too low (<1rem), the top of the galleryFrame gets clipped when it gets zoomed in on mouse hover */
-  padding: 1rem 6rem 6rem 6rem;
+  /* if padding is set too low (<1rem), the top of the galleryFrame gets clipped when it gets zoomed in on mouse hover */
+  /* if top and bottom padding are not the same it will effect vertical centering of forward/back arrows */
+  padding: 1rem 6rem;
+  margin: 0 0 5rem 0;
 }
 
 
