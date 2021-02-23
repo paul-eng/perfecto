@@ -404,7 +404,7 @@ h3 {
   color: white;
   font-family: 'Raleway', sans-serif;
   font-weight: 900;
-  font-size: 8rem;
+  font-size: 6rem;
   white-space: nowrap;
   text-align: center;
   text-shadow: 0 0 1rem rgba(0, 0, 0, .1);
@@ -472,18 +472,24 @@ h5 {
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 2000px;
 }
 
-.infinityBG {
-  padding: 6rem;
+.parallaxBG {
+  /* padding: 6rem; */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
-#haring {
-  object-position: 65% 50%;
+.icons img {
+  height: 15vh;
+  border-radius: 10%;
+  margin-bottom: 1rem;
 }
 
 #ramones {
-  object-position: 0% 10%;
+  object-position: 0% 15%;
 }
 
 
@@ -500,14 +506,17 @@ h5 {
 
 .lightBG {
   opacity: 1;
-  /* For some reason when lightBG and lightCap flexed horizontally, min width is needed in addition to the width above, otherwise width of lightCap seems to override */
+  /* For some reason when lightBG and lightCap placed side by side in a flex row, min width is needed in addition to the width above, otherwise width of lightCap seems to override */
   /* min-width: 85%; */
 }
 
-.lightFG {
+/* this container element for lightFG exists so you can apply overflow: hidden and prevent horizontal scroll of main page when image is zoomed */
+.lightBox section {
+  width: 100%;
   position: absolute;
   left: 0;
   z-index: 100;
+  overflow: hidden;
 }
 
 .focused{
@@ -580,14 +589,13 @@ gfontItal {
 
 main {
   font-family: 'Merriweather', serif;
-  /*to prevent horizontal scroll when lightbox image expands */
-  overflow-x: hidden;
 }
 
 .slideFeature {
   display: flex;
+  /* flex-direction: column; */
   width: 100%;
-  margin: 6rem 0;
+  padding: 6rem 0 1rem 0;
   align-items: center;
   /* Use justify if textBlock given finite width */
   justify-content: center;
@@ -601,9 +609,7 @@ main {
 
 .imgSlider {
   position: relative;
-  /* margin: 3rem auto; */
   /* overflow: hidden; */
-  /* border-radius: 5%; */
 }
 
 .sliderLayer {
@@ -677,7 +683,7 @@ main {
   display: inline-flex;
   /* align items prevents distorted image aspect ratio on safari */
   align-items: flex-start;
-  padding: 7vw;
+  padding: 0 6rem 6rem 6rem;
 }
 
 
@@ -889,10 +895,6 @@ main {
 
   .sectionHeader {
     height: 110vh;
-  }
-
-  #marlon {
-    object-position: 50% 30%;
   }
 
   .blurred {
