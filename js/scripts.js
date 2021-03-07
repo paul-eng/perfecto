@@ -392,17 +392,23 @@ if (!("ontouchstart" in window)) {
 
 //redraw sliders/galleries if orientation changes
 
+function redrawGall() {
+    [].forEach.call(uniqueGalleries, (gall) => {
+      drawGallery(gall);
+      //check if resize has changed what part of gallery is in viewport and whether arrow should be visible
+      arrowVisible(gall);
+    });
+    console.log('gogogo');
+}
+
 window.addEventListener("resize", function () {
   [].forEach.call(uniqueSliders, (slider) => {
     drawSlider(slider);
   });
 
   if (!("ontouchstart" in window)) {
-    [].forEach.call(uniqueGalleries, (gall) => {
-      drawGallery(gall);
-      //check if resize has changed what part of gallery is in viewport and arrow needs to be turned on/off
-      arrowVisible(gall);
-    });
+    // delay to make sure images are done resizing, otherwise very fast resizing can throw off drawGallery setting arrow distance from top of container
+    setTimeout(redrawGall, 500);
   }
 
   if (document.getElementsByClassName("modalImg")[0]) {
