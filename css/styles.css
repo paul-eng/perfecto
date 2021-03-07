@@ -805,6 +805,7 @@ main {
   box-shadow: 0 .3rem .4rem 0 rgba(0,0,0,.2);
   transition: .4s;
   cursor: pointer;
+
 }
 
 .prevArrow:hover, .nextArrow:hover {
@@ -918,14 +919,22 @@ main {
 
 .vidWrapper {
   display: flex;
-  justify-content: center;
+  position: relative;
+  padding: 6rem;
+  margin: 0 auto;
+  width: 50%;
+
 }
 
-.bowieVid {
+.videoControls {
+  position: absolute;
+  background-color: pink;
+  height: 100%;
   width: 100%;
-  margin: 6rem;
   cursor: pointer;
+  opacity: 0;
 }
+
 
 /* media queries for non-desktop */
 

@@ -514,3 +514,22 @@ function drawColorWheel() {
 }
 
 drawColorWheel();
+
+let videos = document.querySelectorAll(".vidWrapper");
+
+function generateVideoControls(video) {
+  let controls = video.children[0];
+  let content = video.children[1];
+  controls.addEventListener("click", ()=>togglePlay(content));
+}
+
+
+function togglePlay(content) {
+  if (content.paused || content.ended) {
+    content.play();
+  } else {
+    content.pause();
+  };
+}
+
+[].forEach.call(videos, (video)=>generateVideoControls(video));
