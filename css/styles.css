@@ -939,12 +939,37 @@ main {
 }
 
 .vidWrapper {
-  margin: 6rem;
+  margin: 0;
   position: relative;
 }
 
 .videoControls {
-  visibility: hidden;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.playButton {
+  padding: 3.5vw;
+  width: 5rem;
+  background-color: white;
+  opacity: .7;
+  border-radius: 15%;
+  box-shadow: 0 .3rem .4rem 0 rgba(0,0,0,.2);
+  transition: .4s;
+}
+
+.hidden {
+  opacity: 0%;
+}
+
+.playButton:hover {
+  transform: scale(1.2);
 }
 
 .video {
@@ -1075,5 +1100,9 @@ main {
   h6 {
     font-size: 1rem;
     text-align: left;
+  }
+
+  .vidWrapper {
+    margin: 6rem;
   }
 }

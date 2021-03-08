@@ -519,17 +519,22 @@ let videos = document.querySelectorAll(".vidWrapper");
 
 function generateVideoControls(video) {
   let controls = video.children[0];
-  let content = video.children[1];
-  controls.addEventListener("click", ()=>togglePlay(content));
+  
+  controls.addEventListener("click", ()=>togglePlay(video));
 }
 
 
-function togglePlay(content) {
+function togglePlay(video) {
+
+  let content = video.children[1];
+
   if (content.paused || content.ended) {
     content.play();
   } else {
     content.pause();
   };
+  console.log(video.children[0].children[0]);
+  video.children[0].children[0].classList.toggle('hidden');
 }
 
 [].forEach.call(videos, (video)=>generateVideoControls(video));
