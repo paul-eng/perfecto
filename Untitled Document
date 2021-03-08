@@ -16,3 +16,5 @@ magic-akari / seamless-scroll-polyfill for Safari scroll behavior instead of jQu
 hover animations on image gallery only generated for nontouch devices. on touch they are triggered with double click and mess up the scrolling experience
 
 math differential for accurately dragging slider
+
+wanted sticky effect element under another element, background position fixed wasnt quit the same. layer without using absolute positioning by using a negative margin, the height of the under layer, on the top layer which exists in a column below
