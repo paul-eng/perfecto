@@ -502,6 +502,7 @@ h6 {
   font-weight: 800;
   margin-bottom: .5rem;
   color: sienna;
+  text-align: center;
 }
 
 h5 {
@@ -537,7 +538,7 @@ h5 {
   flex-direction: column;
   /* Needs min width set in order for its' children's overflow settings to respect its width */
   min-width: 0;
-  background: linear-gradient( rgba(255, 166, 0, 0), rgba(255, 255, 0, 0.7) 10%, rgba(255, 255, 0, 0.7) 90%, rgba(0, 0, 255, 0) 100%);
+  background: linear-gradient( rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7) 12%, rgba(255, 255, 255, 0.7) 95%, rgba(0, 0, 255, 0) 100%);
   width: 100%;
 }
 
@@ -545,7 +546,6 @@ h5 {
   display: flex;
   align-items: center;
   height: 100vh;
-  margin-bottom: 8rem;
 }
 
 h3 {
@@ -584,9 +584,13 @@ h3 {
   align-items: center;
 }
 
-/* .icons span:last-of-type {
-  margin-bottom: 0;
-} */
+.icons span:first-of-type {
+  margin-top: 30vh;
+}
+
+.icons span:last-of-type {
+  margin-bottom: 30vh;
+}
 
 #ramones {
   object-position: 0% 15%;
@@ -1037,6 +1041,10 @@ main {
     margin-top: 0;
   }
 
+  .icons {
+    width: auto;
+  }
+
   .icons img {
     height: 20vh;
     width: auto;
@@ -1066,5 +1074,6 @@ main {
 
   h6 {
     font-size: 1rem;
+    text-align: left;
   }
 }
