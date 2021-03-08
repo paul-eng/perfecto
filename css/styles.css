@@ -560,6 +560,7 @@ h3 {
 
 .icons span {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 4rem;
   transition: .5s;
@@ -567,6 +568,12 @@ h3 {
 
 .icons span:hover > img {
   opacity: .7;
+}
+
+.icons span div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* .icons span:last-of-type {
@@ -1021,6 +1028,14 @@ main {
   .icons {
     margin-top: 0;
   }
+
+  .icons span {
+    flex-direction: row;
+  }
+
+  .icons span div {
+    display: block;
+  }  
 
   h3 {
     text-align: right;
