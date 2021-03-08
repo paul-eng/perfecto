@@ -135,7 +135,7 @@ html {
   margin: 2rem;
   width: 5rem;
   cursor: pointer;
-  z-index: 10;
+  z-index: 100;
   transition: .2s;
   background-color: white;
   border:.4rem solid black;
@@ -511,9 +511,8 @@ h5 {
 
 .parallax {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
   padding: 6rem;
 }
 
@@ -522,13 +521,16 @@ h5 {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  opacity: .3;
 }
 
 .icons {
+  z-index: 10;
   display: flex;
   flex-direction: column;
   /* Needs min width set in order for its' children's overflow settings to respect its width */
   min-width: 0;
+  margin-top: -100vh;
 }
 
 .parallaxText {
@@ -544,7 +546,7 @@ h3 {
   font-size: 10vmax;
   line-height: 120%;
   color: sienna;
-  text-align: right;
+  text-align: center;
   overflow: hidden;
   word-wrap: break-word;
 }
@@ -598,7 +600,7 @@ h3 {
 /* this container element for lightFG exists so you can apply overflow: hidden and prevent horizontal scroll of main page when image is zoomed */
 .lightBox section {
   position: absolute;
-  z-index: 100;
+  z-index: 10;
   overflow: hidden;
   /* this stuff centers an absolute element */
   left: 0;
@@ -918,23 +920,17 @@ main {
 }
 
 .vidWrapper {
-  display: flex;
+  margin: 6rem;
   position: relative;
-  padding: 6rem;
-  margin: 0 auto;
-  width: 50%;
-
 }
 
 .videoControls {
-  position: absolute;
-  background-color: pink;
-  height: 100%;
-  width: 100%;
-  cursor: pointer;
-  opacity: 0;
+  visibility: hidden;
 }
 
+.video {
+  width: 100%;
+}
 
 /* media queries for non-desktop */
 
@@ -1013,4 +1009,28 @@ main {
   .quote {
     font-size: 3.8rem;
   }
+
+  /* .parallaxText {
+    height: 100vh;
+  }
+
+  .parallaxBG {
+    opacity: 1;
+  }
+
+  .icons {
+    margin-top: 0;
+  }
+
+  h3 {
+    text-align: right;
+  }
+
+  .parallax {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding: 6rem;
+  } */
 }
