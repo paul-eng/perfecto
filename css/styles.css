@@ -639,19 +639,28 @@ h3 {
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  /* margin bottom hacky solution in coordination w the padding bottom in .lightCap, to avoid lightCap getting clipped by overflow hidden */
+  margin-bottom: -5rem;
+}
+
+.lightBG {
+  opacity: 1;
 }
 
 .lightBG, .lightFG {
   transition: .5s;
 }
 
-.lightBG {
-  /* box-sizing: border-box; */
-  /* padding: 0 6rem; */
-  width: 100%;
-  opacity: 1;
-  /* For some reason when lightBG and lightCap placed side by side in a flex row, min width is needed in addition to the width above, otherwise width of lightCap seems to override */
-  /* min-width: 85%; */
+.lightBG, .lightBox section {
+  width: auto;
+  height: 100vh;
+}
+
+.lightFG {
+  width: auto;
+  height: 100vh;
 }
 
 /* this container element for lightFG exists so you can apply overflow: hidden and prevent horizontal scroll of main page when image is zoomed */
@@ -659,10 +668,6 @@ h3 {
   position: absolute;
   z-index: 10;
   overflow: hidden;
-  /* this stuff centers an absolute element */
-  left: 0;
-  right: 0;
-  /* margin: 0 6rem; */
 }
 
 .focused{
@@ -705,9 +710,10 @@ h3 {
 }
 
 .lightCap {
-  align-self: center;
   margin-top: 1rem;
   font-size: .9rem;
+  /* padding bottom hacky solution in coordination w the margin bottom in .lightBox, to avoid lightCap getting clipped by lightBox's overflow hidden */
+  padding-bottom: 5rem;
 }
 
 .lightCap p {
@@ -1102,6 +1108,16 @@ main {
 
   .sectionHeader {
     height: 110vh;
+  }
+
+  .lightBG, .lightBox section {
+    width: 100%;
+    height: auto;
+  }
+  
+  .lightFG {
+    width: 100%;
+    height: auto;
   }
 
   .blurred {
