@@ -597,8 +597,17 @@ h3 {
   transition: .5s;
 }
 
-.icons span:hover > img {
-  opacity: .7;
+@keyframes sonar {
+  0% {
+    box-shadow: 0 0 0 0 rgba(160, 81, 45, .5);
+  }
+  100% {
+    box-shadow: 0 0 2rem 4rem rgba(160, 81, 45, 0);
+  }
+}
+
+.animated {
+  animation: sonar 1s 1 ease-out;
 }
 
 .icons span div {
@@ -754,7 +763,7 @@ main {
   display: flex;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 5%;
-  cursor: ew-resize;
+  cursor: col-resize;
 }
 
 .slider svg {

@@ -550,3 +550,15 @@ function togglePause(content, playButton, vidArea) {
 }
 
 [].forEach.call(videos, (video)=>generateVideoControls(video));
+
+let thumbnails = document.querySelectorAll("section.icons > span > img");
+
+[].forEach.call(thumbnails, (thumb)=>{
+  thumb.onanimationend = function(event) {
+    thumb.className = "";
+  } 
+
+  thumb.addEventListener("click",()=>{
+    thumb.className += " animated";
+  });
+});
