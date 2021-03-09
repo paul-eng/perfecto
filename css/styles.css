@@ -608,8 +608,8 @@ h3 {
 
 .iconEffectLayer {
   content: '';
-  height: 20vh;
-  width: 20vh;
+  height: 40vw;
+  width: 40vw;
   border-radius: 10%;
   background-color: sienna;
   transition: .5s;
@@ -1183,6 +1183,11 @@ main {
 
   .icons span:last-of-type {
     margin-bottom: 0;
+  }
+
+  .iconEffectLayer {
+    width: 20vh;
+    height: 20vh;
   }
 
   h3 {
