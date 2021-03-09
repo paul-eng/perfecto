@@ -600,10 +600,11 @@ h3 {
   margin-bottom: 4rem;
 }
 
-/* Dynamically create and append .iconEffectLayer instead of doing hover animation directly on the img itself because img background-color and the javascript triggered animation would also be effected by any opacity changes, would reveal the gradient background of .icons underneath */
-
-.iconEffectLayer:hover {
-  opacity: 40%;
+@media (hover: hover) {
+  /* Dynamically create and append .iconEffectLayer instead of doing hover animation directly on the img itself because img background-color and the javascript triggered animation would also be effected by any opacity changes, would reveal the gradient background of .icons underneath */
+  .iconEffectLayer:hover {
+    opacity: 40%;
+  }
 }
 
 .iconEffectLayer {
