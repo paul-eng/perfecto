@@ -124,7 +124,7 @@ table {
 }
 
 * {
-  outline: none;
+  outline: none !important;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -132,6 +132,17 @@ table {
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+*:focus {
+  outline: none !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent
 }
 
 /* All above is CSS reset */
