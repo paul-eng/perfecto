@@ -681,6 +681,7 @@ h3 {
   margin-top: 1rem;
   position: absolute;
   color: sienna;
+  outline: none;
 }
 
 .lightCap summary:hover {
