@@ -518,23 +518,35 @@ drawColorWheel();
 let videos = document.querySelectorAll(".vidWrapper");
 
 function generateVideoControls(video) {
-  let controls = video.children[0];
+  let playButton = video.children[0].children[0];
+  let vidArea = video.children[0];
+  let content = video.children[1];
   
-  controls.addEventListener("click", ()=>togglePlay(video));
+  playButton.addEventListener("click", (e)=>{
+    e.stopPropagation();
+    togglePlay(content, playButton, vidArea);
+  });
+  vidArea.addEventListener("click", ()=>togglePause(content, playButton, vidArea));
 }
 
-
-function togglePlay(video) {
-
-  let content = video.children[1];
-
+function togglePlay(content, playButton, vidArea) {
   if (content.paused || content.ended) {
+    playButton.setAttribute("class","playButton hidden");
+    vidArea.setAttribute("class", "videoControls shown");
     content.play();
   } else {
     content.pause();
-  };
-  console.log(video.children[0].children[0]);
-  video.children[0].children[0].classList.toggle('hidden');
+    playButton.setAttribute("class","playButton");
+    vidArea.setAttribute("class", "videoControls");
+  }
+}
+
+function togglePause(content, playButton, vidArea) {
+  if (!(content.paused || content.ended)) {
+    content.pause();
+    playButton.setAttribute("class","playButton");
+    vidArea.setAttribute("class", "videoControls");
+  }
 }
 
 [].forEach.call(videos, (video)=>generateVideoControls(video));

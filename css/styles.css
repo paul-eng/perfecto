@@ -951,7 +951,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: default;
 }
 
 .playButton {
@@ -962,10 +962,15 @@ main {
   border-radius: 15%;
   box-shadow: 0 .3rem .4rem 0 rgba(0,0,0,.2);
   transition: .4s;
+  cursor: pointer;
 }
 
 .hidden {
   opacity: 0%;
+}
+
+.shown {
+  cursor: pointer;
 }
 
 .playButton:hover {
