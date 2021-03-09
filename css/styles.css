@@ -681,6 +681,9 @@ h3 {
   margin-top: 1rem;
   position: absolute;
   color: sienna;
+}
+
+.lightCap details:focus {
   outline: none;
 }
 
