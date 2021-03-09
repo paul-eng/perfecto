@@ -122,6 +122,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+*:focus {
+  outline: none;
+}
+
 /* All above is CSS reset */
 
 /* this would be extremely convenient but not supported by iOS yet. used JS instead */
@@ -681,10 +686,6 @@ h3 {
   margin-top: 1rem;
   position: absolute;
   color: sienna;
-}
-
-.lightCap details:focus {
-  outline: none;
 }
 
 .lightCap summary:hover {
