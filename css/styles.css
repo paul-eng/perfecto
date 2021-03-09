@@ -282,7 +282,7 @@ header {
 
 .bannerImg {
   width: 100%;
-  height:110vh;
+  height:100vh;
   overflow: hidden;
   background-color: sienna;
 }
@@ -498,14 +498,16 @@ figure img {
   display: flex;
   flex-direction: column;
   padding: 6rem;
+  align-items: center;
 }
 
 .capImg {
-  align-self: flex-end;
-  width: 75vw;
+  align-self: center;
+  width: 90vw;
 }
 
 .captionBlock section {
+  text-align: center;
   width: 50vw;
 }
 
@@ -1078,6 +1080,19 @@ main {
 
   .source {
     font-size: .75rem;
+  }
+
+  .captionBlock {
+    align-items: flex-start;
+  }
+
+  .captionBlock section {
+    text-align: left;
+  }
+
+  .capImg {
+    align-self: flex-end;
+    width: 75vw;
   }
 
   .textBlock {

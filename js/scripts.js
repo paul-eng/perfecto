@@ -109,12 +109,12 @@ let titleVisibility = function (entries) {
 let titleObserver = new IntersectionObserver(titleVisibility);
 titleObserver.observe(title);
 
-//darken top banner if only a bit visible
+//darken top banner if less than 70% visible
 
 let asset = document.getElementsByClassName("bannerAsset")[0];
 
 let bannerDarken = function () {
-  if (window.pageYOffset > 1200) {
+  if (window.pageYOffset > (asset.offsetHeight * .7)) {
     asset.className += " darken";
   } else {
     asset.className = "bannerAsset";
@@ -398,7 +398,6 @@ function redrawGall() {
       //check if resize has changed what part of gallery is in viewport and whether arrow should be visible
       arrowVisible(gall);
     });
-    console.log('gogogo');
 }
 
 window.addEventListener("resize", function () {
