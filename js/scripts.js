@@ -532,12 +532,12 @@ function generateVideoControls(video) {
 function togglePlay(content, playButton, vidArea) {
   if (content.paused || content.ended) {
     playButton.setAttribute("class","playButton hidden");
-    vidArea.setAttribute("class", "videoControls shown");
+    vidArea.classList.toggle("shown");
     content.play();
   } else {
     content.pause();
     playButton.setAttribute("class","playButton");
-    vidArea.setAttribute("class", "videoControls");
+    vidArea.classList.toggle("shown");
   }
 }
 
@@ -545,7 +545,7 @@ function togglePause(content, playButton, vidArea) {
   if (!(content.paused || content.ended)) {
     content.pause();
     playButton.setAttribute("class","playButton");
-    vidArea.setAttribute("class", "videoControls");
+    vidArea.classList.toggle("shown");
   }
 }
 
