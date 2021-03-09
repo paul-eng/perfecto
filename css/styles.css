@@ -443,8 +443,9 @@ figure img {
   line-height: 200%;
 }
 
-.textBlock h6 {
+.textBlock h5 {
   line-height: 110%;
+  text-align: center;
 }
 
 .textBlock p {
@@ -603,7 +604,7 @@ h3 {
 @media (hover: hover) {
   /* Dynamically create and append .iconEffectLayer instead of doing hover animation directly on the img itself because img background-color and the javascript triggered animation would also be effected by any opacity changes, would reveal the gradient background of .icons underneath */
   .iconEffectLayer:hover {
-    opacity: 40%;
+    opacity: 25%;
   }
 }
 
@@ -761,7 +762,7 @@ main {
 
 .slideFeature {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   width: 100%;
   padding: 6rem 0 1rem 0;
   align-items: center;
@@ -771,8 +772,7 @@ main {
 
 .slideFeature .textBlock {
   flex: 1;
-  padding: 0 1rem 0 6rem;
-  /* text-align: right; */
+  padding: 0 6rem;
 }
 
 .imgSlider {
@@ -1122,6 +1122,10 @@ main {
     line-height: 190%;
   }
 
+  .textBlock h5 {
+    text-align: left;
+  }
+
   .sectionHeader {
     height: 110vh;
   }
@@ -1150,6 +1154,14 @@ main {
 
   .quote {
     font-size: 3.8rem;
+  }
+
+  .slideFeature {
+    flex-direction: row;
+  }
+
+  .slideFeature .textBlock {
+    padding: 0 1rem 0 6rem;
   }
 
   .parallaxText {
