@@ -550,14 +550,23 @@ function togglePause(content, playButton, vidArea) {
 
 [].forEach.call(videos, (video)=>generateVideoControls(video));
 
-let thumbnails = document.querySelectorAll("section.icons > span > img");
+let thumbnails = document.querySelectorAll("section.icons > span");
 
 [].forEach.call(thumbnails, (thumb)=>{
-  thumb.onanimationend = function(event) {
-    thumb.className = "";
-  } 
+  let thumbImg = thumb.children[0];
 
-  thumb.addEventListener("click",()=>{
-    thumb.className += " animated";
+  let iconEffectLayer = document.createElement("DIV");
+  iconEffectLayer.setAttribute("class", "iconEffectLayer");
+  thumb.insertBefore(iconEffectLayer, thumbImg);
+
+
+  // iconEffectLayer has higher z-index than the actual img, so listen for clicks there
+  iconEffectLayer.addEventListener("click",()=>{
+    thumbImg.className += " animated";
   });
+
+  // reset the class of the img so the animation can be repeated again
+  thumbImg.onanimationend = function(event) {
+    thumbImg.className = "";
+  } 
 });

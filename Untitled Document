@@ -18,3 +18,7 @@ hover animations on image gallery only generated for nontouch devices. on touch 
 math differential for accurately dragging slider
 
 wanted sticky effect element under another element, background position fixed wasnt quit the same. layer without using absolute positioning by using a negative margin, the height of the under layer, on the top layer which exists in a column below
+
+use pseudo element to create background for parallax icons
+
+use onanimationend to remove animation className from parallax icons as soon as done
