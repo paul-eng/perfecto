@@ -109,12 +109,12 @@ let titleVisibility = function (entries) {
 let titleObserver = new IntersectionObserver(titleVisibility);
 titleObserver.observe(title);
 
-//darken top banner if less than 70% visible
+//darken top banner if less than 60% visible
 
 let asset = document.getElementsByClassName("bannerAsset")[0];
 
 let bannerDarken = function () {
-  if (window.pageYOffset > (asset.offsetHeight * .7)) {
+  if (window.pageYOffset > (asset.offsetHeight * .6)) {
     asset.className += " darken";
   } else {
     asset.className = "bannerAsset";

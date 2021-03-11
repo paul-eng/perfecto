@@ -441,7 +441,6 @@ figure img {
 }
 
 .textBlock {
-  font-size: 1.4rem;
   line-height: 200%;
 }
 
@@ -452,7 +451,8 @@ figure img {
 
 .textBlock p {
   margin-top: 2rem;
-  color: dimgray
+  color: dimgray;
+  font-size: 1.25rem;
 }
 
 .sectionHeader {
@@ -511,7 +511,7 @@ figure img {
 
 .captionBlock section {
   text-align: center;
-  width: 50vw;
+  width: 80vw;
 }
 
 .captionBlock p {
@@ -534,7 +534,7 @@ h6 {
 }
 
 h5 {
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: 800;
 }
 
@@ -764,7 +764,7 @@ main {
 
 .slideFeature {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   width: 100%;
   padding: 6rem 0 1rem 0;
   align-items: center;
@@ -1001,6 +1001,9 @@ main {
 
 .vidWrapper {
   margin: 0;
+}
+
+.mediaComponents {
   position: relative;
 }
 
@@ -1086,7 +1089,7 @@ main {
   
   .bannerAsset {
     width: auto;
-    height: auto;
+    height: 100%;
   }  
 
   .title {
@@ -1107,12 +1110,17 @@ main {
     padding-top: 0;
   }
 
+  h5 {
+    font-size: 3rem;
+  }
+
   .captionBlock {
     align-items: flex-start;
   }
 
   .captionBlock section {
     text-align: left;
+    width: 50vw;
   }
 
   .capImg {
