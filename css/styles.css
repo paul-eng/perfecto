@@ -650,7 +650,7 @@ h3 {
 }
 
 #ramones {
-  object-position: 0% 15%;
+  object-position: 15% 0%;
 }
 
 
@@ -1139,6 +1139,10 @@ main {
 
   .sectionHeader {
     height: 110vh;
+  }
+
+  #ramones {
+    object-position: 0% 100%;
   }
 
   .lightBG, .lightBox section {
