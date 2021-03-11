@@ -332,7 +332,7 @@ h1 {
 }
 
 .titleArea p {
-  font-size: 2rem;
+  font-size: 2.25rem;
   margin-bottom: 6.5rem;
 }
 
@@ -446,13 +446,17 @@ figure img {
 
 .textBlock h5 {
   line-height: 110%;
+}
+
+.textBlock h5, .captionBlock h5 {
   text-align: center;
 }
 
-.textBlock p {
+.textBlock p, .captionBlock p {
+  font-size: 2rem;
+  line-height: 190%;
   margin-top: 2rem;
   color: dimgray;
-  font-size: 1.25rem;
 }
 
 .sectionHeader {
@@ -462,7 +466,7 @@ figure img {
 }
 
 .sectionTitle {
-  width: 80%;
+  width: 90%;
   position: absolute;
   top: 30%;
   left: 50%;
@@ -471,9 +475,7 @@ figure img {
   color: white;
   font-family: 'Raleway', sans-serif;
   font-weight: 800;
-  font-size: 4rem;
-  /* white-space: nowrap; */
-  /* text-align: center; */
+  font-size: 4.25rem;
   text-shadow: 0 0 1rem rgba(0, 0, 0, .7);
   opacity: 0;
   z-index: 1;
@@ -510,15 +512,8 @@ figure img {
 }
 
 .captionBlock section {
-  text-align: center;
+  /* text-align: center; */
   width: 80vw;
-}
-
-.captionBlock p {
-  margin-top: 2rem;
-  font-size: 1.25rem;
-  color: dimgray;
-  line-height: 150%;
 }
 
 h5, h6 {
@@ -579,7 +574,7 @@ h5 {
 h3 {
   font-family: 'raleway', serif;
   font-weight: 800;
-  font-size: 10vmax;
+  font-size: 8vmax;
   line-height: 120%;
   color: sienna;
   text-align: center;
@@ -592,6 +587,14 @@ h3 {
   width: 40vw;
   border-radius: 10%;
   transition: .5s;
+}
+
+.icons h6 {
+  font-size: 3.5rem;
+}
+
+.icons p {
+  font-size: 2.25rem;
 }
 
 .icons span {
@@ -650,7 +653,7 @@ h3 {
 }
 
 #ramones {
-  object-position: 15% 0%;
+  object-position: 50% 0%;
 }
 
 
@@ -730,18 +733,19 @@ h3 {
 
 .customCap {
   margin-top: 1rem;
-  font-size: .9rem;
   /* padding bottom hacky solution in coordination w the margin bottom in .lightBox, to avoid customCap getting clipped by lightBox's overflow hidden */
   padding-bottom: 5rem;
 }
 
 .customCap p {
   font-family: 'Raleway', sans-serif;
+  font-size: .9rem;
   font-weight: 800;
 }
 
 .customCap details {
   margin-top: 1rem;
+  font-size: .9rem;
   position: absolute;
   color: sienna;
 }
@@ -1001,6 +1005,9 @@ main {
 
 .vidWrapper {
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .mediaComponents {
@@ -1096,6 +1103,10 @@ main {
     margin-top: 50vh;
   }
 
+  .titleArea p {
+    font-size: 2rem;
+  }
+
   .citation {
     margin-top: 2rem;
     line-height: 200%;
@@ -1128,17 +1139,21 @@ main {
     width: 75vw;
   }
 
-  .textBlock {
+  .textBlock h5, .captionBlock h5 {
+    text-align: left;
+  }
+
+  .textBlock p, .captionBlock p {
     font-size: 1.25rem;
     line-height: 190%;
   }
 
-  .textBlock h5 {
-    text-align: left;
-  }
-
   .sectionHeader {
     height: 110vh;
+  }
+
+  .sectionTitle {
+    font-size: 2.75rem;
   }
 
   #ramones {
@@ -1207,6 +1222,14 @@ main {
     margin-right: 2rem;
   }
 
+  .icons h6 {
+    font-size: 1.5rem;
+  }
+
+  .icons p {
+    font-size: 1rem;
+  }
+
   .icons span {
     flex-direction: row;
   }
@@ -1225,7 +1248,8 @@ main {
   }
 
   h3 {
-    text-align: right;
+    font-size: 10vmax;
+    line-height: 120%;
   }
 
   .parallax {
