@@ -517,9 +517,9 @@ drawColorWheel();
 let videos = document.querySelectorAll(".vidWrapper");
 
 function generateVideoControls(video) {
-  let playButton = video.children[0].children[0];
-  let vidArea = video.children[0];
-  let content = video.children[1];
+  let playButton = video.children[0].children[0].children[0];
+  let vidArea = video.children[0].children[0];
+  let content = video.children[0].children[1];
   
   playButton.addEventListener("click", (e)=>{
     e.stopPropagation();
