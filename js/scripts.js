@@ -66,7 +66,7 @@ let modalClick = function (event) {
 };
 
 if ("ontouchstart" in window) {
-  window.ontouchstart = modalClick;
+  window.ontouchend = modalClick;
 } else {
   window.onclick = modalClick;
 }
