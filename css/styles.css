@@ -502,7 +502,7 @@ figure img {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 6rem;
+  padding: 0 6rem 6rem 6rem;
   align-items: center;
 }
 
@@ -578,8 +578,7 @@ h3 {
   line-height: 120%;
   color: sienna;
   text-align: center;
-  overflow: hidden;
-  word-wrap: break-word;
+
 }
 
 .icons img {
@@ -945,7 +944,6 @@ main {
 }
 
 #colorWheel {
-  width: 100%;
   display: flex;
   justify-content: center;
   margin: 2rem auto 4rem auto;
@@ -965,9 +963,14 @@ main {
 }
 
 #colorBG {
-  border-radius: 5%;
-  overflow: hidden;
-  /* assigning a default width thats too small screws up the hue/sat svg size on mobile */
+}
+
+.wide {
+  width: 50vw;
+}
+
+.tall {
+  width: 150vw;
 }
 
 #colorOptions {
@@ -1206,10 +1209,13 @@ main {
 
   .parallaxBG {
     opacity: 1;
+    height: auto;
+    width: 33vw;
   }
 
   .parallaxFG {
     margin-top: 0;
+    width: 40vw;
   }
 
   .icons {
@@ -1238,27 +1244,18 @@ main {
     display: block;
   }
 
-  .icons span:last-of-type {
-    margin-bottom: 0;
-  }
-
   .iconEffectLayer {
     width: 20vh;
     height: 20vh;
-  }
-
-  h3 {
-    font-size: 10vmax;
-    line-height: 120%;
   }
 
   .parallax {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: space-evenly;
-    padding: 6rem;
+    justify-content: center;
     width: auto;
+    padding: 0 6rem;
   }
 
   h6 {
@@ -1268,5 +1265,17 @@ main {
 
   .vidWrapper {
     margin: 6rem;
+  }
+
+  .colorFeature {
+    position: relative;
+    width: auto;
+  }
+
+  .colorFeature article {
+    position: absolute;
+    width: 10vw;
+    top: 0;
+    left: 0;
   }
 }

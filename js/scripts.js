@@ -504,11 +504,9 @@ document
 
 function drawColorWheel() {
   if (widerOrTaller() == "taller") {
-    colorBG.style.width = '75vw';
-    colorBG.style.height = 'auto';
+    colorBG.className = 'tall';
   } else {
-    colorBG.style.width = 'auto';
-    colorBG.style.height = '85vh';
+    colorBG.className = 'wide';
   }
 }
 
