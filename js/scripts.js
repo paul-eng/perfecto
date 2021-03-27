@@ -505,8 +505,10 @@ document
 function drawColorWheel() {
   if (widerOrTaller() == "taller") {
     colorBG.className = 'tall';
+    colorFG.className = 'tall';
   } else {
     colorBG.className = 'wide';
+    colorFG.className = 'wide';
   }
 }
 
