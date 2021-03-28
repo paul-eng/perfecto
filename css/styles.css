@@ -569,7 +569,7 @@ h5 {
   flex-direction: column;
   /* Needs min width set in order for its' children's overflow settings to respect its width */
   min-width: 0;
-  background: linear-gradient( rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7) 12%, rgba(255, 255, 255, 0.7) 98%, rgba(0, 0, 255, 0) 100%);
+  background: linear-gradient( rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6) 12%, rgba(255, 255, 255, 0.6) 98%, rgba(0, 0, 255, 0) 100%);
   width: 100%;
 }
 
@@ -598,6 +598,7 @@ h3 {
 
 .icons h6 {
   font-size: 3.5rem;
+  margin-top: 2rem;
 }
 
 .icons p {
@@ -605,22 +606,22 @@ h3 {
 }
 
 .icons span {
-  /* relative positioning so .iconEffectLayer has something to cling to */
+  /* relative positioning so #iconEffectLayer has something to cling to */
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 4rem;
+  margin-bottom: 8rem;
 }
 
 @media (hover: hover) {
-  /* Dynamically create and append .iconEffectLayer instead of doing hover animation directly on the img itself because img background-color and the javascript triggered animation would also be effected by any opacity changes, would reveal the gradient background of .icons underneath */
-  .iconEffectLayer:hover {
+  /* Dynamically create and append #iconEffectLayer instead of doing hover animation directly on the img itself because img background-color and the javascript triggered animation would also be effected by any opacity changes, would reveal the gradient background of .icons underneath */
+  #iconEffectLayer:hover {
     opacity: 25%;
   }
 }
 
-.iconEffectLayer {
+#iconEffectLayer {
   content: '';
   height: 40vw;
   width: 40vw;
@@ -630,6 +631,7 @@ h3 {
   opacity: 0;
   position: absolute;
   z-index: 1;
+  right: 0;
 }
 
 @keyframes sonar {
@@ -1247,40 +1249,46 @@ main {
     opacity: 1;
     height: auto;
     width: 33vw;
+    /* margin left to improve " optical centering" by adjusting for the shadow behind her */
+    margin-left: -5vw;
   }
 
   .parallaxFG {
+    margin-left: 1rem;
     margin-top: 0;
-    width: 40vw;
+    width: 36vw;
   }
 
   .icons {
-    width: auto;
+    width: 90%;
   }
 
   .icons img {
     height: 20vh;
     width: auto;
-    margin-right: 2rem;
   }
 
   .icons h6 {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    margin-top: 0;
   }
 
   .icons p {
-    font-size: 1rem;
+    font-size: .9rem;
   }
 
   .icons span {
-    flex-direction: row;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-bottom: 6rem;
   }
 
   .icons span div {
     display: block;
+    width: 60%;
   }
 
-  .iconEffectLayer {
+  #iconEffectLayer {
     width: 20vh;
     height: 20vh;
   }

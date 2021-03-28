@@ -556,7 +556,7 @@ let thumbnails = document.querySelectorAll("section.icons > span");
   let thumbImg = thumb.children[0];
 
   let iconEffectLayer = document.createElement("DIV");
-  iconEffectLayer.setAttribute("class", "iconEffectLayer");
+  iconEffectLayer.setAttribute("id", "iconEffectLayer");
   thumb.insertBefore(iconEffectLayer, thumbImg);
 
 
