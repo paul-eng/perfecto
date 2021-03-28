@@ -179,12 +179,19 @@ html {
   transition: .5s ease-out;
   z-index: 1000;
   color: white;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+#navBar::-webkit-scrollbar {
+  display: none;
 }
 
 h4 {
   font-weight: 900;
   font-size: 5rem;
-  margin-bottom: 6rem;
+  margin-bottom: 5rem;
   cursor: default;
 }
 
@@ -207,7 +214,7 @@ h4 {
 .navChapter {
   display: inline-block;
   font-family: 'Raleway', sans-serif;
-  font-size: 4rem;
+  font-size: 3rem;
   text-decoration: none;
   cursor:pointer;
 }
@@ -224,17 +231,18 @@ a, a:link, a:visited, a:active, a:link:active, a:visited:active {
   border-top: 1px solid hsla(0,0%,100%,.5);
   border-bottom: 1px solid hsla(0,0%,100%,.5);
   padding: 3rem;
-  font-size: 1rem;
+  font-size: 3rem;
 }
 
 .navShare a {
-  margin-right: 1.5rem;
+  margin-right: 3rem;
   cursor: pointer;
 }
 
 .navShare svg {
   fill: white;
   transition: .2s;
+  height: 3rem;
 }
 
 .navShare svg:hover {
@@ -242,7 +250,7 @@ a, a:link, a:visited, a:active, a:link:active, a:visited:active {
 }
 
 .navShare div {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   display: flex;
   align-items: center;
 }
@@ -704,8 +712,8 @@ h3 {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 10rem;
-  width: 6rem;
+  margin: 4rem;
+  width: 8rem;
   cursor: pointer;
   animation: 2s strobe;
   animation-iteration-count: infinite;
@@ -1071,7 +1079,7 @@ main {
 
   h4 {
     font-size: 3rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
 
   #navBar li {
@@ -1092,6 +1100,23 @@ main {
 
   #navClose, #imgModal span {
     margin: .5rem;
+  }
+
+  .navShare {
+    font-size: 1.5rem;
+    padding: 2rem 3rem;
+  }
+
+  .navShare svg {
+    height: 1.5rem;
+  }
+
+  .navShare a {
+    margin-right: .75rem;
+  }
+
+  .navShare div {
+    margin-top: 1rem;
   }
 
   .invisibleFlexStartObj {
