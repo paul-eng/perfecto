@@ -514,12 +514,21 @@ document
 
 // drawColorWheel();
 
-let videos = document.querySelectorAll(".vidWrapper");
+let videos = document.querySelectorAll(".vidFeature");
 
 function generateVideoControls(video) {
-  let playButton = video.children[0].children[0].children[0];
-  let vidArea = video.children[0].children[0];
-  let content = video.children[0].children[1];
+  let playButton = video.children[0].children[0].children[0].children[0];
+  let vidArea = video.children[0].children[0].children[0];
+  let content = video.children[0].children[0].children[1];
+  let bowie = video.children[1];
+  let mediaComponents = video.children[0].children[0];
+
+  bowie.addEventListener("click", (e)=>{
+    e.stopPropagation();
+    bowie.setAttribute("id","expandBowie");
+    // vidWrapper.style.height = `${vidArea.offsetHeight}px`;
+    mediaComponents.setAttribute("id","expandMedia");
+  });
   
   playButton.addEventListener("click", (e)=>{
     e.stopPropagation();

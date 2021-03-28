@@ -1021,20 +1021,49 @@ main {
   padding: 6rem;
 }
 
-.vidWrapper {
+.vidFeature {
   margin: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  /* background-color: pink; */
+}
+
+.vidFeature img {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  height: 50vh;
+  transition: 2s;
+}
+
+#expandBowie {
+  left: 10%;
+  bottom: 10%;
+}
+
+.vidWrapper {
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
 }
 
 .mediaComponents {
+  transform: translateY(100%);
   position: relative;
+  transition: 2s;
+}
+
+#expandMedia {
+  transform: translateY(0);
 }
 
 .videoControls {
   position: absolute;
-  top: 0;
   height: 100%;
   width: 100%;
   display: flex;
@@ -1066,9 +1095,6 @@ main {
   transform: scale(1.2);
 }
 
-.video {
-  width: 100%;
-}
 
 /* media queries for non-desktop */
 
