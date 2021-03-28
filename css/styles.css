@@ -989,7 +989,7 @@ main {
   fill: white;
   opacity: .7;
   cursor: pointer;
-  flex: 1;
+  width: 50%;
   padding: 1rem;
 }
 
@@ -1264,10 +1264,13 @@ main {
 
   .colorOptions {
     right: 0;
+    height: 60%;
     width: 30%;
+    justify-content: space-evenly;
   }
 
   #colorHue, #colorSat {
     border-radius: 15%;
+    width: 25%;
   }
 }
