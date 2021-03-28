@@ -521,13 +521,14 @@ function generateVideoControls(video) {
   let vidArea = video.children[0].children[0].children[0];
   let content = video.children[0].children[0].children[1];
   let bowie = video.children[1];
+  let bowieShadow = video.children[2];
   let mediaComponents = video.children[0].children[0];
 
   bowie.addEventListener("click", (e)=>{
     e.stopPropagation();
-    bowie.setAttribute("id","expandBowie");
-    // vidWrapper.style.height = `${vidArea.offsetHeight}px`;
-    mediaComponents.setAttribute("id","expandMedia");
+    bowie.classList.toggle("expandBowie");
+    bowieShadow.classList.toggle("expandShadow");
+    mediaComponents.classList.toggle("expandMedia");
   });
   
   playButton.addEventListener("click", (e)=>{

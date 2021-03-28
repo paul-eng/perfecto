@@ -1027,39 +1027,61 @@ main {
   flex-direction: column;
   align-items: center;
   position: relative;
-  /* background-color: pink; */
 }
 
-.vidFeature img {
+.bowieShadow, .bowieThumb {
+  height: 60%;
+}
+
+.bowieThumb {
   position: absolute;
-  bottom: 50%;
-  left: 50%;
+  bottom: 45%;
+  left: 45%;
   transform: translate(-50%, 50%);
-  height: 50vh;
-  transition: 2s;
+  transition: 1s;
 }
 
-#expandBowie {
+.expandBowie {
   left: 10%;
   bottom: 10%;
+  height:40%;
+}
+
+.bowieShadow {
+  position: absolute;
+  background-color: sienna;
+  width: 40%;
+  top: 45%;
+  right: 45%;
+  transform: translate(50%,-50%) rotate(0deg);
+  z-index: -1;
+  transition: 1s;
+}
+
+.expandShadow {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  transform: translate(0) rotate(180deg);
 }
 
 .vidWrapper {
   overflow: hidden;
 }
 
-.video {
-  width: 100%;
-}
-
 .mediaComponents {
   transform: translateY(100%);
   position: relative;
-  transition: 2s;
+  transition: 1s;
 }
 
-#expandMedia {
+.expandMedia {
   transform: translateY(0);
+}
+
+.video {
+  width: 100%;
 }
 
 .videoControls {
