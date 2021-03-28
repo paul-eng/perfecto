@@ -1153,7 +1153,7 @@ main {
   }
 
   .textBlock p, .captionBlock p {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     line-height: 190%;
   }
 
@@ -1288,9 +1288,10 @@ main {
 
   .colorOptions {
     right: 0;
-    height: 60%;
+    height: 65%;
     width: 30%;
     justify-content: space-evenly;
+
   }
 
   .colorOptions::before {
@@ -1299,6 +1300,7 @@ main {
 
   #colorFG, #colorBG {
     width: 100%;
+    top: -10vh;
   }
 
   #colorHue, #colorSat {
@@ -1308,7 +1310,8 @@ main {
 
   .colorFeature article {
     position: absolute;
-    top: 0;
+    transform: translateY(-50%);
+    top: 50%;
     left: 0;
     width: 60%;
     z-index: 1;
