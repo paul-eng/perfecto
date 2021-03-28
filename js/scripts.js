@@ -414,7 +414,7 @@ window.addEventListener("resize", function () {
     drawModalImg();
   }
 
-  drawColorWheel();
+  // drawColorWheel();
 });
 
 //gallery images open into modal imgViewer
@@ -502,17 +502,17 @@ document
   .getElementById("colorSat")
   .addEventListener("click", () => colorOption("sat"));
 
-function drawColorWheel() {
-  if (widerOrTaller() == "taller") {
-    colorBG.className = 'tall';
-    colorFG.className = 'tall';
-  } else {
-    colorBG.className = 'wide';
-    colorFG.className = 'wide';
-  }
-}
+// function drawColorWheel() {
+//   if (widerOrTaller() == "taller") {
+//     colorBG.className = 'tall';
+//     colorFG.className = 'tall';
+//   } else {
+//     colorBG.className = 'wide';
+//     colorFG.className = 'wide';
+//   }
+// }
 
-drawColorWheel();
+// drawColorWheel();
 
 let videos = document.querySelectorAll(".vidWrapper");
 

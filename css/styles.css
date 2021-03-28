@@ -943,20 +943,15 @@ main {
   fill: white;
 }
 
-
-
-.wide {
-  width: 100%;
-}
-
-.tall {
-  width: 200%;
+#colorFG, #colorBG {
+  width: 250%;
 }
 
 .colorFeature {
-  /* without specific width and overflow hidden, bg/fg cause stretching of entire document width */
+  /* without specified width and overflow hidden, bg/fg cause stretching of entire document width */
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 .colorWheel {
@@ -965,7 +960,7 @@ main {
 
 #colorBG {
   position: relative;
-  right: 100%;
+  right: 150%;
 }
 
 #colorFG {
@@ -999,6 +994,10 @@ main {
 
 #colorHue:active, #colorSat:active {
   opacity: .5;
+}
+
+.colorFeature article {
+  padding: 6rem;
 }
 
 .vidWrapper {
@@ -1262,6 +1261,10 @@ main {
     margin: 6rem;
   }
 
+  .colorFeature {
+    height: 100vh;
+  }
+
   #colorBG {
     right: 0;
   }
@@ -1273,8 +1276,20 @@ main {
     justify-content: space-evenly;
   }
 
+  #colorFG, #color {
+    width: 100%;
+  }
+
   #colorHue, #colorSat {
     border-radius: 15%;
     width: 25%;
+  }
+
+  .colorFeature article {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    z-index: 1;
   }
 }
