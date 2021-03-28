@@ -946,13 +946,15 @@ main {
 
 
 .wide {
+  width: 100%;
 }
 
 .tall {
-  width: 200vw;
+  width: 200%;
 }
 
 .colorFeature {
+  /* without specific width and overflow hidden, bg/fg cause stretching of entire document width */
   width: 100%;
   overflow: hidden;
 }
@@ -987,6 +989,7 @@ main {
   box-shadow: 0 .3rem .4rem 0 rgba(0,0,0,.2);
   cursor: pointer;
   flex: 1;
+  padding: 3rem;
 }
 
 #colorHue:active, #colorSat:active {
@@ -1252,5 +1255,18 @@ main {
 
   .vidWrapper {
     margin: 6rem;
+  }
+
+  #colorBG {
+    right: 0;
+  }
+
+  .colorOptions {
+    right: 0;
+    width: 30%;
+  }
+
+  #colorHue, #colorSat {
+    border-radius: 15%;
   }
 }
