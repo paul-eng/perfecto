@@ -985,16 +985,20 @@ main {
 
 #colorHue, #colorSat {
   height: 15%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 1);
   fill: white;
-  opacity: .7;
+  opacity: .3;
   cursor: pointer;
   width: 50%;
   padding: 1rem;
 }
 
+#colorHue:hover, #colorSat:hover {
+  opacity: .4;
+}
+
 #colorHue:active, #colorSat:active {
-  opacity: .8;
+  opacity: .5;
 }
 
 .vidWrapper {
