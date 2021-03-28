@@ -704,17 +704,18 @@ h3 {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 2rem;
-  width: 4rem;
+  margin: 10rem;
+  width: 6rem;
   cursor: pointer;
-  animation: 3s strobe;
+  animation: 2s strobe;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   z-index: 101;
   /* opacity: .6; */
   border-radius: 8%;
   box-shadow: .1rem .2rem .4rem 0 rgba(0,0,0,.2);
-  background-color:sienna;
+  opacity: .3;
+  background-color:black;
   fill: white;
 }
 
@@ -988,6 +989,17 @@ main {
   padding: 1rem;
 }
 
+.colorOptions::before {
+  position: absolute;
+  content: '';
+  left: 50%;
+  bottom: 0;
+  height: 15%;
+  width: 1px;
+  background-color: white;
+  padding: 1rem 0;
+}
+
 #colorHue:hover, #colorSat:hover {
   opacity: .4;
 }
@@ -1171,6 +1183,11 @@ main {
     filter: blur(8px);
   }
 
+  .lightButton {
+    margin: 3rem;
+    width: 5rem;
+  }
+
   #imgModal figcaption {
     font-size: 1.25rem;
   }
@@ -1276,7 +1293,11 @@ main {
     justify-content: space-evenly;
   }
 
-  #colorFG, #color {
+  .colorOptions::before {
+    visibility: hidden;
+  }
+
+  #colorFG, #colorBG {
     width: 100%;
   }
 
