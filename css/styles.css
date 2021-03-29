@@ -1040,7 +1040,7 @@ main {
   bottom: 50%;
   left: 50%;
   will-change: transform, left, bottom;
-  transform: translate(-50%, 50%) rotate(0deg);
+  transform: translate(-50%, 50%);
   transition: 1.25s;
 }
 
@@ -1058,7 +1058,7 @@ main {
   top: 50%;
   right: 50%;
   will-change: transform, right, top;
-  transform: translate(50%,-50%) rotate(0deg);
+  transform: translate(50%,-50%);
   z-index: -1;
   transition: 1s;
 }
