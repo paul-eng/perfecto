@@ -1365,7 +1365,7 @@ main {
   }
 
   .colorFeature {
-    height: 100vh;
+    max-height: 100vh;
   }
 
   #colorBG {
@@ -1386,7 +1386,6 @@ main {
 
   #colorFG, #colorBG {
     width: 100%;
-    top: -10vh;
   }
 
   #colorHue, #colorSat {
