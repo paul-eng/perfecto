@@ -74,8 +74,7 @@ if ("ontouchstart" in window) {
 function goToSection(domObj) {
   let sectionName = domObj.getAttribute("name");
   let sectionElement = document.getElementById(sectionName);
-  sectionElement.scrollIntoView();
-  // scroll options { behavior: "smooth" }
+  sectionElement.scrollIntoView({ behavior: "smooth" });
   navClose();
 }
 
@@ -320,13 +319,11 @@ function generateGalleryUI(galleryObj) {
 
   function prevClick() {
     let oneFrame = findFrameWidth();
-    galleryObj.scrollBy(-oneFrame, 0);
-    // scroll options { top: 0, left: -oneFrame, behavior: "smooth" }
+    galleryObj.scrollBy({ top: 0, left: -oneFrame, behavior: "smooth" });
   }
   function nextClick() {
     let oneFrame = findFrameWidth();
-    galleryObj.scrollBy(oneFrame, 0);
-    // scroll options { top: 0, left: oneFrame, behavior: "smooth" }
+    galleryObj.scrollBy({ top: 0, left: oneFrame, behavior: "smooth" });
   }
   //on touch devices, hover animations trigger w doubleclick and screw up scrolling
   let frames = galleryObj.firstElementChild.children;
