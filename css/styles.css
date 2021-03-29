@@ -1077,7 +1077,7 @@ main {
 
 .mediaComponents {
   will-change: transform; 
-  transform: translateY(20%) scale(.2);
+  transform: translateY(20%) scale(.1);
   position: relative;
 }
 
@@ -1374,7 +1374,7 @@ main {
 
   .colorOptions {
     right: 0;
-    height: 65%;
+    height: 60%;
     width: 30%;
     justify-content: space-evenly;
 
