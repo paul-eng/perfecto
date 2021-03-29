@@ -569,7 +569,7 @@ h5 {
   flex-direction: column;
   /* Needs min width set in order for its' children's overflow settings to respect its width */
   min-width: 0;
-  background: linear-gradient( rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6) 12%, rgba(255, 255, 255, 0.6) 98%, rgba(0, 0, 255, 0) 100%);
+  background: linear-gradient( rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6) 12%, rgba(255, 255, 255, 0.6) 98%, rgba(255, 255, 255, 0) 100%);
   width: 100%;
 }
 
