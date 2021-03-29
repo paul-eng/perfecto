@@ -689,6 +689,7 @@ h3 {
 }
 
 .lightFG {
+  will-change: transform; 
   width: auto;
   height: 50vh;
 }
@@ -1030,7 +1031,7 @@ main {
 }
 
 .bowieShadow, .bowieThumb {
-  height: 60%;
+  height: 80%;
 }
 
 .bowieShadow, .mediaComponents {
@@ -1043,10 +1044,11 @@ main {
   left: 45%;
   transform: translate(-50%, 50%) rotate(0deg);
   transition: 1.25s;
+  cursor: pointer;
 }
 
 .expandBowie {
-  left: 15%;
+  left: 10%;
   bottom: 15%;
   height:40%;
   transform: translate(-50%, 50%) rotate(-360deg);
@@ -1055,7 +1057,7 @@ main {
 .bowieShadow {
   position: absolute;
   background-color: sienna;
-  width: 40%;
+  width: 34.74%;
   top: 45%;
   right: 45%;
   transform: translate(50%,-50%);
@@ -1075,14 +1077,13 @@ main {
 }
 
 .mediaComponents {
-  /* transform: translateY(100%); */
-  transform: scale(.1);
+  will-change: transform; 
+  transform: translateY(20%) scale(.2);
   position: relative;
 }
 
 .expandMedia {
-  /* transform: translateY(0); */
-  transform: scale(.9);
+  transform: translateY(0) scale(.9);
 }
 
 .video {
