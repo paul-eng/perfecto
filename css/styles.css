@@ -1039,18 +1039,15 @@ main {
   position: absolute;
   bottom: 50%;
   left: 50%;
-  will-change: transform, left, bottom, height;
-  transform: translate(-50%, 50%) rotate(0deg) translate3d(0,0,0);
+  will-change: transform, left, bottom;
+  transform: translate(-50%, 50%) rotate(0deg);
   transition: 1.25s;
-  transition-delay: 1ms;
-
 }
 
 .expandBowie {
   left: 0;
   bottom: 0;
-  height: 35%;
-  transform: translate(0, 0) rotate(-360deg);
+  transform: translate(-35%, 35%) rotate(-360deg) scale(.4);
 }
 
 .bowieShadow {
@@ -1061,15 +1058,12 @@ main {
   top: 50%;
   right: 50%;
   will-change: transform, right, top;
-  transform: translate(50%,-50%) rotate(0deg) translate3d(0,0,0);
+  transform: translate(50%,-50%) rotate(0deg);
   z-index: -1;
   transition: 1s;
-  transition-delay: 1ms;
 }
 
 .expandShadow {
-  /* width: 85%;
-  height: 85%; */
   top: 0;
   right: 0;
   transform: translate(0,0) rotate(180deg);
