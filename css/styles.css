@@ -675,11 +675,6 @@ h3 {
   margin-bottom: -5rem;
 }
 
-.lightBG {
-  will-change: filter, opacity;
-  opacity: 1;
-}
-
 .lightBG, .lightFG {
   transition: .5s;
   /* using translate3d is a hack to trick pc into using gpu hardware accel to do the animations smoothly */
@@ -689,6 +684,11 @@ h3 {
 .lightBG, .lightBox section {
   width: auto;
   height: 50vh;
+}
+
+.lightBG {
+  will-change: filter, opacity;
+  opacity: 1;
 }
 
 .lightFG {
@@ -1050,7 +1050,7 @@ main {
 .expandBowie {
   left: 0;
   bottom: 0;
-  transform: translate(-35%, 35%) rotate(360deg) scale(.4);
+  transform: translate(-35%, 35%) rotate(-360deg) scale(.4);
 }
 
 .bowieShadow {
