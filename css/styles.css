@@ -1047,7 +1047,7 @@ main {
 .expandBowie {
   left: 0;
   bottom: 0;
-  transform: translate(-35%, 35%) rotate(-360deg) scale(.4);
+  transform: translate(-35%, 35%) rotate(360deg) scale(.4);
 }
 
 .bowieShadow {
