@@ -32,22 +32,28 @@
         <div class="navChapter" name="theTop">Top</div>
       </li>
       <li>
+        <div class="navChapter" name="bokehBox">Bokeh Focus</div>
+      </li>
+      <li>
         <div class="navChapter" name="quoteBox">Quote</div>
-      </li>
-      <li>
-        <div class="navChapter" name="bokehBox">Bokeh Lightbox</div>
-      </li>
-      <li>
-        <div class="navChapter" name="sliderBox">Image Slider</div>
-      </li>
-      <li>
-        <div class="navChapter" name="galleryBox">Gallery</div>
       </li>
       <li>
         <div class="navChapter" name="sectionBox">Smart Section</div>
       </li>
       <li>
-        <div class="navChapter" name="scrollBox">Scroll</div>
+        <div class="navChapter" name="parallaxBox">Sticky Scroller</div>
+      </li>
+      <li>
+        <div class="navChapter" name="galleryBox">Gallery</div>
+      </li>
+      <li>
+        <div class="navChapter" name="sliderBox">Image Slider</div>
+      </li>
+      <li>
+        <div class="navChapter" name="videoBox">Video Player</div>
+      </li>
+      <li>
+        <div class="navChapter" name="colorBox">Colorizer</div>
       </li>
     </ul>
     <section class="navShare">
@@ -70,7 +76,7 @@
           </svg>
         </a>
         <a href="https://twitter.com/intent/tweet?url=https://paul-eng.github.io/perfecto/&text=" target="_blank">
-          <svg viewBox="0 0 27 22" xmlns="http://www.w3.org/2000/svg" >
+          <svg viewBox="0 0 27 22" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M27 2.595c-.994.44-2.06.739-3.18.872A5.562 5.562 0 0 0 26.254.405a11.166 11.166 0 0 1-3.52 1.345 5.539 5.539 0 0 0-9.438 5.05A15.725 15.725 0 0 1 1.882 1.011a5.497 5.497 0 0 0-.749 2.784 5.54 5.54 0 0 0 2.463 4.61 5.54 5.54 0 0 1-2.508-.696v.07a5.544 5.544 0 0 0 4.442 5.43 5.61 5.61 0 0 1-1.46.195c-.357 0-.703-.036-1.042-.103A5.542 5.542 0 0 0 8.2 17.149a11.113 11.113 0 0 1-6.879 2.367c-.447 0-.887-.027-1.321-.076a15.656 15.656 0 0 0 8.49 2.492c10.189 0 15.758-8.44 15.758-15.759l-.018-.717A11.06 11.06 0 0 0 27 2.595z">
             </path>
@@ -169,7 +175,7 @@
       <img class="sectionImg noInteraction" id="ramones" src="assets/ramones2.jpg" alt="The Ramones">
     </figure>
 
-    <aside class="parallax">
+    <aside id="parallaxBox" class="parallax">
       <img class="parallaxBG noInteraction" draggable="false" src="assets/patti2.png" alt="Patti Smith">
       <section class="parallaxFG">
         <div class="parallaxText">
@@ -300,7 +306,7 @@
       </section>
     </aside>
 
-    <section class="vidFeature">
+    <section id="videoBox" class="vidFeature">
 
       <div class="vidWrapper">
         <div class="mediaComponents">
@@ -325,12 +331,13 @@
             2013, www.youtube.com/watch?v=IhaRvqI0nHk.</div>
         </details>
       </figcaption> -->
-      <img draggable="false" ondragstart="return false;" class= "bowieThumb" src="assets/bowie_thumb.png" alt="David Bowie Thumbnail"/>
+      <img draggable="false" ondragstart="return false;" class="bowieThumb" src="assets/bowie_thumb.png"
+        alt="David Bowie Thumbnail" />
       <div class="bowieShadow"></div>
-      
+
     </section>
 
-    <aside class="colorFeature">
+    <aside id="colorBox" class="colorFeature">
       <section class="colorWheel">
         <img id="colorBG" src="assets/colorBG1.jpg" alt="Fashion Jacket">
         <img id="colorFG" src="assets/colorFG1.png" alt="Fashion Jacket">
