@@ -676,11 +676,14 @@ h3 {
 }
 
 .lightBG {
+  will-change: filter, opacity;
   opacity: 1;
 }
 
 .lightBG, .lightFG {
   transition: .5s;
+  /* using translate3d is a hack to trick pc into using gpu hardware accel to do the animations smoothly */
+  transform: translate3d(0, 0, 0);
 }
 
 .lightBG, .lightBox section {
@@ -689,6 +692,7 @@ h3 {
 }
 
 .lightFG {
+  will-change: transform;
   width: auto;
   height: 50vh;
 }
@@ -701,7 +705,7 @@ h3 {
 }
 
 .focused{
-  transform: scale(1.3);
+  transform: scale(1.3) translate3d(0, 0, 0);
 }
 
 .blurred {
@@ -1039,7 +1043,6 @@ main {
   position: absolute;
   bottom: 50%;
   left: 50%;
-  will-change: transform, left, bottom;
   transform: translate(-50%, 50%);
   transition: 1.25s;
 }
@@ -1057,7 +1060,6 @@ main {
   background-color: sienna;
   top: 50%;
   right: 50%;
-  will-change: transform, right, top;
   transform: translate(50%,-50%);
   z-index: -1;
   transition: 1s;
