@@ -1030,38 +1030,37 @@ main {
   position: relative;
 }
 
-.bowieShadow, .bowieThumb {
-  height: 80%;
-}
-
 .bowieShadow, .mediaComponents {
   transition: 1s;
 }
 
 .bowieThumb {
+  height: 85%;
   position: absolute;
-  bottom: 45%;
-  left: 45%;
+  bottom: 50%;
+  left: 50%;
   transform: translate(-50%, 50%) rotate(0deg);
   transition: 1.25s;
   cursor: pointer;
 }
 
 .expandBowie {
-  left: 10%;
-  bottom: 15%;
-  height:40%;
-  transform: translate(-50%, 50%) rotate(-360deg);
+  left: 0;
+  bottom: 0;
+  height: 35%;
+  transform: translate(0) rotate(-360deg);
 }
 
 .bowieShadow {
+  height: 60%;
+  width: 60%;
   position: absolute;
   background-color: sienna;
-  width: 34.74%;
-  top: 45%;
-  right: 45%;
+  top: 50%;
+  right: 50%;
   transform: translate(50%,-50%);
   z-index: -1;
+  transition: 1s;
 }
 
 .expandShadow {
