@@ -1,5 +1,5 @@
-import {polyfill} from './smoothscroll.js';
-polyfill({ force: true });
+import {polyfill} from './src/index';
+polyfill();
 
 // Navbar functions
 
