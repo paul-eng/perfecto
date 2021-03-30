@@ -1,5 +1,3 @@
-function smoothscroll() {
+export function smoothscroll() {
     console.log("im scrollin bebeh");
 }
-
-export {smoothscroll};
