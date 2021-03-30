@@ -1,4 +1,4 @@
-import smoothscroll from 'js/smoothscroll.js';
+import smoothscroll from 'smoothscroll';
 smoothscroll();
 console.log('i live');
 // Navbar functions
