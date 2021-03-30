@@ -421,7 +421,7 @@ window.addEventListener("resize", function () {
 });
 
 //gallery images open into modal imgViewer
-uniqueImgs = document.getElementsByClassName("galleryFrame");
+let uniqueImgs = document.getElementsByClassName("galleryFrame");
 
 function openModal(imgObj) {
   let fullSize = imgObj.cloneNode(false);
