@@ -1,5 +1,5 @@
-import {smoothscroll} from './smoothscroll.js';
-smoothscroll();
+// import {smoothscroll} from './smoothscroll.js';
+// smoothscroll();
 
 // Navbar functions
 
