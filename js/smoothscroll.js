@@ -530,34 +530,34 @@ function polyfill(option) {
   };
 }
 
-if (typeof exports === 'object' && typeof module !== 'undefined') {
-  module.exports = {
-    polyfill: polyfill,
-    seamless: polyfill,
-    default: polyfill
-  };
-} else if (typeof define === 'function' && define.amd) {
-  define(polyfill);
-} else {
-  var cs =
-    typeof document !== 'undefined' &&
-    (document.currentScript ||
-      document.querySelector('script[data-polyfill]') ||
-      document.querySelector('script[data-duration]'));
+// if (typeof exports === 'object' && typeof module !== 'undefined') {
+//   module.exports = {
+//     polyfill: polyfill,
+//     seamless: polyfill,
+//     default: polyfill
+//   };
+// } else if (typeof define === 'function' && define.amd) {
+//   define(polyfill);
+// } else {
+//   var cs =
+//     typeof document !== 'undefined' &&
+//     (document.currentScript ||
+//       document.querySelector('script[data-polyfill]') ||
+//       document.querySelector('script[data-duration]'));
 
-  if (cs) {
-    var force = cs.dataset.polyfill;
-    var _duration = ~~cs.dataset.duration;
-    var duration = _duration > 0 ? _duration : undefined;
+//   if (cs) {
+//     var force = cs.dataset.polyfill;
+//     var _duration = ~~cs.dataset.duration;
+//     var duration = _duration > 0 ? _duration : undefined;
 
-    if (force === 'force' || force === 'auto') {
-      polyfill({
-        force: force === 'force',
-        duration: duration
-      });
-    }
-  }
-  global.seamless = polyfill;
-}
+//     if (force === 'force' || force === 'auto') {
+//       polyfill({
+//         force: force === 'force',
+//         duration: duration
+//       });
+//     }
+//   }
+//   global.seamless = polyfill;
+// }
 
 export {polyfill};
