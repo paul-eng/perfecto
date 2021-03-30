@@ -1066,7 +1066,8 @@ main {
 }
 
 .expandShadow {
-  top: 0;
+  /* without important, gets overridden by top specification in media query when on desktop */
+  top: 0 !important;
   right: 0;
   transform: translate(0,0) rotate(180deg);
 }
@@ -1375,7 +1376,6 @@ main {
     height: 60%;
     width: 60%;
     top: 50%;
-    transform: translate(50%,-50%) rotate(0deg);
   }
 
   .playButton {
