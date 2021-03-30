@@ -1,5 +1,6 @@
-import teststuff from 'js/smoothscroll';
-teststuff.smoothscroll();
+import smoothscroll from 'js/smoothscroll.js';
+smoothscroll();
+console.log('i live');
 // Navbar functions
 
 let navModal = document.getElementsByClassName("navModal")[0];
