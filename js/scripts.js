@@ -1,6 +1,6 @@
 window.__forceSmoothScrollPolyfill__ = true;
-import {smoothscroll} from './smoothscroll.js';
-smoothscroll.polyfill();
+import {polyfill} from './smoothscroll.js';
+polyfill();
 
 // Navbar functions
 

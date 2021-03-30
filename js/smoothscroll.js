@@ -427,3 +427,5 @@ if (typeof exports === 'object' && typeof module !== 'undefined') {
   // global
   polyfill();
 }
+
+export { polyfill };
