@@ -1,4 +1,4 @@
-import {polyfill$7 as polyfill} from './smoothscroll.js';
+import {polyfill} from './smoothscroll.js';
 polyfill();
 
 // Navbar functions
