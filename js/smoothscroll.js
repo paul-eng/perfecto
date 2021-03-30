@@ -559,3 +559,5 @@ if (typeof exports === 'object' && typeof module !== 'undefined') {
   }
   global.seamless = polyfill;
 }
+
+export {polyfill};
