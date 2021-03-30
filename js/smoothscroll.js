@@ -349,24 +349,24 @@ function polyfill() {
   // Element.prototype.scrollBy
   Element.prototype.scrollBy = function() {
     // avoid action when no arguments are passed
-    if (arguments[0] === undefined) {
-      return;
-    }
+    // if (arguments[0] === undefined) {
+    //   return;
+    // }
 
-    // avoid smooth behavior if not required
-    if (shouldBailOut(arguments[0]) === true) {
-      original.elementScroll.call(
-        this,
-        arguments[0].left !== undefined
-          ? ~~arguments[0].left + this.scrollLeft
-          : ~~arguments[0] + this.scrollLeft,
-        arguments[0].top !== undefined
-          ? ~~arguments[0].top + this.scrollTop
-          : ~~arguments[1] + this.scrollTop
-      );
+    // // avoid smooth behavior if not required
+    // if (shouldBailOut(arguments[0]) === true) {
+    //   original.elementScroll.call(
+    //     this,
+    //     arguments[0].left !== undefined
+    //       ? ~~arguments[0].left + this.scrollLeft
+    //       : ~~arguments[0] + this.scrollLeft,
+    //     arguments[0].top !== undefined
+    //       ? ~~arguments[0].top + this.scrollTop
+    //       : ~~arguments[1] + this.scrollTop
+    //   );
 
-      return;
-    }
+    //   return;
+    // }
 
     this.scroll({
       left: ~~arguments[0].left + this.scrollLeft,
