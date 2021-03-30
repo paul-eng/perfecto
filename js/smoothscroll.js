@@ -821,9 +821,6 @@ var polyfill$6 = function (options) {
 };
 
 var polyfill$7 = function (options) {
-  if ("scrollBehavior" in document.documentElement.style) {
-    return;
-  }
   polyfill$2(options);
   polyfill$6(options);
   polyfill$5(options);
