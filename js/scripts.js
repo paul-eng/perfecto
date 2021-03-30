@@ -1,4 +1,4 @@
-import teststuff from './smoothscroll';
+import teststuff from 'js/smoothscroll';
 teststuff.smoothscroll();
 // Navbar functions
 
