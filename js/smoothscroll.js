@@ -1,22 +1,26 @@
 'use strict';
 
-// polyfill
-function polyfill() {
+/**
+ * polyfill
+ * @param {Object} [option]
+ * @param {Boolean} [option.force]
+ * @param {Number} [option.duration]
+ */
+function polyfill(option) {
   // aliases
   var w = window;
   var d = document;
 
+  option = option || {};
+
   // return if scroll behavior is supported and polyfill is not forced
-  if (
-    'scrollBehavior' in d.documentElement.style &&
-    w.__forceSmoothScrollPolyfill__ !== true
-  ) {
+  if ('scrollBehavior' in d.documentElement.style && option.force !== true) {
     return;
   }
 
   // globals
   var Element = w.HTMLElement || w.Element;
-  var SCROLL_TIME = 468;
+  var SCROLL_TIME = ~~option.duration || 468;
 
   // object gathering original scroll methods
   var original = {
@@ -156,9 +160,15 @@ function polyfill() {
    * @returns {Node} el
    */
   function findScrollableParent(el) {
-    while (el !== d.body && isScrollable(el) === false) {
-      el = el.parentNode || el.host;
-    }
+    var isBody;
+
+    do {
+      el = el.parentNode;
+
+      isBody = el === d.body;
+    } while (isBody === false && isScrollable(el) === false);
+
+    isBody = null;
 
     return el;
   }
@@ -170,6 +180,9 @@ function polyfill() {
    * @returns {undefined}
    */
   function step(context) {
+    if (userInterrupt) {
+      return;
+    }
     var time = now();
     var value;
     var currentX;
@@ -191,6 +204,21 @@ function polyfill() {
     if (currentX !== context.x || currentY !== context.y) {
       w.requestAnimationFrame(step.bind(w, context));
     }
+  }
+
+  var userInterrupt = false;
+  var timeOutHandler;
+
+  function userIsScrilling() {
+    userInterrupt = true;
+    clearTimeout(timeOutHandler);
+    timeOutHandler = setTimeout(userEndScroll, SCROLL_TIME);
+  }
+
+  function userEndScroll() {
+    userInterrupt = false;
+    w.removeEventListener('wheel', userIsScrilling);
+    w.removeEventListener('touchmove', userIsScrilling);
   }
 
   /**
@@ -220,6 +248,15 @@ function polyfill() {
       startY = el.scrollTop;
       method = scrollElement;
     }
+
+    w.addEventListener('wheel', userIsScrilling, {
+      passive: true,
+      once: true
+    });
+    w.addEventListener('touchmove', userIsScrilling, {
+      passive: true,
+      once: true
+    });
 
     // scroll looping over a frame
     step({
@@ -287,10 +324,14 @@ function polyfill() {
         w,
         arguments[0].left !== undefined
           ? arguments[0].left
-          : typeof arguments[0] !== 'object' ? arguments[0] : 0,
+          : typeof arguments[0] !== 'object'
+            ? arguments[0]
+            : 0,
         arguments[0].top !== undefined
           ? arguments[0].top
-          : arguments[1] !== undefined ? arguments[1] : 0
+          : arguments[1] !== undefined
+            ? arguments[1]
+            : 0
       );
 
       return;
@@ -324,11 +365,15 @@ function polyfill() {
         // use left prop, first number argument or fallback to scrollLeft
         arguments[0].left !== undefined
           ? ~~arguments[0].left
-          : typeof arguments[0] !== 'object' ? ~~arguments[0] : this.scrollLeft,
+          : typeof arguments[0] !== 'object'
+            ? ~~arguments[0]
+            : this.scrollLeft,
         // use top prop, second argument or fallback to scrollTop
         arguments[0].top !== undefined
           ? ~~arguments[0].top
-          : arguments[1] !== undefined ? ~~arguments[1] : this.scrollTop
+          : arguments[1] !== undefined
+            ? ~~arguments[1]
+            : this.scrollTop
       );
 
       return;
@@ -349,24 +394,24 @@ function polyfill() {
   // Element.prototype.scrollBy
   Element.prototype.scrollBy = function() {
     // avoid action when no arguments are passed
-    // if (arguments[0] === undefined) {
-    //   return;
-    // }
+    if (arguments[0] === undefined) {
+      return;
+    }
 
-    // // avoid smooth behavior if not required
-    // if (shouldBailOut(arguments[0]) === true) {
-    //   original.elementScroll.call(
-    //     this,
-    //     arguments[0].left !== undefined
-    //       ? ~~arguments[0].left + this.scrollLeft
-    //       : ~~arguments[0] + this.scrollLeft,
-    //     arguments[0].top !== undefined
-    //       ? ~~arguments[0].top + this.scrollTop
-    //       : ~~arguments[1] + this.scrollTop
-    //   );
+    // avoid smooth behavior if not required
+    if (shouldBailOut(arguments[0]) === true) {
+      original.elementScroll.call(
+        this,
+        arguments[0].left !== undefined
+          ? ~~arguments[0].left + this.scrollLeft
+          : ~~arguments[0] + this.scrollLeft,
+        arguments[0].top !== undefined
+          ? ~~arguments[0].top + this.scrollTop
+          : ~~arguments[1] + this.scrollTop
+      );
 
-    //   return;
-    // }
+      return;
+    }
 
     this.scroll({
       left: ~~arguments[0].left + this.scrollLeft,
@@ -392,28 +437,93 @@ function polyfill() {
     var parentRects = scrollableParent.getBoundingClientRect();
     var clientRects = this.getBoundingClientRect();
 
+    var cx, cy, dx, dy, px, py;
+
+    var inline = arguments[0].inline || 'nearest';
+    var block = arguments[0].block || 'start';
+
+    switch (inline) {
+      case 'start':
+        cx = clientRects.left - parentRects.left;
+        px = parentRects.left;
+        dx = clientRects.left;
+        break;
+      case 'center':
+        cx =
+          clientRects.left -
+          parentRects.left +
+          clientRects.width / 2 -
+          parentRects.width / 2;
+        px = (parentRects.left + parentRects.right - w.innerWidth) / 2;
+        dx = (clientRects.left + clientRects.right - w.innerWidth) / 2;
+        break;
+      case 'end':
+        cx = clientRects.right - parentRects.right;
+        px = parentRects.right - w.innerWidth;
+        dx = clientRects.right - w.innerWidth;
+        break;
+      case 'nearest':
+        // There is still something to do
+        // https://drafts.csswg.org/cssom-view/#element-scrolling-members
+        cx = 0;
+        px = 0;
+        dx = 0;
+        break;
+      default:
+        break;
+    }
+
+    switch (block) {
+      case 'start':
+        cy = clientRects.top - parentRects.top;
+        py = parentRects.top;
+        dy = clientRects.top;
+        break;
+      case 'center':
+        cy =
+          clientRects.top -
+          parentRects.top +
+          clientRects.height / 2 -
+          parentRects.height / 2;
+        py = (parentRects.top + parentRects.bottom - w.innerHeight) / 2;
+        dy = (clientRects.top + clientRects.bottom - w.innerHeight) / 2;
+        break;
+      case 'end':
+        cy = clientRects.bottom - parentRects.bottom;
+        py = parentRects.bottom - w.innerHeight;
+        dy = clientRects.bottom - w.innerHeight;
+        break;
+      case 'nearest':
+        cy = 0;
+        py = 0;
+        dy = 0;
+        break;
+      default:
+        break;
+    }
+
     if (scrollableParent !== d.body) {
       // reveal element inside parent
       smoothScroll.call(
         this,
         scrollableParent,
-        scrollableParent.scrollLeft + clientRects.left - parentRects.left,
-        scrollableParent.scrollTop + clientRects.top - parentRects.top
+        scrollableParent.scrollLeft + cx,
+        scrollableParent.scrollTop + cy
       );
 
       // reveal parent in viewport unless is fixed
       if (w.getComputedStyle(scrollableParent).position !== 'fixed') {
         w.scrollBy({
-          left: parentRects.left,
-          top: parentRects.top,
+          left: px,
+          top: py,
           behavior: 'smooth'
         });
       }
     } else {
       // reveal element in viewport
       w.scrollBy({
-        left: clientRects.left,
-        top: clientRects.top,
+        left: dx,
+        top: dy,
         behavior: 'smooth'
       });
     }
@@ -421,11 +531,31 @@ function polyfill() {
 }
 
 if (typeof exports === 'object' && typeof module !== 'undefined') {
-  // commonjs
-  module.exports = { polyfill: polyfill };
+  module.exports = {
+    polyfill: polyfill,
+    seamless: polyfill,
+    default: polyfill
+  };
+} else if (typeof define === 'function' && define.amd) {
+  define(polyfill);
 } else {
-  // global
-  polyfill();
-}
+  var cs =
+    typeof document !== 'undefined' &&
+    (document.currentScript ||
+      document.querySelector('script[data-polyfill]') ||
+      document.querySelector('script[data-duration]'));
 
-export { polyfill };
+  if (cs) {
+    var force = cs.dataset.polyfill;
+    var _duration = ~~cs.dataset.duration;
+    var duration = _duration > 0 ? _duration : undefined;
+
+    if (force === 'force' || force === 'auto') {
+      polyfill({
+        force: force === 'force',
+        duration: duration
+      });
+    }
+  }
+  global.seamless = polyfill;
+}
