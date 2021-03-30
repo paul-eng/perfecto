@@ -1,4 +1,4 @@
-import {polyfill} from './src/index';
+import {polyfill} from './src/index.ts';
 polyfill();
 
 // Navbar functions
