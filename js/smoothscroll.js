@@ -679,4 +679,4 @@
 }));
 //# sourceMappingURL=seamless.js.map
 
-export {polyfill$7 as polyfill};
+export {polyfill$7};
