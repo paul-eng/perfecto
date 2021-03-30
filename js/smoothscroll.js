@@ -833,18 +833,4 @@ var polyfill$7 = function (options) {
   polyfill$3(options);
 };
 
-// exports.elementScroll = elementScroll;
-// exports.elementScrollBy = elementScrollBy;
-// exports.elementScrollIntoView = elementScrollIntoView;
-// exports.elementScrollTo = elementScroll;
-// exports.polyfill = polyfill$7;
-// exports.seamless = polyfill$7;
-// exports.windowScroll = windowScroll;
-// exports.windowScrollBy = windowScrollBy;
-// exports.windowScrollTo = windowScroll;
-
-// Object.defineProperty(exports, "__esModule", { value: true });
-
-//# sourceMappingURL=seamless.js.map
-
 export { polyfill$7 };
