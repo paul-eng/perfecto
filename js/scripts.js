@@ -190,13 +190,30 @@ let allQuotes = Object.keys(quotesObj).map((quote) => quotesObj[quote]);
 let expander = function (entries) {
   let fullyVisible = entries[0].intersectionRatio >= 1;
   let childElements = entries[0].target.children;
+
+  let allElems = {
+    leftQuote: childElements[0].children[0],
+    rightQuote: childElements[0].children[1],
+    quote: childElements[1],
+    citation: childElements[2],
+  };
+
   if (fullyVisible) {
-    childElements[0].children[0].className["baseVal"] +=
-      " activeMark slideLeft";
-    childElements[0].children[1].className["baseVal"] +=
-      " activeMark slideRight";
-    childElements[1].className += " activeText expanded";
-    childElements[2].className += " activeText expanded";
+    // use classList instead of className because svg element className is an object
+    // assign new classes w classList[0] in the case that user is scrolling back up and elements already have their active classes assigned. just take original classname or else it will keep appending repeated active classes
+
+    allElems[
+      "leftQuote"
+    ].classList = `${allElems["leftQuote"].classList[0]} activeMark slideLeft`;
+    allElems[
+      "rightQuote"
+    ].classList = `${allElems["rightQuote"].classList[0]} activeMark slideRight`;
+    allElems[
+      "quote"
+    ].classList = `${allElems["quote"].classList[0]} activeText expanded`;
+    allElems[
+      "citation"
+    ].classList = `${allElems["citation"].classList[0]} activeText expanded`;
   }
 };
 
@@ -204,17 +221,24 @@ let quoteObserver = new IntersectionObserver(expander, { threshold: 1 });
 
 allQuotes.forEach((quote) => quoteObserver.observe(quote));
 
-//check if quote completely out of view. is bottom of page (scrollY + window.innerHeight) above top of quote? (element.offsetTop) If so reset.
+//check if quote completely out of view. is bottom of window (scrollY + window.innerHeight) above top of quote? (element.offsetTop) If so reset.
 let vanisher = function (entries) {
   let childElements = entries[0].target.children;
   let outOfView = entries[0].intersectionRatio == 0;
   let topOfElement = entries[0].target.offsetTop;
   let bottomOfPage = window.pageYOffset + window.innerHeight;
+
+  let allElems = {
+    leftQuote: childElements[0].children[0],
+    rightQuote: childElements[0].children[1],
+    quote: childElements[1],
+    citation: childElements[2],
+  };
+
   if (outOfView && bottomOfPage < topOfElement) {
-    childElements[0].children[0].className["baseVal"] = "leftQuote";
-    childElements[0].children[1].className["baseVal"] = "rightQuote";
-    childElements[1].className = "quote";
-    childElements[2].className = "citation";
+    for (let elem in allElems) {
+      allElems[elem].classList = allElems[elem].classList[0];
+    }
   }
 };
 
