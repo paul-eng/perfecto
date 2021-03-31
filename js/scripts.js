@@ -1,5 +1,10 @@
-//import {polyfill$7} from './smoothscroll.js';
-//polyfill$7();
+// ON SMOOTH SCROLLING: native scroll-behavior:smooth support is not uniform across browsers. 
+//   Safari: Non existent on both mobile and iOS
+//   Chrome & Edge: Turned off with flags, or if windows Ease of Access > Display Settings > Show Window Animations is disabled (which it is by default recently)
+//   Firefox: Always works on linux & windows unless turned off w flags, ignores windows Ease of Access Settings
+//   Android Chrome: Seems fine
+  
+//   Tried a non jQuery polyfill but it was inconsistent - Firefox gallery got flickery but only on windows, CSS animations for the video player got jumpy sometimes on mobile devices
 
 // Navbar functions
 
@@ -320,14 +325,23 @@ function generateGalleryUI(galleryObj) {
     return framePlusMargin;
   }
 
+  let scrollDuration = 300;
+
   function prevClick() {
     let oneFrame = findFrameWidth();
-    galleryObj.scrollBy({ top: 0, left: -oneFrame, behavior: "smooth" });
+    $(galleryObj).animate({
+      scrollLeft: $(galleryObj).scrollLeft() - oneFrame 
+    },scrollDuration);
+    // galleryObj.scrollBy({ top: 0, left: -oneFrame, behavior: "smooth" });
   }
   function nextClick() {
     let oneFrame = findFrameWidth();
-    galleryObj.scrollBy({ top: 0, left: oneFrame, behavior: "smooth" });
+    $(galleryObj).animate({
+      scrollLeft: $(galleryObj).scrollLeft() + oneFrame 
+    },scrollDuration);
+    // galleryObj.scrollBy({ top: 0, left: oneFrame, behavior: "smooth" });
   }
+
   //on touch devices, hover animations trigger w doubleclick and screw up scrolling
   let frames = galleryObj.firstElementChild.children;
   [].forEach.call(frames, (frame) => {
