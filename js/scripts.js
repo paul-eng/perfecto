@@ -58,7 +58,7 @@ document
   .addEventListener("click", focusBlur);
 
 //safari mobile uses ontouchstart not onclick
-//detecting whether navChapter was clicked w ontouchstart to trigger navClose did not work, overrode basic anchor jumpto function. Closed menu but did not move to section. added navclose to goToSection function instead
+//using ontouchstart to trigger navClose when a navChapter was clicked caused problems, overrode basic anchor jumpto function. Closed menu but did not move to section. added navclose to goToSection function instead
 //note that it worked fine on desktop, can look for onclick event and trigger anchor jump without problem
 
 let modalClick = function (event) {
@@ -79,10 +79,15 @@ if ("ontouchstart" in window) {
   window.onclick = modalClick;
 }
 
+let scrollDuration = 350;
+
 function goToSection(domObj) {
   let sectionName = domObj.getAttribute("name");
   let sectionElement = document.getElementById(sectionName);
-  sectionElement.scrollIntoView({ behavior: "smooth" });
+  $([document.documentElement, document.body]).animate({
+    scrollTop: $(sectionElement).offset().top
+  },scrollDuration);
+  // sectionElement.scrollIntoView({ behavior: "smooth" });
   navClose();
 }
 
@@ -324,8 +329,6 @@ function generateGalleryUI(galleryObj) {
       parseInt(getComputedStyle(galleryFrame).marginRight);
     return framePlusMargin;
   }
-
-  let scrollDuration = 300;
 
   function prevClick() {
     let oneFrame = findFrameWidth();
