@@ -958,7 +958,7 @@ main {
 }
 
 #colorFG, #colorBG {
-  width: 250%;
+  min-height: 90vh;
 }
 
 .colorFeature {
@@ -970,11 +970,12 @@ main {
 
 .colorWheel {
   position: relative;
+  /* using overflow auto clearfix and colorbg float instead of flexbox just to show I know clearfixes exist :P */
+  overflow: auto;
 }
 
 #colorBG {
-  position: relative;
-  right: 150%;
+  float: right;
 }
 
 #colorFG {
@@ -1387,7 +1388,7 @@ main {
   }
 
   #colorBG {
-    right: 0;
+    float: none;
   }
 
   .colorOptions {
@@ -1404,6 +1405,7 @@ main {
 
   #colorFG, #colorBG {
     width: 100%;
+    min-height: 0;
   }
 
   #colorHue, #colorSat {
