@@ -83,7 +83,7 @@ if ("ontouchstart" in window) {
 
 function distanceFinder(sectionElement) {
   let distance = Math.abs(window.pageYOffset - $(sectionElement).offset().top);
-  let converted = distance * .08;
+  let converted = distance * .09;
   // decide on arbitrary threshold to cap how low the number can go because any less looks too fast
   return converted > 350 ? converted : 350;
 }
