@@ -1,9 +1,9 @@
-// ON SMOOTH SCROLLING: native scroll-behavior:smooth support is not uniform across browsers. 
+// ON SMOOTH SCROLLING: native scroll-behavior:smooth support is not uniform across browsers.
 //   Safari: Non existent on both mobile and iOS
 //   Chrome & Edge: Turned off with flags, or if windows Ease of Access > Display Settings > Show Window Animations is disabled (which it is by default recently)
 //   Firefox: Always works on linux & windows unless turned off w flags, ignores windows Ease of Access Settings
 //   Android Chrome: Seems fine
-  
+
 //   Tried a non jQuery polyfill but it was inconsistent - Firefox gallery got flickery but only on windows, CSS animations for the video player got jumpy sometimes on mobile devices
 
 // Navbar functions
@@ -79,14 +79,26 @@ if ("ontouchstart" in window) {
   window.onclick = modalClick;
 }
 
-let scrollDuration = 350;
+// make scroll duration a function of distance; far travel takes longer to scroll
+
+function distanceFinder(sectionElement) {
+  let distance = Math.abs(window.pageYOffset - $(sectionElement).offset().top);
+  let converted = distance * .08;
+  // decide on arbitrary threshold to cap how low the number can go because any less looks too fast
+  return converted > 350 ? converted : 350;
+}
 
 function goToSection(domObj) {
   let sectionName = domObj.getAttribute("name");
   let sectionElement = document.getElementById(sectionName);
-  $([document.documentElement, document.body]).animate({
-    scrollTop: $(sectionElement).offset().top
-  },scrollDuration);
+  console.log(distanceFinder(sectionElement));
+  $([document.documentElement, document.body]).animate(
+    {
+      scrollTop: $(sectionElement).offset().top,
+    },
+    distanceFinder(sectionElement)
+  );
+
   // sectionElement.scrollIntoView({ behavior: "smooth" });
   navClose();
 }
@@ -127,7 +139,7 @@ titleObserver.observe(title);
 let asset = document.getElementsByClassName("bannerAsset")[0];
 
 let bannerDarken = function () {
-  if (window.pageYOffset > (asset.offsetHeight * .6)) {
+  if (window.pageYOffset > asset.offsetHeight * 0.6) {
     asset.className += " darken";
   } else {
     asset.className = "bannerAsset";
@@ -330,18 +342,26 @@ function generateGalleryUI(galleryObj) {
     return framePlusMargin;
   }
 
+  let scrollDuration = 500;
+
   function prevClick() {
     let oneFrame = findFrameWidth();
-    $(galleryObj).animate({
-      scrollLeft: $(galleryObj).scrollLeft() - oneFrame 
-    },scrollDuration);
+    $(galleryObj).animate(
+      {
+        scrollLeft: $(galleryObj).scrollLeft() - oneFrame,
+      },
+      scrollDuration
+    );
     // galleryObj.scrollBy({ top: 0, left: -oneFrame, behavior: "smooth" });
   }
   function nextClick() {
     let oneFrame = findFrameWidth();
-    $(galleryObj).animate({
-      scrollLeft: $(galleryObj).scrollLeft() + oneFrame 
-    },scrollDuration);
+    $(galleryObj).animate(
+      {
+        scrollLeft: $(galleryObj).scrollLeft() + oneFrame,
+      },
+      scrollDuration
+    );
     // galleryObj.scrollBy({ top: 0, left: oneFrame, behavior: "smooth" });
   }
 
@@ -413,11 +433,11 @@ if (!("ontouchstart" in window)) {
 //redraw sliders/galleries if orientation changes
 
 function redrawGall() {
-    [].forEach.call(uniqueGalleries, (gall) => {
-      drawGallery(gall);
-      //check if resize has changed what part of gallery is in viewport and whether arrow should be visible
-      arrowVisible(gall);
-    });
+  [].forEach.call(uniqueGalleries, (gall) => {
+    drawGallery(gall);
+    //check if resize has changed what part of gallery is in viewport and whether arrow should be visible
+    arrowVisible(gall);
+  });
 }
 
 window.addEventListener("resize", function () {
@@ -544,28 +564,30 @@ function generateVideoControls(video) {
   let bowieShadow = video.children[2];
   let mediaComponents = video.children[0].children[0];
 
-  bowie.addEventListener("click", (e)=>{
+  bowie.addEventListener("click", (e) => {
     e.stopPropagation();
     bowie.classList.toggle("expandBowie");
     bowieShadow.classList.toggle("expandShadow");
     mediaComponents.classList.toggle("expandMedia");
   });
-  
-  playButton.addEventListener("click", (e)=>{
+
+  playButton.addEventListener("click", (e) => {
     e.stopPropagation();
     togglePlay(content, playButton, vidArea);
   });
-  vidArea.addEventListener("click", ()=>togglePause(content, playButton, vidArea));
+  vidArea.addEventListener("click", () =>
+    togglePause(content, playButton, vidArea)
+  );
 }
 
 function togglePlay(content, playButton, vidArea) {
   if (content.paused || content.ended) {
-    playButton.setAttribute("class","playButton hidden");
+    playButton.setAttribute("class", "playButton hidden");
     vidArea.classList.toggle("shown");
     content.play();
   } else {
     content.pause();
-    playButton.setAttribute("class","playButton");
+    playButton.setAttribute("class", "playButton");
     vidArea.classList.toggle("shown");
   }
 }
@@ -573,30 +595,29 @@ function togglePlay(content, playButton, vidArea) {
 function togglePause(content, playButton, vidArea) {
   if (!(content.paused || content.ended)) {
     content.pause();
-    playButton.setAttribute("class","playButton");
+    playButton.setAttribute("class", "playButton");
     vidArea.classList.toggle("shown");
   }
 }
 
-[].forEach.call(videos, (video)=>generateVideoControls(video));
+[].forEach.call(videos, (video) => generateVideoControls(video));
 
 let thumbnails = document.querySelectorAll("section.icons > span");
 
-[].forEach.call(thumbnails, (thumb)=>{
+[].forEach.call(thumbnails, (thumb) => {
   let thumbImg = thumb.children[0];
 
   let iconEffectLayer = document.createElement("DIV");
   iconEffectLayer.setAttribute("id", "iconEffectLayer");
   thumb.insertBefore(iconEffectLayer, thumbImg);
 
-
   // iconEffectLayer has higher z-index than the actual img, so listen for clicks there
-  iconEffectLayer.addEventListener("click",()=>{
+  iconEffectLayer.addEventListener("click", () => {
     thumbImg.className += " animated";
   });
 
   // reset the class of the img so the animation can be repeated again
-  thumbImg.onanimationend = function(event) {
+  thumbImg.onanimationend = function (event) {
     thumbImg.className = "";
-  } 
+  };
 });
