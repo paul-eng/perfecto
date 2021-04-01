@@ -1041,7 +1041,7 @@ main {
 }
 
 .colorFeature article {
-  padding: 6rem;
+  padding: var(--mobile-spacing);
 }
 
 .vidFeature {
