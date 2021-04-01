@@ -153,7 +153,12 @@ html {
 } */
 
 :root {
-  --slide-seperation: 10vh 0;
+  --desktop-slides: 8vh auto;
+  --mobile-slides: 6vh auto;
+  /* bowie vid gets seperate variable that accounts for 120% size of bowiethumb overflowing out of content area
+  without horizontal margin, size of bowieShadow during transition seems to mess w the page width, causing navIcon to bounce around */
+  --mobile-bowie: calc(6vh + 5%) 2rem;
+  --mobile-spacing: 2vh;
 }
 
 #navButton {
@@ -364,7 +369,7 @@ figure img {
 }
 
 .blockQuote {
-  margin: var(--slide-seperation);
+  margin: var(--mobile-slides);
   padding: 5vh 10vw;
   position: relative;
   display:flex;
@@ -472,7 +477,7 @@ figure img {
 
 .sectionHeader {
   position: relative;
-  margin: var(--slide-seperation);
+  margin: var(--mobile-slides);
   height: 100vh;
   overflow: hidden;
 }
@@ -515,13 +520,14 @@ figure img {
   display: flex;
   flex-direction: column;
   padding: 0 6rem;
-  margin: var(--slide-seperation);
+  margin: var(--mobile-slides);
   align-items: center;
 }
 
 .capImg {
   align-self: center;
-  width: 90vw;
+  width: 85vw;
+  margin-top: var(--mobile-spacing);
 }
 
 .captionBlock section {
@@ -551,7 +557,7 @@ h5 {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: var(--slide-seperation);
+  margin: var(--mobile-slides);
 }
 
 .parallaxBG {
@@ -672,6 +678,8 @@ h3 {
 
 
 .lightBox {
+  width: 80%;
+  margin: var(--mobile-slides);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -687,7 +695,7 @@ h3 {
   transform: translate3d(0, 0, 0);
 }
 
-.lightBG, .lightBox section {
+.lightBG, .lightBox section, .lightFG {
   width: auto;
   height: 50vh;
 }
@@ -699,8 +707,6 @@ h3 {
 
 .lightFG {
   will-change: transform;
-  width: auto;
-  height: 50vh;
 }
 
 /* this container element for lightFG exists so you can apply overflow: hidden and prevent horizontal scroll of main page when image is zoomed */
@@ -783,7 +789,7 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: var(--slide-seperation);
+  margin: var(--mobile-slides);
   align-items: center;
 }
 
@@ -795,6 +801,7 @@ main {
 .imgSlider {
   position: relative;
   overflow: hidden;
+  margin-top: var(--mobile-spacing);
 }
 
 .sliderLayer {
@@ -844,6 +851,7 @@ main {
 .galleryNavContainer {
   /* only exists to give the absolute position nav buttons something to cling to */
   position: relative;
+  margin: var(--mobile-slides);
 }
 
 .imgGallery {
@@ -964,8 +972,8 @@ main {
   width: 100%;
   overflow: hidden;
   position: relative;
-  margin: var(--slide-seperation);
-  margin-bottom: 0;
+  margin: var(--mobile-slides);
+  margin-bottom: 0 !important;
 }
 
 .colorWheel {
@@ -1027,8 +1035,7 @@ main {
 }
 
 .vidFeature {
-  /* without horizontal margin, the size of the bowieShadow during transition seems to mess w the page width, causing the navIcon to bounce around */
-  margin: 0 2rem;
+  margin: var(--mobile-bowie);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1216,6 +1223,7 @@ main {
 
   .captionBlock {
     align-items: flex-start;
+    margin: var(--desktop-slides);
   }
 
   .captionBlock section {
@@ -1226,6 +1234,7 @@ main {
   .capImg {
     align-self: flex-end;
     width: 75vw;
+    margin-top: 0;
   }
 
   .textBlock h5, .captionBlock h5 {
@@ -1238,6 +1247,7 @@ main {
   }
 
   .sectionHeader {
+    margin: var(--desktop-slides);
     height: 110vh;
   }
 
@@ -1247,6 +1257,14 @@ main {
 
   #ramones {
     object-position: 0% 100%;
+  }
+
+  .galleryNavContainer {
+    margin: var(--desktop-slides);
+  }
+
+  .lightBox {
+    margin: var(--desktop-slides);
   }
 
   .lightBG, .lightBox section {
@@ -1273,6 +1291,7 @@ main {
   }
 
   .blockQuote {
+    margin: var(--desktop-slides)
     padding: 3rem 13rem;
   }
 
@@ -1280,7 +1299,12 @@ main {
     font-size: 7vh;
   }
 
+  .imgSlider {
+    margin-top: 0;
+  }
+
   .slideFeature {
+    margin: var(--desktop-slides);
     flex-direction: row;
   }
 
@@ -1348,12 +1372,11 @@ main {
   }
 
   .parallax {
-    display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
     width: auto;
-    padding: 0 6rem;
+    margin: var(--desktop-slides);
   }
 
   h6 {
@@ -1384,6 +1407,7 @@ main {
   }
 
   .colorFeature {
+    margin: var(--desktop-slides);
     max-height: 100vh;
   }
 

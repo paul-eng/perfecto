@@ -114,6 +114,40 @@
   </header>
 
   <main>
+    <aside class="captionBlock">
+      <section>
+        <h6>
+          SOME TEXT
+        </h6>
+        <h5>
+          A Witty Tagline
+        </h5>
+        <p>
+          Soldiers returning from the Second World War looked to one percent clubs as a surrogate for the camaraderie
+          and thrills experienced abroad.
+          Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
+        </p>
+      </section>
+      <img class="capImg" draggable="false" src="assets/harley.png" alt="Harley Davidson Motorcycle Patent">
+    </aside>
+
+    <article id="quoteBox" class="blockQuote">
+      <div class="quoteMarks">
+        <svg class="leftQuote" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+          <path d="M10 5v5h2.75L11 13h2.25L15 10V5h-5zm-7 5h2.75L4 13h2.25L8 10V5H3v5z" />
+        </svg>
+        <svg class="rightQuote" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+          <path d="M10 5v5h2.75L11 13h2.25L15 10V5h-5zm-7 5h2.75L4 13h2.25L8 10V5H3v5z" />
+        </svg>
+      </div>
+      <p class="quote">
+        FASHION EXPERIENCES ITSELF AS A RIGHT, THE NATURAL RIGHT OF THE PRESENT OVER THE PAST.
+      </p>
+      <aside class="citation">
+        <p class="author">Roland Barthes</p>
+        <p class="source">The Fashion System, 1967</p>
+      </aside>
+    </article>
 
     <figure id="bokehBox" class="lightBox">
       <img class="lightBG noInteraction" draggable="false" src="assets/deanBG.jpg" alt="James Dean">
@@ -134,48 +168,6 @@
           <div>Stern, Phil. <gfontItal>James Dean L.A.</gfontItal> 1955. Gelatin silver print. Doyle, New York.</div>
         </details>
       </figcaption>
-    </figure>
-
-    <article id="quoteBox" class="blockQuote">
-      <div class="quoteMarks">
-        <svg class="leftQuote" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-          <path d="M10 5v5h2.75L11 13h2.25L15 10V5h-5zm-7 5h2.75L4 13h2.25L8 10V5H3v5z" />
-        </svg>
-        <svg class="rightQuote" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-          <path d="M10 5v5h2.75L11 13h2.25L15 10V5h-5zm-7 5h2.75L4 13h2.25L8 10V5H3v5z" />
-        </svg>
-      </div>
-      <p class="quote">
-        FASHION EXPERIENCES ITSELF AS A RIGHT, THE NATURAL RIGHT OF THE PRESENT OVER THE PAST.
-      </p>
-      <aside class="citation">
-        <p class="author">Roland Barthes</p>
-        <p class="source">The Fashion System, 1967</p>
-      </aside>
-    </article>
-
-    <aside class="captionBlock">
-      <section>
-        <h6>
-          SOME TEXT
-        </h6>
-        <h5>
-          A Witty Tagline
-        </h5>
-        <p>
-          Soldiers returning from the Second World War looked to one percent clubs as a surrogate for the camaraderie
-          and thrills experienced abroad.
-          Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
-        </p>
-      </section>
-      <img class="capImg" draggable="false" src="assets/harley.png" alt="Harley Davidson Motorcycle Patent">
-    </aside>
-
-    <figure id="sectionBox" class="sectionHeader">
-      <p class="sectionTitle">This is a good place to put something. Probably some sort of bland truism - but putting it
-        here will make it seem profound...
-      </p>
-      <img class="sectionImg noInteraction" id="ramones" src="assets/ramones2.jpg" alt="The Ramones">
     </figure>
 
     <aside id="parallaxBox" class="parallax">
@@ -259,6 +251,42 @@
       </section>
     </aside>
 
+    <figure id="sectionBox" class="sectionHeader">
+      <p class="sectionTitle">This is a good place to put something. Probably some sort of bland truism - but putting it
+        here will make it seem profound...
+      </p>
+      <img class="sectionImg noInteraction" id="ramones" src="assets/ramones2.jpg" alt="The Ramones">
+    </figure>
+
+    <section id="videoBox" class="vidFeature">
+      <div class="vidWrapper">
+        <div class="mediaComponents">
+          <div class="videoControls">
+            <svg class="playButton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M3 22v-20l18 10-18 10z" />
+            </svg>
+          </div>
+          <video class="video noInteraction" poster="./assets/bowie_cover.jpg" loop>
+            <source src='./assets/bowie_crop.mp4' type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!-- <figcaption class="customCap">
+        <p>
+          Musician David Bowie on the perfecto, and its' significance as a universally
+          recognized symbol of rock music.
+        </p>
+        <details>
+          <summary>Video Credit</summary>
+          <div>TheBestOfVoxPop. “David Bowie: Raw & Uncut Interview From 1987.” <gfontItal>YouTube</gfontItal>, 11 Mar.
+            2013, www.youtube.com/watch?v=IhaRvqI0nHk.</div>
+        </details>
+      </figcaption> -->
+      <img draggable="false" ondragstart="return false;" class="bowieThumb" src="assets/bowie_thumb.png"
+        alt="David Bowie Thumbnail" />
+      <div class="bowieShadow"></div>
+    </section>
+
     <div id="galleryBox" class="galleryNavContainer">
       <section class="imgGallery">
         <div class="galleryWrapper">
@@ -308,37 +336,6 @@
         </div>
       </section>
     </aside>
-
-    <section id="videoBox" class="vidFeature">
-
-      <div class="vidWrapper">
-        <div class="mediaComponents">
-          <div class="videoControls">
-            <svg class="playButton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path d="M3 22v-20l18 10-18 10z" />
-            </svg>
-          </div>
-          <video class="video noInteraction" poster="./assets/bowie_cover.jpg" loop>
-            <source src='./assets/bowie_crop.mp4' type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!-- <figcaption class="customCap">
-        <p>
-          Musician David Bowie on the perfecto, and its' significance as a universally
-          recognized symbol of rock music.
-        </p>
-        <details>
-          <summary>Video Credit</summary>
-          <div>TheBestOfVoxPop. “David Bowie: Raw & Uncut Interview From 1987.” <gfontItal>YouTube</gfontItal>, 11 Mar.
-            2013, www.youtube.com/watch?v=IhaRvqI0nHk.</div>
-        </details>
-      </figcaption> -->
-      <img draggable="false" ondragstart="return false;" class="bowieThumb" src="assets/bowie_thumb.png"
-        alt="David Bowie Thumbnail" />
-      <div class="bowieShadow"></div>
-
-    </section>
 
     <aside id="colorBox" class="colorFeature">
       <section class="colorWheel">
