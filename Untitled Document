@@ -22,3 +22,5 @@ wanted sticky effect element under another element, background position fixed wa
 dynamically generate element to handle click events on parallax icons
 
 use onanimationend to remove animation className from parallax icons as soon as done
+
+use css variables for consistent margins

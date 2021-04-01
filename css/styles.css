@@ -152,6 +152,10 @@ html {
   scroll-behavior: smooth !important;
 } */
 
+:root {
+  --slide-seperation: 10vh 0;
+}
+
 #navButton {
   position: fixed;
   right: 0;
@@ -360,7 +364,7 @@ figure img {
 }
 
 .blockQuote {
-  margin: 5vh 0;
+  margin: var(--slide-seperation);
   padding: 5vh 10vw;
   position: relative;
   display:flex;
@@ -468,6 +472,7 @@ figure img {
 
 .sectionHeader {
   position: relative;
+  margin: var(--slide-seperation);
   height: 100vh;
   overflow: hidden;
 }
@@ -509,7 +514,8 @@ figure img {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 0 6rem 6rem 6rem;
+  padding: 0 6rem;
+  margin: var(--slide-seperation);
   align-items: center;
 }
 
@@ -545,6 +551,7 @@ h5 {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin: var(--slide-seperation);
 }
 
 .parallaxBG {
@@ -776,10 +783,8 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 6rem 0 1rem 0;
+  margin: var(--slide-seperation);
   align-items: center;
-  /* Use justify if textBlock given finite width */
-  justify-content: center;
 }
 
 .slideFeature .textBlock {
@@ -959,6 +964,8 @@ main {
   width: 100%;
   overflow: hidden;
   position: relative;
+  margin: var(--slide-seperation);
+  margin-bottom: 0;
 }
 
 .colorWheel {
@@ -1021,7 +1028,7 @@ main {
 
 .vidFeature {
   /* without horizontal margin, the size of the bowieShadow during transition seems to mess w the page width, causing the navIcon to bounce around */
-  margin: 10rem 2rem;
+  margin: 0 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1355,7 +1362,7 @@ main {
   }
 
   .vidFeature {
-    margin: 6rem;
+    margin: 0 6rem;
   }
 
   .bowieThumb {
