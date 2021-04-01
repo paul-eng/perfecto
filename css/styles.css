@@ -163,7 +163,7 @@ html {
   without horizontal margin, size of bowieShadow during transition seems to mess w the page width, causing navIcon to bounce around */
   --mobile-bowie: calc(6vh + 5%) 2rem;
   --mobile-spacing: 4vh;
-  --mobile-font-size: 1.75vmax;
+  --mobile-font-size: 3vmax;
 }
 
 #navButton {
@@ -475,8 +475,8 @@ figure img {
 
 .textBlock p, .captionBlock p {
   font-size: var(--mobile-font-size);
-  line-height: 170%;
-  margin-top: 2rem;
+  line-height: 160%;
+  margin-top: var(--mobile-spacing);
   color: dimgray;
 }
 
