@@ -162,8 +162,8 @@ html {
   /* bowie vid gets seperate variable that accounts for 120% size of bowiethumb overflowing out of content area
   without horizontal margin, size of bowieShadow during transition seems to mess w the page width, causing navIcon to bounce around */
   --mobile-bowie: calc(6vh + 5%) 2rem;
-  --mobile-spacing: 4vh;
-  --mobile-font-size: 2.3vmax;
+  --mobile-spacing: 4vmax;
+  --mobile-font-size: 2.15vmax;
 }
 
 #navButton {
