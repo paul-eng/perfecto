@@ -299,14 +299,14 @@ header {
 
 .bannerImg {
   width: 100%;
-  height:100vh;
+  min-height:100vh;
   overflow: hidden;
   background-color: sienna;
 }
 
 .bannerAsset {
   width: auto;
-  height: 100%;
+  min-height: 100vh;
   transition: .5s;
 }
 
@@ -370,7 +370,7 @@ figure img {
 
 .blockQuote {
   margin: var(--mobile-slides);
-  padding: 5vh 10vw;
+  padding: 11vh 12vw;
   position: relative;
   display:flex;
   flex-direction: column;
@@ -389,7 +389,7 @@ figure img {
 }
 
 .leftQuote, .rightQuote {
-  width: 5rem;
+  width: 5vmax;
 }
 
 .leftQuote {
@@ -419,9 +419,9 @@ figure img {
 .quote {
   font-family: 'Raleway', sans-serif;
   font-weight: 800;
-  font-size: 4.3vh;
+  font-size: 4.7vmax;
   text-align: center;
-  line-height: 130%;
+  line-height: 140%;
   opacity: 0;
 }
 
@@ -429,7 +429,7 @@ figure img {
   text-align: center;
   line-height: 150%;
   width: 100%;
-  margin-top: 8rem;
+  margin-top: 8vh;
   opacity: 0;  
 }
 
@@ -447,13 +447,13 @@ figure img {
 }
 
 .author {
-  font-size: 2.5rem;
+  font-size: 2.5vmax;
 }
 
 .source {
   font-style: italic;
-  font-size: 2rem;
-  padding-top: 2rem;
+  font-size: 2vmax;
+  padding-top: 1.5vh;
 }
 
 .textBlock {
@@ -487,12 +487,12 @@ figure img {
   position: absolute;
   top: 30%;
   left: 50%;
-  line-height: 125%;
+  line-height: 140%;
   transform: translate(-50%, -50%);
   color: white;
   font-family: 'Raleway', sans-serif;
   font-weight: 800;
-  font-size: 4.25rem;
+  font-size: 6.75vmin;
   text-shadow: 0 0 1rem rgba(0, 0, 0, .7);
   opacity: 0;
   z-index: 1;
@@ -561,7 +561,7 @@ h5 {
 }
 
 .parallaxBG {
-  height: 100vh;
+  height: 100vmax;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -609,7 +609,7 @@ h3 {
 }
 
 .icons h6 {
-  font-size: 3.5rem;
+  font-size: 3.5vmax;
   margin-top: 2rem;
 }
 
@@ -678,7 +678,7 @@ h3 {
 
 
 .lightBox {
-  width: 80%;
+  width: 85%;
   margin: var(--mobile-slides);
   position: relative;
   display: flex;
@@ -697,7 +697,7 @@ h3 {
 
 .lightBG, .lightBox section, .lightFG {
   width: auto;
-  height: 50vh;
+  min-height: 50vmax;
 }
 
 .lightBG {
@@ -756,15 +756,20 @@ h3 {
   }
 }
 
+.customCap {
+  margin-top: 3vmin;
+}
+
 .customCap p {
   font-family: 'Raleway', sans-serif;
-  font-size: .9rem;
+  font-size: 1.25vmax;
   font-weight: 800;
+  line-height: 3vmin;
 }
 
 .customCap details {
-  margin-top: 1rem;
-  font-size: .9rem;
+  margin-top: 1.5vmin;
+  font-size: 1.2vmax;
   position: absolute;
   color: sienna;
 }
@@ -1346,7 +1351,7 @@ main {
   }
 
   .icons h6 {
-    font-size: 1.6rem;
+    font-size: 2vmax;
     margin-top: 0;
   }
 

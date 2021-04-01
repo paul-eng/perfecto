@@ -140,7 +140,7 @@ let asset = document.getElementsByClassName("bannerAsset")[0];
 
 let bannerDarken = function () {
   if (window.pageYOffset > asset.offsetHeight * 0.6) {
-    asset.className += " darken";
+    asset.className = "bannerAsset darken";
   } else {
     asset.className = "bannerAsset";
   }
