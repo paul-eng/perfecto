@@ -188,7 +188,7 @@ let quotesObj = document.getElementsByClassName("blockQuote");
 let allQuotes = Object.keys(quotesObj).map((quote) => quotesObj[quote]);
 
 let expander = function (entries) {
-  let fullyVisible = entries[0].intersectionRatio >= 1;
+  let fullyVisible = entries[0].intersectionRatio >= .8;
   let childElements = entries[0].target.children;
 
   let allElems = {
@@ -217,7 +217,7 @@ let expander = function (entries) {
   }
 };
 
-let quoteObserver = new IntersectionObserver(expander, { threshold: 1 });
+let quoteObserver = new IntersectionObserver(expander, { threshold: .8 });
 
 allQuotes.forEach((quote) => quoteObserver.observe(quote));
 
