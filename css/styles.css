@@ -603,7 +603,7 @@ h3 {
 
 .icons img {
   height: auto;
-  width: 40vw;
+  width: 25vmax;
   border-radius: 10%;
   transition: .5s;
 }
