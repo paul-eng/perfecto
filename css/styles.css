@@ -597,7 +597,7 @@ h5 {
 }
 
 h3 {
-  font-family: 'raleway', serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 800;
   font-size: 8vmax;
   line-height: 120%;
@@ -614,12 +614,13 @@ h3 {
 }
 
 .icons h6 {
-  font-size: 3.5vmax;
-  margin-top: 2rem;
+  font-size: 3vmax;
+  margin-top: 2.5vmax;
 }
 
 .icons p {
-  font-size: 2.25rem;
+  font-size: 1.75vmax;
+  margin-top: .5vmax;
 }
 
 .icons span {
@@ -628,7 +629,7 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 8rem;
+  margin-bottom: 8vmax;
 }
 
 @media (hover: hover) {
@@ -640,8 +641,8 @@ h3 {
 
 #iconEffectLayer {
   content: '';
-  height: 40vw;
-  width: 40vw;
+  height: 25vmax;
+  width: 25vmax;
   border-radius: 10%;
   background-color: sienna;
   transition: .5s;
@@ -691,7 +692,7 @@ h3 {
   align-items: center;
   overflow: hidden;
   /* hacky solution to prevent absolutely positioned caption details from getting clipped by overflow hidden */
-  padding-bottom: 4rem;
+  padding-bottom: 5vmax;
 }
 
 .lightBG, .lightFG {
@@ -734,8 +735,8 @@ h3 {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 4rem;
-  width: 8rem;
+  margin: 6vmin;
+  width: 6vmax;
   cursor: pointer;
   animation: 2s strobe;
   animation-iteration-count: infinite;
@@ -779,7 +780,7 @@ h3 {
   color: sienna;
 }
 
-.customCap summary:hover {
+.customCap summary {
   cursor: pointer;
 }
 
@@ -1252,8 +1253,8 @@ main {
   }
 
   .textBlock p, .captionBlock p {
-    font-size: 1.5rem;
-    line-height: 190%;
+    font-size: 1.25rem;
+    line-height: 180%;
   }
 
   .sectionHeader {
@@ -1289,11 +1290,6 @@ main {
 
   .blurred {
     filter: blur(8px);
-  }
-
-  .lightButton {
-    margin: 3rem;
-    width: 5rem;
   }
 
   #imgModal figcaption {
@@ -1351,7 +1347,7 @@ main {
   }
 
   .icons img {
-    height: 20vh;
+    height: 10vmax;
     width: auto;
   }
 
@@ -1361,13 +1357,13 @@ main {
   }
 
   .icons p {
-    font-size: .9rem;
+    font-size: 1.2vmax;
   }
 
   .icons span {
     flex-direction: row-reverse;
     justify-content: space-between;
-    margin-bottom: 6rem;
+    margin-bottom: 6vmax;
   }
 
   .icons span div {
@@ -1376,8 +1372,8 @@ main {
   }
 
   #iconEffectLayer {
-    width: 20vh;
-    height: 20vh;
+    width: 10vmax;
+    height: 10vmax;
     right: 0;
   }
 
