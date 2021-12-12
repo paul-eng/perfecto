@@ -1093,6 +1093,7 @@ main {
 
 .vidWrapper {
   overflow: hidden;
+  width: 75%;
 }
 
 .mediaComponents {
